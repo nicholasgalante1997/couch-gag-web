@@ -7,41 +7,13 @@ const { EnvironmentPlugin } = webpack;
 
 dotenv.config();
 
-function titleCase(
-    str,
-    delimiter
-  ) {
-    if (Array.isArray(str)) {
-      return str.reduce(
-        (a, ns) => a + delimiter + ns.slice(0).toUpperCase() + ns.slice(1),
-        ''
-      );
-    } else {
-      return str.slice(0, 1).toUpperCase() + str.slice(1);
-    }
-  }
-
-function camelCase(strArr) {
-    return strArr.reduce((a, ns) => {
-      if (strArr.indexOf(ns) === 0) {
-        return a + ns.toLowerCase();
-      } else {
-        return a + titleCase(ns);
-      }
-    }, '');
-  }
-
-function cleanFilename(filename) {
-    const fileNameDirty = filename.split('.')[0];
-    if (!fileNameDirty) {
-        throw new Error('Could not parse filename: ' + filename);
-    }
-    return camelCase(fileNameDirty.split('-'));
+function trim(file) {
+  return file.split('.')[0];
 }
 
 function getEntryObject() {
   /** Load pages from /hydrate-mounts directory */
-    const dirContents = fs.readdirSync(path.resolve(process.cwd(), 'src', 'web', 'hydrate-mounts'), { encoding: 'utf-8' });
+    const dirContents = fs.readdirSync(path.resolve(process.cwd(), 'src', 'mounts'), { encoding: 'utf-8' });
     if (dirContents.length < 1) {
         throw new Error('Could not read "hydrate-mounts" directory.')
     }
@@ -50,7 +22,7 @@ function getEntryObject() {
     let entryObject = {};
     
     for (const file of dirContents) {
-      entryObject[cleanFilename(file)] =  path.resolve(process.cwd(), 'src', 'web', 'hydrate-mounts', file);
+      entryObject[trim(file)] = path.resolve(process.cwd(), 'src', 'mounts', file);
     }
 
     return entryObject;
@@ -61,8 +33,8 @@ module.exports = {
     entry: getEntryObject(),
     target: ['web', 'es2017'],
     output: {
-        clean: true,
-        path: path.resolve(process.cwd(), 'build', 'static'),
+        clean: false,
+        path: path.resolve(process.cwd(), 'build'),
         filename: '[name].bundle.js'
     },
     module: {

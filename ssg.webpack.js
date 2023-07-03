@@ -7,7 +7,7 @@ const { EnvironmentPlugin } = webpack;
 dotenv.config();
 
 module.exports = {
-    entry: path.resolve(process.cwd(), 'src', 'index.ts'),
+    entry: path.resolve(process.cwd(), 'src', 'ssg', 'build-app.tsx'),
     mode: 'production',
     module: {
         rules: [

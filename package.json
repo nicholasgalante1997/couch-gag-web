@@ -5,22 +5,27 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cp:assets": "cp -R src/styles/ build/",
+    "cp:assets": "cp -R src/styles/*.css src/styles/*.ttf assets/ build/",
     "clean:build": "rm -rf build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "format": "prettier --write src",
-    "lint": "eslint --fix --ext .tsx --ext .ts src/**"
+    "lint": "eslint --fix --ext .tsx --ext .ts src/**",
+    "pkg:js": "webpack --config client.webpack.js",
+    "pkg:ts-script": "webpack --config ssg.webpack.js",
+    "pkg:html": "node .build-process/build-app.js",
+    "clean:tmp": "rm -rf .build-process",
+    "build": "pnpm clean:build && pnpm pkg:js && pnpm pkg:ts-script && pnpm pkg:html && pnpm clean:tmp && pnpm cp:assets"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "million": "^2.4.9",
     "pino": "^8.14.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-markdown": "^8.0.7",
-    "styled-components": "^6.0.1"
+    "react-markdown": "^8.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
@@ -36,6 +41,7 @@
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "babel-loader": "^9.1.2",
     "babel-plugin-styled-components": "^2.1.4",
     "bundle-stats-webpack-plugin": "^4.4.2",
     "css-loader": "^6.8.1",

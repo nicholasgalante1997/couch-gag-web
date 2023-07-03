@@ -4,7 +4,10 @@ import { LandingPage } from '@/pages';
 
 export const pages: PageConfig[] = [
     {
-        bundle: 'landing-page',
-        component: LandingPage
+        bundle: 'landing',
+        component: LandingPage,
+        title: 'The Couch Gag, A Collection Of Short Stories',
+        htmlFileName: 'index',
+        styles: ['landing-page']
     }
 ];

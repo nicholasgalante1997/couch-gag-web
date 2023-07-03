@@ -1,18 +1,18 @@
 import React, { memo } from 'react';
-import { FontFamily } from '@/types';
-import { FadeInDown, HeroImage as HeroImgBackground, HeroImageContainer, MiniRow, FadeInLeft, FadeInUp } from './styles';
 import { withProfiler } from '@/hocs';
+import { useTranslation } from '@/contexts';
 
 function HeroImageComponent(){
+    const { t } = useTranslation();
     return (
-        <HeroImageContainer>
-            <HeroImgBackground loading="lazy" src="/lp.jpg" alt="car (van, yellow) driving down desert road" />
-            <FadeInDown as="h1" font={FontFamily.Relieve}>The</FadeInDown>
-            <MiniRow>
-                <FadeInLeft as="h1" font={FontFamily.Relieve}>Couch</FadeInLeft>
-                <FadeInUp as="h1" font={FontFamily.Relieve}>Gag</FadeInUp>
-            </MiniRow>
-        </HeroImageContainer>
+        <div className="hero__container">
+            <img className="hero__image-background" loading="lazy" src="/lp.jpg" alt="car (van, yellow) driving down desert road" />
+            <h1 className="chunk hero__title fade-in-down">{t('lp_title_shard_1')}</h1>
+            <div className="hero__mini-row">
+                <h1 className="chunk hero__title fade-in-left">{t('lp_title_shard_2')}</h1>
+                <h1 className="chunk hero__title fade-in-up">{t('lp_title_shard_3')}</h1>
+            </div>
+        </div>
     );
 }
 
