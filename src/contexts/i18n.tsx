@@ -4,15 +4,14 @@ import { AppStrings } from '@/locales';
 import { logger } from '@/utils';
 import { withProfiler } from '@/hocs';
 
-async function updateAppStrings(locale: string, update: (str: typeof AppStrings) => void) {
+async function updateAppStrings(locale: string, update: (blob: typeof AppStrings) => void) {
     try {
-        const filepath = `@/locales/${locale}/app.json`;
+        const filepath = `../locales/${locale}/app.json`;
         const resolvedModule = await import(filepath).then(mod => mod.default);
         update(resolvedModule);
     } catch (e: any) {
         logger.error('I18NException');
         logger.error(e);
-        update(AppStrings);
     }
 }
 
@@ -33,7 +32,9 @@ export const useTranslation = () => {
 function I18NProviderComponent({ children, locale = "en" }: { children: ReactNode; locale?: Locale }) {
     const [langStrings, setLangStrings] = useState(AppStrings);
     useEffect(() => {
-        updateAppStrings(locale, (updatedStrings) => setLangStrings(updatedStrings));
+        if (locale !== "en") {
+            updateAppStrings(locale, (updatedStrings) => setLangStrings(updatedStrings));
+        }
     }, [locale]);
     return (
         <I18NContext.Provider value={langStrings}>

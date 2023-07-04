@@ -6,12 +6,16 @@ function HeroImageComponent(){
     const { t } = useTranslation();
     return (
         <div className="hero__container">
-            <img className="hero__image-background" loading="lazy" src="/lp.jpg" alt="car (van, yellow) driving down desert road" />
-            <h1 className="chunk hero__title fade-in-down">{t('lp_title_shard_1')}</h1>
-            <div className="hero__mini-row">
-                <h1 className="chunk hero__title fade-in-left">{t('lp_title_shard_2')}</h1>
-                <h1 className="chunk hero__title fade-in-up">{t('lp_title_shard_3')}</h1>
+            <div className="hero__mini-col">
+                <h6 className="pac hero__title fade-in-left">
+                    {t('lp_title_shard_1')} {t('lp_title_shard_2')} {t('lp_title_shard_3')}
+                </h6>
+                <p className="hero__text ls">
+                    {t('lp_subtext_block')}
+                </p>
+                <button className="button-smpl">{t('lp_action_cta')}</button>
             </div>
+            <img src="/woods.jpg" alt="Cave in antarctica" width="40%" height="auto" />
         </div>
     );
 }
@@ -19,4 +23,4 @@ function HeroImageComponent(){
 export const Hero = withProfiler(
     'HeroImage',
     memo(HeroImageComponent)
-)
+);

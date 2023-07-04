@@ -1,0 +1,97 @@
+@import "fonts.css";
+
+.hero__container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    isolation: isolate;
+    background-color: #000018;
+    overflow: hidden;
+}
+
+.hero__image-background {
+    left: 0;
+    object-fit: cover;
+    z-index: 1;
+    aspect-ratio: 16 / 12;
+    position: absolute;
+}
+
+.hero__title {
+    font-size: 6rem;
+    font-weight: 500;
+    z-index: 3;
+    margin-block: 8px;
+    width: 105%;
+    background: linear-gradient(113.9deg, rgb(255, 7, 7) -4.5%, rgb(255, 255, 5) 98.8%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.hero__mini-col {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 40px;
+    flex-grow: 1;
+}
+
+@keyframes fadeInDown {
+    0% {
+        transform: translateX(-40px);
+        opacity: 70%;
+        
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 100%;
+    }
+}
+
+.fade-in-down {
+    animation: fadeInDown 300ms ease-in 0s 1 normal;
+}
+
+
+@keyframes fadeInLeft {
+    0% {
+        transform: translateX(-40px);
+        opacity: 70%;
+        
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 100%;
+    }
+}
+
+.fade-in-left {
+    animation: fadeInLeft 300ms ease-in 0s 1 normal;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(-40px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 300ms ease-in 0s 1 normal;
+}
+
+.hero__text {
+    max-width: 60%;
+    color: white;
+    font-size: 24px;
+}

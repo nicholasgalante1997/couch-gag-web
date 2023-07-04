@@ -1,0 +1,100 @@
+.button-wback {
+  appearance: button;
+  background-color: #000;
+  background-image: none;
+  border: 1px solid #000;
+  border-radius: 4px;
+  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Franchise;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 12px 40px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-wback:focus {
+  text-decoration: none;
+}
+
+.button-wback:hover {
+  text-decoration: none;
+}
+
+.button-wback:active {
+  box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+  outline: 0;
+}
+
+.button-wback:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-wback{
+    padding: 12px 50px;
+  }
+}
+
+/* CSS */
+.button-smpl {
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-family: League-Spartan;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-smpl:focus {
+  color: #171e29;
+}
+
+.button-smpl:hover {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+.button-smpl:active {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+@media (min-width: 768px) {
+  .button-smpl {
+    min-width: 170px;
+  }
+}

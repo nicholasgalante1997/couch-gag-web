@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { Hero } from '@/components';
-import { withProfiler } from '@/hocs';
+import { withProfiler, withRootProviders } from '@/hocs';
+import { combine } from '@/utils';
 
 function LandingPageComponent() {
     return (
@@ -8,7 +9,8 @@ function LandingPageComponent() {
     );
 }
 
-export const LandingPage = withProfiler(
-    'LandingPage',
-    memo(LandingPageComponent)
+export const LandingPage = combine(
+    [withProfiler, withRootProviders],
+    memo(LandingPageComponent),
+    'landing-page'
 );
