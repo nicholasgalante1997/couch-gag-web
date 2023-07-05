@@ -1,10 +1,14 @@
 {
-    "assets": {},
-    "resources": {
-        "lp_title_shard_1": "The",
-        "lp_title_shard_2": "Couch",
-        "lp_title_shard_3": "Gag",
-        "lp_subtext_block": "There's a story about a baker. There's another story about a punk rock band. There's some researchers in Antarctica that are shivering. They're in a story too. Maybe we're all in a story.",
-        "lp_action_cta": "Read More"
-    }
+  "assets": {},
+  "resources": {
+    "lp_title_shard_1": "The",
+    "lp_title_shard_2": "Couch",
+    "lp_title_shard_3": "Gag",
+    "lp_subtext_block": "There's a story about a baker. There's another story about a punk rock band. There's some researchers in Antarctica that are shivering. They're in a story too. Maybe we're all in a story.",
+    "lp_action_cta": "Read More",
+    "lp_sub_banner_text_shard_1": "Support",
+    "lp_sub_banner_span_text": "The Couch Gag",
+    "lp_sub_banner_text_shard_2": "in its endeavor to continue writing and existing.",
+    "lp_sub_banner_cta": "Subscribe Today"
+  }
 }

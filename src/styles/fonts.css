@@ -1,62 +1,69 @@
 @font-face {
-    font-family: Relieve;
-    src: url("Relieve.ttf");
-  }
-  
+  font-family: Relieve;
+  src: url('_Relieve.ttf');
+}
+
 @font-face {
   font-family: League-Spartan;
-  src: url("LeagueSpartan-VF.ttf");
+  src: url('_LeagueSpartan-VF.ttf');
 }
 
 @font-face {
   font-family: Franchise;
-  src: url("Franchise-Free-Bold.ttf");
+  src: url('_Franchise-Free-Bold.ttf');
 }
 
 @font-face {
   font-family: Chunk;
-  src: url("ChunkFive-Regular.ttf");
+  src: url('_ChunkFive-Regular.ttf');
 }
-  
+
 @font-face {
   font-family: Abril;
-  src: url("AbrilFatface-Regular.ttf");
+  src: url('_AbrilFatface-Regular.ttf');
 }
 
 @font-face {
   font-family: Bel;
-  src: url("Belanosima-Regular.ttf");
+  src: url('_Belanosima-Regular.ttf');
 }
 
 @font-face {
   font-family: Pacifico;
-  src: url("Pacifico-Regular.ttf");
+  src: url('_Pacifico-Regular.ttf');
 }
 
 .chunk {
-  font-family: Chunk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Chunk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .ls {
-  font-family: League-Spartan, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: League-Spartan, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .franchise {
-  font-family: Franchise, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Franchise, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .relieve {
-  font-family: Relieve, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Relieve, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .ab {
-  font-family: Abril, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Abril, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .bel {
-  font-family: Bel, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Bel, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .pac {
-  font-family: Pacifico;
+  font-family: Pacifico, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }

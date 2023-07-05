@@ -1,10 +1,10 @@
 {
-    "assets": {},
-    "resources": {
-        "lp_title_shard_1": "The",
-        "lp_title_shard_2": "Couch",
-        "lp_title_shard_3": "Gag",
-        "lp_subtext_block": "There's a story about a baker. There's another story about a punk rock band. There's some researchers in Antarctica that are shivering. There in a story too. Maybe we're all in a story.",
-        "lp_action_cta": "Read More"
-    }
+  "assets": {},
+  "resources": {
+    "lp_title_shard_1": "The",
+    "lp_title_shard_2": "Couch",
+    "lp_title_shard_3": "Gag",
+    "lp_subtext_block": "There's a story about a baker. There's another story about a punk rock band. There's some researchers in Antarctica that are shivering. There in a story too. Maybe we're all in a story.",
+    "lp_action_cta": "Read More"
+  }
 }

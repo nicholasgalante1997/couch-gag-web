@@ -8,12 +8,14 @@
     "cp:assets": "cp -R src/styles/*.css src/styles/*.ttf assets/ build/",
     "clean:build": "rm -rf build",
     "storybook": "storybook dev -p 6006",
+    "dev": "webpack serve --config dev-configs/landing.webpack.js",
     "build-storybook": "storybook build",
     "format": "prettier --write src",
     "lint": "eslint --fix --ext .tsx --ext .ts src/**",
     "pkg:js": "webpack --config client.webpack.js",
     "pkg:ts-script": "webpack --config ssg.webpack.js",
     "pkg:html": "node .build-process/build-app.js",
+    "pkg:metadata": "node build-md.mjs",
     "clean:tmp": "rm -rf .build-process",
     "build": "pnpm clean:build && pnpm pkg:js && pnpm pkg:ts-script && pnpm pkg:html && pnpm clean:tmp && pnpm cp:assets"
   },
@@ -41,7 +43,6 @@
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "babel-loader": "^9.1.2",
-    "babel-plugin-styled-components": "^2.1.4",
     "bundle-stats-webpack-plugin": "^4.4.2",
     "css-loader": "^6.8.1",
     "dotenv": "^16.3.1",
@@ -51,13 +52,16 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.32.2",
+    "front-matter": "^4.0.2",
     "handlebars": "^4.7.7",
+    "html-webpack-plugin": "^5.5.3",
     "json-loader": "^0.5.7",
     "prettier": "^2.8.8",
     "storybook": "^7.0.24",
     "style-loader": "^3.3.3",
     "typescript": "^5.1.6",
     "webpack": "^5.88.1",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
