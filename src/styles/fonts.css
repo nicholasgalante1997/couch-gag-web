@@ -1,36 +1,43 @@
 @font-face {
   font-family: Relieve;
   src: url('_Relieve.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: League-Spartan;
   src: url('_LeagueSpartan-VF.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: Franchise;
   src: url('_Franchise-Free-Bold.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: Chunk;
   src: url('_ChunkFive-Regular.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: Abril;
   src: url('_AbrilFatface-Regular.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: Bel;
   src: url('_Belanosima-Regular.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: Pacifico;
   src: url('_Pacifico-Regular.ttf');
+  font-display: swap;
 }
 
 .chunk {
