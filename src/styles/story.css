@@ -1,3 +1,6 @@
+@import "palette-base.css";
+@import "palette-twitch.css";
+
 .story__wrapper {
   height: 100%;
   width: 100%;
@@ -71,4 +74,34 @@
   color: rgba(255, 255, 255, 0.8);
   text-align: left;
   font-size: 16px;
+}
+
+.story_author {
+    font-family: Chunk;
+    text-align: left;
+    font-size: 14px;
+    background: linear-gradient(113.9deg, var(--violet-web-color) -4.5%, var(--risd-blue) 98.8%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.story_image-container {
+  width: 100%;
+  height: 300px;
+}
+
+.story_image {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 16 / 14;
+}
+
+.story_content {
+  max-width: 800px;
+  color: white;
+  font-family: League-Spartan;
 }

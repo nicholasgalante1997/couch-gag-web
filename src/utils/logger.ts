@@ -2,7 +2,7 @@ import pino from 'pino';
 
 function logLevel() {
   if (process.env.NODE_ENV === 'production') {
-    return 'fatal';
+    return 'info'; /** TODO: before launching change this to silent */
   }
   return 'info';
 }

@@ -77,8 +77,9 @@ body {
 }
 
 .aside__logo-container p {
-  font-family: League-Spartan;
+  font-size: 24px;
   font-weight: 700;
+  text-align: left;
 }
 
 .aside__badge-normal {
@@ -122,8 +123,7 @@ body {
 }
 
 .aside__logo-expanded-text {
-  font-size: 20px;
-  font-family: Chunk;
+  font-size: 24px;
   background: linear-gradient(113.9deg, #2248f1ff -4.5%, #fe8febff 98.8%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -135,10 +135,9 @@ body {
 }
 
 .aside__expand-container-text {
-  font-size: 20px;
+  font-size: 24px;
   line-height: 1.15;
   font-weight: 500;
-  font-family: League-Spartan;
   margin-left: 8px;
   opacity: 0%;
   animation: appear 200ms linear 400ms 1 forwards;

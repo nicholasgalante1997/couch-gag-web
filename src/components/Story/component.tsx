@@ -5,7 +5,7 @@ import { useTranslation } from '@/contexts';
 import { StoryProps } from './types';
 import { withErrorWrapper, withProfiler } from '@/hocs';
 
-function StoryComponent({ title, description, author }: StoryProps) {
+function StoryComponent({ title, description, author, imgAlt, imgSrc, content }: StoryProps) {
   const { t } = useTranslation();
   return (
     <div className="story__wrapper">
@@ -26,7 +26,13 @@ function StoryComponent({ title, description, author }: StoryProps) {
       </div>
       {/** Views, Comments, Shares, Likes, Bookmark */}
       {/** Full Screen Image */}
+      <div className="story_image-container">
+        <img src={imgSrc} alt={imgAlt} className="story_image" />
+      </div>
       {/** Story */}
+      <article className="story_content">
+        <ReactMarkdown children={content} />
+      </article>
     </div>
   );
 }
