@@ -6,7 +6,7 @@ import { combine } from '@/utils';
 function StoryComponent(props: StoryProps) {
   return (
     <React.Fragment>
-        <Story {...props} />
+      <Story {...props} />
     </React.Fragment>
   );
 }

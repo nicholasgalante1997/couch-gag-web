@@ -11,9 +11,7 @@ function PageComponent({ children, id }: { children: React.ReactNode; id: string
     <I18NProvider>
       <div className="couch-page">
         <Aside />
-        <div className="couch-page-main">
-          {children}
-        </div>
+        <div className="couch-page-main">{children}</div>
       </div>
     </I18NProvider>
   );

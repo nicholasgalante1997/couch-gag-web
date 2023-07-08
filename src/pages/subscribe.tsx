@@ -3,10 +3,7 @@ import { withProfiler, withRootProviders } from '@/hocs';
 import { combine } from '@/utils';
 
 function SubscribePageComponent() {
-  return (
-    <React.Fragment>
-    </React.Fragment>
-  );
+  return <React.Fragment></React.Fragment>;
 }
 
 export const SubscribePage = combine(

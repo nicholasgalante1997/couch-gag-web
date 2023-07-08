@@ -7,7 +7,7 @@ import { logger } from '@/utils';
 
 function replaceAll(
   file: string,
-  metadata: { app: string; jsBundle: string; title: string; cssSheets: string[]; description: string; }
+  metadata: { app: string; jsBundle: string; title: string; cssSheets: string[]; description: string }
 ) {
   let rels = '';
   for (const sheet of metadata.cssSheets) {
@@ -38,7 +38,7 @@ function replaceAll(
           jsBundle: bundle,
           title,
           cssSheets: styles,
-          description
+          description,
         })
       );
       logger.info('Write successful!');

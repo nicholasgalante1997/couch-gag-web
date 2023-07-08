@@ -9,7 +9,7 @@ const HeroImageClassnames = {
   Title: 'hero__title',
   Text: 'hero__text',
   Image: 'hero__lp-image',
-  Button: 'button-smpl'
+  Button: 'button-smpl',
 } as const;
 
 function HeroImageComponent() {

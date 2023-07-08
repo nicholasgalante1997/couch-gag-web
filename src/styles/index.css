@@ -37,7 +37,8 @@ body {
   height: 100vh;
   width: 96px;
   transition: width 400ms;
-  background-image: linear-gradient(to bottom, #290f8eff, #0e0035ff), linear-gradient(to top, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+  background-image: linear-gradient(to bottom, #290f8eff, #0e0035ff),
+    linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
   position: sticky;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
@@ -53,7 +54,8 @@ body {
   height: 100vh;
   width: 246px;
   transition: width 400ms;
-  background-image: linear-gradient(to bottom, #290f8eff, #0e0035ff), linear-gradient(to top, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+  background-image: linear-gradient(to bottom, #290f8eff, #0e0035ff),
+    linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
   position: sticky;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;

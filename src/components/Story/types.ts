@@ -1,3 +1,5 @@
 export type StoryProps = {
-    title: string;
+  title: string;
+  description: string;
+  author: string;
 };

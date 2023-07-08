@@ -6,7 +6,9 @@ import { withProfiler } from '@/hocs';
 
 async function updateAppStrings(locale: string, update: (blob: typeof AppStrings) => void) {
   try {
-    const resolvedModule = await import(/** webpackChunkName "i18n" *//** webpackMode "lazy" */`../locales/${locale}/app.json`).then((mod) => mod.default);
+    const resolvedModule = await import(
+      /** webpackChunkName "i18n" */ /** webpackMode "lazy" */ `../locales/${locale}/app.json`
+    ).then((mod) => mod.default);
     update(resolvedModule);
   } catch (e: any) {
     logger.error('I18NException');

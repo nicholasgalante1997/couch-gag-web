@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2",
+  "version": "0.0.3",
   "metadata": [
     {
       "longKey": "season_01_episode_01",
@@ -8,6 +8,7 @@
       "key": "0101",
       "title": "The Origin, and What Came Before It",
       "subtitle": "A discovery is made during a remote expedition to Antarctica that begins to unravel the fabric of the human storyline.",
+      "author": "Washington Irving",
       "img": "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3NpbXBzb25zLW9yaWcuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoiMTIwMCJ9fX0=",
       "genres": ["genesis", "loathing", "beauty"]
     },
@@ -18,6 +19,7 @@
       "key": "0102",
       "title": "Meanwhile, Under the Mountains",
       "subtitle": "The leaders of the free world meet to discuss the recent exposition.",
+      "author": "Irving Washington",
       "img": "https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg",
       "genres": ["governance", "media", "shadow"]
     },
@@ -28,6 +30,7 @@
       "key": "0103",
       "title": "The Common Man and His Common Dream",
       "subtitle": "Weezer fails to show up to a concert at Nikon Jones Beach Theatre due to hedonism. A new hero sees an opportunity.",
+      "author": "Irving Washington",
       "img": "https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg",
       "genres": ["rock", "glory", "drugs"]
     },
@@ -38,6 +41,7 @@
       "key": "0104",
       "title": "sunshine, after rain",
       "subtitle": "One learns a lesson on coping with loss in the wake of the grand reveal, a lesson that he'll have to teach himself.",
+      "author": "Irving Washington",
       "img": "https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg",
       "genres": ["loss", "life", "stewie-inspired"]
     },
@@ -48,6 +52,7 @@
       "key": "0105",
       "title": "trial by fire",
       "subtitle": "no-name cult exacts an operation that spirals into control.",
+      "author": "Irving Washington",
       "img": "https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg",
       "genres": ["colorado", "no-name", "philosophy/violence"]
     },
@@ -58,6 +63,7 @@
       "key": "0106",
       "title": "Milo, Il Mayore",
       "subtitle": "The syndicate grows, and everyone gets a share.",
+      "author": "Washington Irving",
       "img": "https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg",
       "genres": ["catch-22", "economics/governance", "reminiscence"]
     },
@@ -68,6 +74,7 @@
       "key": "0107",
       "title": "Blackberry Octane",
       "subtitle": "Poetry in motion",
+      "author": "Washington Irving",
       "img": "https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg",
       "genres": ["wonder", "delusion", "omnipotence"]
     },
@@ -78,6 +85,7 @@
       "key": "0108",
       "title": "The Greatest Mistrial The World Had Ever Seen",
       "subtitle": "There is finally a punchline offered to a worldly and dragging joke; The American Judicial System",
+      "author": "Washington Irving",
       "img": "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3NpbXBzb25zLW9yaWcuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoiMTIwMCJ9fX0=",
       "genres": ["freedom", "philosophy", "regicide", "instructional"]
     },
@@ -88,6 +96,7 @@
       "key": "0109",
       "title": "Who laughs the loudest when everyone's deaf",
       "subtitle": "A writer struggles to find his voice in a sea of screaming.",
+      "author": "Washington Irving",
       "img": "",
       "genres": ["writing"]
     },
@@ -98,6 +107,7 @@
       "key": "0110",
       "title": "The Rainbow Connection",
       "subtitle": "This story is for the lovers, the dreamers, and me.",
+      "author": "Washington Irving",
       "img": "Kermit the Frog, playing 'The Rainbow Connection;'",
       "genres": ["The Muppets", "Feeler"]
     },
@@ -108,6 +118,7 @@
       "key": "0201",
       "title": "Treehouse of Horror I: Anorath",
       "subtitle": "Ripples are created in a black lake that flows out into the ocean.",
+      "author": "Lovecraft, HPV",
       "img": "some-lovecraft-image,shoggoth",
       "genres": ["ancient", "primordial", "slivers"]
     },
@@ -118,6 +129,7 @@
       "key": "0202",
       "title": "Being and Time",
       "subtitle": "A psychotherapist and his patient debate a fantasy that's emerged since the great gag.",
+      "author": "Washington Irving",
       "img": "SusanSarandon",
       "genres": ["being", "and also time"]
     },
@@ -128,6 +140,7 @@
       "key": "0203",
       "title": "The Shakedown",
       "subtitle": "A local organized crime syndication attempts to elicit a protection payment from a new business that's opened up in Somerset, Missouri.",
+      "author": "Washington Irving",
       "img": "A Butcher's Knife",
       "genres": ["Evil", "Bloodlove", "Humanism"]
     }
