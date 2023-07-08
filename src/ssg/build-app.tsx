@@ -2,12 +2,12 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import fs from 'fs';
 import path from 'path';
-import { pages, APP_MARKER, JS_BUNDLE_MARKER, TITLE_MARKER, STYLE_MARKER } from '@/config';
+import { pages, APP_MARKER, JS_BUNDLE_MARKER, TITLE_MARKER, STYLE_MARKER, PAGE_DESCRIPTION } from '@/config';
 import { logger } from '@/utils';
 
 function replaceAll(
   file: string,
-  metadata: { app: string; jsBundle: string; title: string; cssSheets: string[] }
+  metadata: { app: string; jsBundle: string; title: string; cssSheets: string[]; description: string; }
 ) {
   let rels = '';
   for (const sheet of metadata.cssSheets) {
@@ -17,12 +17,13 @@ function replaceAll(
     .replace(APP_MARKER, metadata.app)
     .replace(JS_BUNDLE_MARKER, metadata.jsBundle)
     .replace(TITLE_MARKER, metadata.title)
-    .replace(STYLE_MARKER, rels);
+    .replace(STYLE_MARKER, rels)
+    .replace(PAGE_DESCRIPTION, metadata.description);
 }
 
 (async function () {
   for (const page of pages) {
-    const { component: Component, props, htmlFileName, bundle, title, styles } = page;
+    const { component: Component, props, htmlFileName, bundle, title, styles, description } = page;
     try {
       /** load html hbs file */
       const htmlFilePath = path.resolve(process.cwd(), 'html', 'index.html');
@@ -37,6 +38,7 @@ function replaceAll(
           jsBundle: bundle,
           title,
           cssSheets: styles,
+          description
         })
       );
       logger.info('Write successful!');

@@ -13,7 +13,7 @@ function HeroImageComponent() {
         <p className="hero__text ls">{t('lp_subtext_block')}</p>
         <button className="button-smpl">{t('lp_action_cta')}</button>
       </div>
-      <img src="/woods.jpg" alt="Cave in antarctica" width="auto" height="100%" />
+      <img src="/woods.webp" alt="Cave in antarctica" className="hero__lp-image" />
     </div>
   );
 }
