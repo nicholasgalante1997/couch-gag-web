@@ -9,7 +9,7 @@ dotenv.config();
 
 module.exports = {
     mode: 'development',
-    entry: path.resolve(process.cwd(), 'src', 'dev', 'landing.tsx'),
+    entry: path.resolve(process.cwd(), 'src', 'dev', 'story.tsx'),
     target: ['web', 'es2017'],
     devServer: {
         hot: true,

@@ -1,4 +1,6 @@
 @import 'fonts.css';
+@import 'margin.css';
+@import 'padding.css';
 @import 'palette-base.css';
 @import 'palette-twitch.css';
 
@@ -42,21 +44,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-}
-
-.aside__logo-container {
-  width: 100%;
-  margin-top: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.aside__logo-container p {
-  font-family: League-Spartan;
-  font-weight: 700;
+  justify-content: flex-start;
+  padding-bottom: 24px;
+  box-sizing: border-box;
 }
 
 .aside__container-open {
@@ -70,5 +60,96 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  padding-bottom: 24px;
+  box-sizing: border-box;
+}
+
+.aside__logo-container {
+  width: 100%;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.aside__logo-container p {
+  font-family: League-Spartan;
+  font-weight: 700;
+}
+
+.aside__badge-normal {
+  height: 40px;
+  width: 40px;
+  transition: width 400ms;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.aside__badge-normal:hover {
+  box-shadow: 0px 0px 12px #290f8eff, 0px 0px 12px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.aside__badge-expanded {
+  height: 40px;
+  width: 204px;
+  transition: width 400ms;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.aside__logo-expanded-text {
+  font-size: 20px;
+  font-family: Chunk;
+  background: linear-gradient(113.9deg, #2248f1ff -4.5%, #fe8febff 98.8%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  margin-left: 4px;
+  opacity: 0%;
+  animation: appear 200ms linear 400ms 1 forwards;
+}
+
+.aside__expand-container-text {
+  font-size: 20px;
+  line-height: 1.15;
+  font-weight: 500;
+  font-family: League-Spartan;
+  margin-left: 8px;
+  opacity: 0%;
+  animation: appear 200ms linear 400ms 1 forwards;
+}
+
+.aside__expand-container {
+  margin-top: auto;
+}
+
+.aside__season-container {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

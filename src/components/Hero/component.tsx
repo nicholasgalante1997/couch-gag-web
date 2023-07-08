@@ -1,19 +1,31 @@
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
+import classnames from 'classnames';
 import { withProfiler } from '@/hocs';
 import { useTranslation } from '@/contexts';
 
+const HeroImageClassnames = {
+  Container: 'hero__container',
+  MiniCol: 'hero__mini-col',
+  Title: 'hero__title',
+  Text: 'hero__text',
+  Image: 'hero__lp-image',
+  Button: 'button-smpl'
+} as const;
+
 function HeroImageComponent() {
   const { t } = useTranslation();
+  const titleClassname = useMemo(() => classnames(HeroImageClassnames.Title, 'pac', 'fade-in-left'), []);
+  const textClassname = useMemo(() => classnames(HeroImageClassnames.Text, 'ls'), []);
   return (
-    <div className="hero__container">
-      <div className="hero__mini-col">
-        <h6 className="pac hero__title fade-in-left">
+    <div className={HeroImageClassnames.Container}>
+      <div className={HeroImageClassnames.MiniCol}>
+        <h6 className={titleClassname}>
           {t('lp_title_shard_1')} {t('lp_title_shard_2')} {t('lp_title_shard_3')}
         </h6>
-        <p className="hero__text ls">{t('lp_subtext_block')}</p>
-        <button className="button-smpl">{t('lp_action_cta')}</button>
+        <p className={textClassname}>{t('lp_subtext_block')}</p>
+        <button className={HeroImageClassnames.Button}>{t('lp_action_cta')}</button>
       </div>
-      <img src="/woods.webp" alt="Cave in antarctica" className="hero__lp-image" />
+      <img src="/woods.webp" alt="A skyview shot of a woodland area" className={HeroImageClassnames.Image} />
     </div>
   );
 }
