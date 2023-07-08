@@ -1,0 +1,31 @@
+@import 'palette-base.css';
+@import 'palette-twitch.css';
+
+.chip__root {
+  height: 40px;
+  border-radius: 20px;
+  padding: 4px 12px;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.chip__red {
+  background-color: var(--vermilion);
+}
+
+.chip__gold {
+  background-color: var(--gold);
+}
+
+.chip__orange {
+  background-color: var(--orange-web);
+}
+
+.chip__green {
+  background-color: var(--yellow-green);
+}

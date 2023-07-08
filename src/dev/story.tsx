@@ -7,8 +7,7 @@ import storyMeta from '../contexts/data/writ.json';
 
 const mockStory = storyMeta.metadata[0];
 
-const mockContent = 
-`
+const mockContent = `
 # Mock Title
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id nibh tortor id aliquet lectus proin. Ultrices eros in cursus turpis massa tincidunt dui. Gravida rutrum quisque non tellus orci. Faucibus turpis in eu mi bibendum neque egestas congue. In est ante in nibh mauris cursus. Nunc pulvinar sapien et ligula ullamcorper malesuada proin. Lobortis scelerisque fermentum dui faucibus in. Euismod elementum nisi quis eleifend quam adipiscing vitae. Purus sit amet volutpat consequat mauris nunc congue nisi vitae. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Sollicitudin ac orci phasellus egestas tellus rutrum. Laoreet id donec ultrices tincidunt arcu non sodales neque sodales. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Nulla malesuada pellentesque elit eget gravida cum sociis. Non curabitur gravida arcu ac tortor. Morbi blandit cursus risus at ultrices.
@@ -20,8 +19,15 @@ Malesuada nunc vel risus commodo. Ut eu sem integer vitae justo eget magna ferme
 Vulputate odio ut enim blandit volutpat maecenas volutpat. Ante in nibh mauris cursus mattis. Mauris cursus mattis molestie a. Id volutpat lacus laoreet non curabitur gravida arcu. Commodo nulla facilisi nullam vehicula. Rhoncus mattis rhoncus urna neque. Sit amet est placerat in. Arcu non sodales neque sodales ut etiam sit amet. Lorem donec massa sapien faucibus et molestie ac. Consequat interdum varius sit amet mattis vulputate enim.
 
 Auctor elit sed vulputate mi sit amet mauris commodo. In ornare quam viverra orci sagittis eu volutpat odio facilisis. Vitae elementum curabitur vitae nunc. Id leo in vitae turpis massa sed elementum tempus egestas. Pulvinar pellentesque habitant morbi tristique. Enim tortor at auctor urna nunc id cursus metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. Volutpat ac tincidunt vitae semper quis lectus. Velit dignissim sodales ut eu. In fermentum et sollicitudin ac. Sed adipiscing diam donec adipiscing tristique. Consequat id porta nibh venenatis cras sed felis eget velit. Est ante in nibh mauris cursus mattis molestie a iaculis. Viverra maecenas accumsan lacus vel facilisis volutpat est.
-`
+`;
 
 createRoot(document.getElementById('evergreen-terrace')!).render(
-  <StoryPage content={mockContent} imgSrc={mockStory.img} imgAlt={mockStory.longKey} author={mockStory.author} description={mockStory.subtitle} title={mockStory.title} />
+  <StoryPage
+    content={mockContent}
+    imgSrc={mockStory.img}
+    imgAlt={mockStory.longKey}
+    author={mockStory.author}
+    description={mockStory.subtitle}
+    title={mockStory.title}
+  />
 );

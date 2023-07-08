@@ -1,5 +1,6 @@
-@import "palette-base.css";
-@import "palette-twitch.css";
+@import 'palette-base.css';
+@import 'palette-twitch.css';
+@import 'chip.css';
 
 .story__wrapper {
   height: 100%;
@@ -77,14 +78,14 @@
 }
 
 .story_author {
-    font-family: Chunk;
-    text-align: left;
-    font-size: 14px;
-    background: linear-gradient(113.9deg, var(--violet-web-color) -4.5%, var(--risd-blue) 98.8%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
+  font-family: Chunk;
+  text-align: left;
+  font-size: 14px;
+  background: linear-gradient(113.9deg, var(--violet-web-color) -4.5%, var(--risd-blue) 98.8%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 
 .story_image-container {

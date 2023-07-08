@@ -43,7 +43,7 @@ function AsideComponent() {
       classnames({
         [AsideClassnames.Container]: !expanded,
         [AsideClassnames.ContainerExpanded]: expanded,
-        'chunk': true
+        chunk: true,
       }),
     [expanded]
   );
