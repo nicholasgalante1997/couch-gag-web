@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { withProfiler, withRootProviders } from '@/hocs';
 import { combine } from '@/utils';
 
-function SubscribePageComponent() {
+function SubscribePageComponent () {
   return <React.Fragment></React.Fragment>;
 }
 

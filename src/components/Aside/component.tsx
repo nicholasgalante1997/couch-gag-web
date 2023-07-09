@@ -13,16 +13,16 @@ const AsideClassnames = {
   BadgeExpanded: 'aside__badge-expanded',
   SeasonContainer: 'aside__season-container',
   ExpandAsideContainer: 'aside__expand-container',
-  ExpandeAsideText: 'aside__expand-container-text',
+  ExpandeAsideText: 'aside__expand-container-text'
 };
 
-function AsideComponent() {
+function AsideComponent () {
   const isBrowser = !isServer();
   let lsAsideOpen = false;
   if (isBrowser) {
     const hasStoredValue = window.localStorage.getItem('couch-gag__aside__open');
     if (hasStoredValue) {
-      lsAsideOpen = !!(JSON.parse(hasStoredValue) as any).isOpen;
+      lsAsideOpen = !!JSON.parse(hasStoredValue).isOpen;
     }
   }
 
@@ -43,7 +43,7 @@ function AsideComponent() {
       classnames({
         [AsideClassnames.Container]: !expanded,
         [AsideClassnames.ContainerExpanded]: expanded,
-        chunk: true,
+        chunk: true
       }),
     [expanded]
   );
@@ -52,7 +52,7 @@ function AsideComponent() {
     () =>
       classnames({
         [AsideClassnames.Badge]: !expanded,
-        [AsideClassnames.BadgeExpanded]: expanded,
+        [AsideClassnames.BadgeExpanded]: expanded
       }),
     [expanded]
   );
@@ -60,7 +60,7 @@ function AsideComponent() {
   const imgProperties = useMemo(
     () => ({
       alt: expanded ? 'An image of a caret pointing up.' : 'An image of a caret pointing right',
-      src: expanded ? svgMap.pinch : svgMap.open,
+      src: expanded ? svgMap.pinch : svgMap.open
     }),
     [expanded]
   );
@@ -72,7 +72,13 @@ function AsideComponent() {
         {expanded && <span className={AsideClassnames.LogoExpandedText}>The Couch Gag</span>}
       </div>
       <div className={AsideClassnames.SeasonContainer}>
-        <div className={badgeClassName} role="button" onClick={() => to('/browse-stories')}>
+        <div
+          className={badgeClassName}
+          role="button"
+          onClick={() => {
+            to('/browse-stories');
+          }}
+        >
           <img height="20px" width="20px" src={svgMap.books} alt="a stack of papers" />
           {expanded && <p className="ml-2">Browse Stories</p>}
         </div>
@@ -84,7 +90,12 @@ function AsideComponent() {
         </div>
       </div>
       <div className={AsideClassnames.ExpandAsideContainer}>
-        <div className={badgeClassName} onClick={() => setExpanded((p) => !p)}>
+        <div
+          className={badgeClassName}
+          onClick={() => {
+            setExpanded((p) => !p);
+          }}
+        >
           <img height="20px" width="20px" {...imgProperties} />
           {expanded && <p className={AsideClassnames.ExpandeAsideText}>Close</p>}
         </div>

@@ -18,5 +18,8 @@ module.exports = {
         "react"
     ],
     "rules": {
-    }
+        "semi": ["error", "always"],
+        "@typescript-eslint/semi": ["error", "always"]
+    },
+    "ignorePatterns": ["src/**/*.test.ts", "src/styles/*"]
 }

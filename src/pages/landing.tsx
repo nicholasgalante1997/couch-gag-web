@@ -3,7 +3,7 @@ import { Hero, SubscribeBanner, ContentWidget } from '@/components';
 import { withProfiler, withRootProviders } from '@/hocs';
 import { combine } from '@/utils';
 
-function LandingPageComponent() {
+function LandingPageComponent () {
   return (
     <React.Fragment>
       <Hero />

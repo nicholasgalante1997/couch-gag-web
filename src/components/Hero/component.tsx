@@ -9,10 +9,10 @@ const HeroImageClassnames = {
   Title: 'hero__title',
   Text: 'hero__text',
   Image: 'hero__lp-image',
-  Button: 'button-smpl',
+  Button: 'button-smpl'
 } as const;
 
-function HeroImageComponent() {
+function HeroImageComponent () {
   const { t } = useTranslation();
   const titleClassname = useMemo(() => classnames(HeroImageClassnames.Title, 'pac', 'fade-in-left'), []);
   const textClassname = useMemo(() => classnames(HeroImageClassnames.Text, 'ls'), []);

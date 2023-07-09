@@ -1,9 +1,12 @@
 import React from 'react';
 import { ErrorWrapper } from '@/components/ErrorBoundary';
 
-type ErrorBoundaryProps = { id: string; fallback: JSX.Element };
+interface ErrorBoundaryProps {
+  id: string
+  fallback: JSX.Element
+}
 
-export function withErrorWrapper<P = {} & JSX.IntrinsicAttributes & ErrorBoundaryProps>(
+export function withErrorWrapper<P = {} & JSX.IntrinsicAttributes & ErrorBoundaryProps> (
   id: string,
   Component: React.FC<P>
 ): React.FC<P> {

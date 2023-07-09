@@ -1,14 +1,13 @@
-import React, { Profiler, ProfilerOnRenderCallback } from 'react';
+import React, { Profiler, type ProfilerOnRenderCallback } from 'react';
 import { logger } from '@/utils';
 
 const onRender: ProfilerOnRenderCallback = (id, ...args) => {
   if (process.env.NODE_ENV === 'profiling') {
     logger.info({ id, ...args });
   }
-  return;
 };
 
-export function withProfiler<P = any>(id: string, Component: React.FC<P>): React.FC<P> {
+export function withProfiler<P = any> (id: string, Component: React.FC<P>): React.FC<P> {
   if (process.env.NODE_ENV === 'production') {
     return Component;
   }

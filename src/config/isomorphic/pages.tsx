@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageConfig } from '@/types';
+import { type PageConfig } from '@/types';
 import { LandingPage } from '@/pages';
 
 export const pages: PageConfig[] = [
@@ -10,6 +10,6 @@ export const pages: PageConfig[] = [
     description:
       "An anthology of short stories by new American authors. We are currently accepting submissions for our first season's release.",
     htmlFileName: 'index',
-    styles: ['landing-page'],
-  },
+    styles: ['landing-page']
+  }
 ];

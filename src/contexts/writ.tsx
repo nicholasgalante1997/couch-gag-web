@@ -3,18 +3,18 @@ import writMd from './data/writ.json';
 import { combine } from '@/utils';
 import { withErrorWrapper, withProfiler } from '@/hocs';
 
-type WritContextType = {
-  getAll(): (typeof writMd)['metadata'];
-  getOne(key: string, value: unknown): (typeof writMd)['metadata'][number] | undefined;
-};
+interface WritContextType {
+  getAll: () => (typeof writMd)['metadata']
+  getOne: (key: string, value: unknown) => (typeof writMd)['metadata'][number] | undefined
+}
 
 const defaultWritContext = {
-  getAll() {
+  getAll () {
     return writMd.metadata;
   },
-  getOne(key: string, value: unknown) {
+  getOne (key: string, value: unknown) {
     return writMd.metadata.find((mdObj) => mdObj[key as keyof typeof mdObj] === value);
-  },
+  }
 };
 
 const WritContext = createContext<WritContextType>(defaultWritContext);

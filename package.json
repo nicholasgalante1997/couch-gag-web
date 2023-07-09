@@ -12,7 +12,7 @@
     "dev:story": "webpack serve --config dev-configs/story.webpack.js",
     "build-storybook": "storybook build",
     "format": "prettier --write src",
-    "lint": "eslint --fix --ext .tsx --ext .ts src/**",
+    "lint": "eslint --fix \"src/**/*.{ts,tsx}\"",
     "pkg:js": "webpack --config client.webpack.js",
     "pkg:ts-script": "webpack --config ssg.webpack.js",
     "pkg:html": "node .build-process/build-app.js",

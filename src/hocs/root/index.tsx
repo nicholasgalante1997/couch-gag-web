@@ -1,7 +1,7 @@
 import React from 'react';
 import { Root } from '@/components';
 
-export function withRootProviders<P = {} & JSX.IntrinsicAttributes>(
+export function withRootProviders<P = {} & JSX.IntrinsicAttributes> (
   id: string,
   Component: React.FC<P>
 ): React.FC<P> {

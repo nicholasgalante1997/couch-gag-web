@@ -2,14 +2,14 @@ import React, { memo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { combine } from '@/utils';
 import { useTranslation } from '@/contexts';
-import { StoryProps } from './types';
+import { type StoryProps } from './types';
 import { withErrorWrapper, withProfiler } from '@/hocs';
 
-function StoryComponent({ title, description, author, imgAlt, imgSrc, content }: StoryProps) {
+function StoryComponent ({ title, description, author, imgAlt, imgSrc, content }: StoryProps) {
   const { t } = useTranslation();
   return (
     <div className="story__wrapper">
-      {/*Micro Subscribe Banner */}
+      {/* Micro Subscribe Banner */}
       <div className="story__micro-banner">
         <p>{t('story_micro_banner_text')}</p>
         <button className="button-small ml-5">{t('story_micro_banner_subscribe_now')}</button>

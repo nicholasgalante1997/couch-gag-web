@@ -2,23 +2,26 @@ import { logger } from '@/utils';
 import React, { memo } from 'react';
 
 class ErrorBoundary extends React.Component<
-  { id: string; fallback: JSX.Element; children: React.ReactNode },
-  { hasError: boolean }
+{ id: string, fallback: JSX.Element, children: React.ReactNode },
+{ hasError: boolean }
 > {
-  constructor(props: { id: string; fallback: JSX.Element; children: React.ReactNode }) {
+  constructor (props: { id: string, fallback: JSX.Element, children: React.ReactNode }) {
     super(props);
     this.state = {
-      hasError: false,
+      hasError: false
     };
   }
-  static getDerivedStateFromError(error: any) {
+
+  static getDerivedStateFromError (error: any) {
     return { hasError: true };
   }
-  componentDidCatch(error: any, info: { componentStack: any } & Record<string, unknown>) {
+
+  componentDidCatch (error: any, info: { componentStack: any } & Record<string, unknown>) {
     logger.error(error);
     logger.error(info);
   }
-  render() {
+
+  render () {
     if (this.state.hasError) {
       return this.props.fallback;
     }

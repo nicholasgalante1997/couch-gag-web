@@ -5,8 +5,10 @@ import { logger } from '@/utils';
 import { withProfiler } from '@/hocs';
 import { Aside } from '@/components/Aside';
 
-function PageComponent({ children, id }: { children: React.ReactNode; id: string }) {
-  useOnMount(() => logger.info(`Component ${id} mounted.`));
+function PageComponent ({ children, id }: { children: React.ReactNode, id: string }) {
+  useOnMount(() => {
+    logger.info(`Component ${id} mounted.`);
+  });
   return (
     <I18NProvider>
       <WritProvider>

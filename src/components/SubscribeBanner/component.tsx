@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { useTranslation } from '@/contexts';
 import { withProfiler } from '@/hocs';
 
-function SubscribeBannerComponent() {
+function SubscribeBannerComponent () {
   const { t } = useTranslation();
   return (
     <div className="sb__container">

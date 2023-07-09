@@ -5,9 +5,9 @@ import path from 'path';
 import { pages, APP_MARKER, JS_BUNDLE_MARKER, TITLE_MARKER, STYLE_MARKER, PAGE_DESCRIPTION } from '@/config';
 import { logger } from '@/utils';
 
-function replaceAll(
+function replaceAll (
   file: string,
-  metadata: { app: string; jsBundle: string; title: string; cssSheets: string[]; description: string }
+  metadata: { app: string, jsBundle: string, title: string, cssSheets: string[], description: string }
 ) {
   let rels = '';
   for (const sheet of metadata.cssSheets) {
@@ -38,7 +38,7 @@ function replaceAll(
           jsBundle: bundle,
           title,
           cssSheets: styles,
-          description,
+          description
         })
       );
       logger.info('Write successful!');

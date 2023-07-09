@@ -1,7 +1,7 @@
-import React from 'react';
+import type React from 'react';
 
-export function combine<P = {} & JSX.IntrinsicAttributes>(
-  wrappers: ((id: string, Component: React.FC<P>) => React.FC<P>)[],
+export function combine<P = {} & JSX.IntrinsicAttributes> (
+  wrappers: Array<(id: string, Component: React.FC<P>) => React.FC<P>>,
   Component: React.FC<P>,
   id: string
 ) {
