@@ -5,4 +5,5 @@ export interface StoryProps {
   imgSrc: string
   imgAlt: string
   content: string
+  genres: string[]
 }

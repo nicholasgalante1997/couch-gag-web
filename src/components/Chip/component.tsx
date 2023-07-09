@@ -12,15 +12,17 @@ const ChipClassnames = {
   Orange: 'chip__orange'
 };
 
-function ChipComponent ({ shade, text }: ChipProps) {
+function ChipComponent ({ shade, text, className, ...rest }: ChipProps) {
   return (
     <span
+      {...rest}
       className={classnames({
         [ChipClassnames.Chip]: true,
         [ChipClassnames.Vermilion]: shade === 'red',
         [ChipClassnames.Gold]: shade === 'gold',
         [ChipClassnames.Green]: shade === 'green',
-        [ChipClassnames.Orange]: shade === 'orange'
+        [ChipClassnames.Orange]: shade === 'orange',
+        ...(className ? { [className]: true } : {})
       })}
     >
       {text}

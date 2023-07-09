@@ -4,8 +4,17 @@ import { combine } from '@/utils';
 import { useTranslation } from '@/contexts';
 import { type StoryProps } from './types';
 import { withErrorWrapper, withProfiler } from '@/hocs';
+import { Chip } from '../Chip/component';
 
-function StoryComponent ({ title, description, author, imgAlt, imgSrc, content }: StoryProps) {
+function shadeFromIndex (index: number) {
+  if (index % 5 === 0) return 'green';
+  if (index % 4 === 0) return 'gold';
+  if (index % 3 === 0) return 'red';
+  if (index % 2 === 0) return 'orange';
+  return 'green';
+}
+
+function StoryComponent ({ title, description, author, imgAlt, imgSrc, content, genres }: StoryProps) {
   const { t } = useTranslation();
   return (
     <div className="story__wrapper">
@@ -22,7 +31,10 @@ function StoryComponent ({ title, description, author, imgAlt, imgSrc, content }
       {/** Story Metadata */}
       <div className="story_sub-container">
         <p className="story_description">{description}</p>
-        <p className="story_author">{author}</p>
+        <p className="story_author">{[t('story_author_by'), author].join(' ')}</p>
+        <div className="story_badge_row">
+          {genres.map((genre, index) => <Chip key={genre} text={genre} shade={shadeFromIndex(index)} className={index !== 0 ? 'ml-4' : ''}/>)}
+        </div>
       </div>
       {/** Views, Comments, Shares, Likes, Bookmark */}
       {/** Full Screen Image */}
@@ -31,7 +43,7 @@ function StoryComponent ({ title, description, author, imgAlt, imgSrc, content }
       </div>
       {/** Story */}
       <article className="story_content">
-        <ReactMarkdown children={content} />
+        <ReactMarkdown className="story__markdown-layer" children={content} />
       </article>
     </div>
   );

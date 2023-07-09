@@ -23,6 +23,7 @@ Auctor elit sed vulputate mi sit amet mauris commodo. In ornare quam viverra orc
 
 createRoot(document.getElementById('evergreen-terrace')!).render(
   <StoryPage
+    genres={mockStory.genres}
     content={mockContent}
     imgSrc={mockStory.img}
     imgAlt={mockStory.longKey}

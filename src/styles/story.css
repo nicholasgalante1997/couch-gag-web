@@ -1,6 +1,8 @@
 @import 'palette-base.css';
 @import 'palette-twitch.css';
 @import 'chip.css';
+@import 'margin.css';
+@import 'padding.css';
 
 .story__wrapper {
   height: 100%;
@@ -20,7 +22,7 @@
   margin-left: 0px;
   margin-right: 0px;
   height: 40px;
-  background-color: #ef57a1ff;
+  background: linear-gradient(to right, var(--vermilion), var(--gold));
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -80,12 +82,9 @@
 .story_author {
   font-family: Chunk;
   text-align: left;
-  font-size: 14px;
-  background: linear-gradient(113.9deg, var(--violet-web-color) -4.5%, var(--risd-blue) 98.8%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
+  font-size: 16px;
+  color: var(--orange-web);
+  letter-spacing: 0.04em;
 }
 
 .story_image-container {
@@ -105,4 +104,14 @@
   max-width: 800px;
   color: white;
   font-family: League-Spartan;
+}
+
+.story_badge_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 36px;
 }

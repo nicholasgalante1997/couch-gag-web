@@ -11,6 +11,7 @@ const AsideClassnames = {
   ExpandButtonContainer: 'aside__expand-container',
   Badge: 'aside__badge-normal',
   BadgeExpanded: 'aside__badge-expanded',
+  BadgeExpandedText: 'aside__badge-text',
   SeasonContainer: 'aside__season-container',
   ExpandAsideContainer: 'aside__expand-container',
   ExpandeAsideText: 'aside__expand-container-text'
@@ -57,6 +58,15 @@ function AsideComponent () {
     [expanded]
   );
 
+  const badgeTextClassname = useMemo(
+    () =>
+      classnames({
+        [AsideClassnames.BadgeExpandedText]: true,
+        'ml-2': true
+      }),
+    []
+  );
+
   const imgProperties = useMemo(
     () => ({
       alt: expanded ? 'An image of a caret pointing up.' : 'An image of a caret pointing right',
@@ -69,7 +79,7 @@ function AsideComponent () {
     <div className={parentClassName}>
       <div className={AsideClassnames.LogoContainer}>
         <img src="/web.svg" height="48px" width="48px" />
-        {expanded && <span className={AsideClassnames.LogoExpandedText}>The Couch Gag</span>}
+        {expanded && <p className={badgeTextClassname}>The Couch Gag</p>}
       </div>
       <div className={AsideClassnames.SeasonContainer}>
         <div
@@ -79,11 +89,18 @@ function AsideComponent () {
             to('/browse-stories');
           }}
         >
-          <img height="20px" width="20px" src={svgMap.books} alt="a stack of papers" />
-          {expanded && <p className="ml-2">Browse Stories</p>}
+          <img height="20px" width="20px" src={svgMap.books} alt="a stack of papers icon" />
+          {expanded && <p className={badgeTextClassname}>Browse Stories</p>}
         </div>
-        <div className={classnames(badgeClassName, 'mt-4')}>
-          <img height="20px" width="20px" />
+        <div
+          className={classnames(badgeClassName, 'mt-4')}
+          role="button"
+          onClick={() => {
+            to('/contribute');
+          }}
+        >
+          <img height="20px" width="20px" src={svgMap.upload} alt="an upload file icon" />
+          {expanded && <p className={badgeTextClassname}>Submit A Story</p>}
         </div>
         <div className={classnames(badgeClassName, 'mt-4')}>
           <img height="20px" width="20px" />
@@ -97,7 +114,7 @@ function AsideComponent () {
           }}
         >
           <img height="20px" width="20px" {...imgProperties} />
-          {expanded && <p className={AsideClassnames.ExpandeAsideText}>Close</p>}
+          {expanded && <p className={badgeTextClassname}>Close</p>}
         </div>
       </div>
     </div>
