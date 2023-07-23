@@ -24,14 +24,14 @@ function StoryComponent ({ title, description, author, imgAlt, imgSrc, content, 
     if (!lsDismissedString) return false;
     const lsDismissed = JSON.parse(lsDismissedString);
     return lsDismissed.hasDismissed;
-  }, [isBrowser])
+  }, [isBrowser]);
   const [isDismissed, setIsDismissed] = useState(hasAlreadyDismissed);
   const onDismiss = () => {
     if (isBrowser) {
       setIsDismissed(true);
       window.localStorage.setItem('has-dismissed-subscribe-banner', JSON.stringify({ hasDismissed: true }));
     }
-  }
+  };
   return (
     <div className="story__wrapper">
       {/* Micro Subscribe Banner */}
@@ -39,7 +39,9 @@ function StoryComponent ({ title, description, author, imgAlt, imgSrc, content, 
         <div className="story__micro-banner">
           <p>{t('story_micro_banner_text')}</p>
           <button className="button-small ml-5">{t('story_micro_banner_subscribe_now')}</button>
-          <button onClick={onDismiss} className="button-small ml-5">{t('story_micro_banner_dismiss')}</button>
+          <button onClick={onDismiss} className="button-small ml-5">
+            {t('story_micro_banner_dismiss')}
+          </button>
         </div>
       )}
       {/** Title */}
@@ -51,18 +53,25 @@ function StoryComponent ({ title, description, author, imgAlt, imgSrc, content, 
         <p className="story_description">{description}</p>
         <p className="story_author">{[t('story_author_by'), author].join(' ')}</p>
         <div className="story_badge_row">
-          {genres.map((genre, index) => <Chip key={genre} text={genre} shade={shadeFromIndex(index)} className={index !== 0 ? 'ml-4' : ''}/>)}
+          {genres.map((genre, index) => (
+            <Chip
+              key={genre}
+              text={genre}
+              shade={shadeFromIndex(index)}
+              className={index !== 0 ? 'ml-4' : ''}
+            />
+          ))}
         </div>
       </div>
       {/** Views, Comments, Shares, Likes, Bookmark */}
       <div className="story_social_bar">
         <div className="story_social_bar_likes">
-          <span>{likes} {t('story_social_likes')}</span>
+          <span>
+            {likes} {t('story_social_likes')}
+          </span>
         </div>
         <div className="story_social_action_container">
-          <span className="mr-1">Like</span>
-          <span className="ml-1 mr-1">Share</span>
-          <span className="ml-1 mr-1">Bookmark</span>
+          <button className="button-smpl"></button>
         </div>
       </div>
       {/** Full Screen Image */}

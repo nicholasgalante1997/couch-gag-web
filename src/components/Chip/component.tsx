@@ -1,16 +1,9 @@
 import React, { memo } from 'react';
-import { type ChipProps } from './types';
 import classnames from 'classnames';
 import { combine } from '@/utils';
 import { withErrorWrapper, withProfiler } from '@/hocs';
-
-const ChipClassnames = {
-  Chip: 'chip__root',
-  Vermilion: 'chip__red',
-  Gold: 'chip__gold',
-  Green: 'chip__green',
-  Orange: 'chip__orange'
-};
+import { ChipClassnames } from './classnames';
+import { type ChipProps } from './types';
 
 function ChipComponent ({ shade, text, className, ...rest }: ChipProps) {
   return (
@@ -30,4 +23,4 @@ function ChipComponent ({ shade, text, className, ...rest }: ChipProps) {
   );
 }
 
-export const Chip = combine<ChipProps>([withErrorWrapper, withProfiler], memo(ChipComponent), 'chip');
+export const Chip = combine<ChipProps>([withErrorWrapper, withProfiler], memo(ChipComponent), 'Chip');

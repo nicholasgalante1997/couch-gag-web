@@ -9,13 +9,14 @@ if (!version) {
     process.exit(1);
 }
 
-(function() {
+(async function() {
     let didError = false;
     let error;
     let blob = {
         version,
         metadata: []
     };
+
     try {
         const mdSeasons = fs.readdirSync(path.resolve(process.cwd(), 'writ'));
         if (!mdSeasons) {

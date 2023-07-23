@@ -19,7 +19,8 @@ module.exports = {
     ],
     "rules": {
         "semi": ["error", "always"],
-        "@typescript-eslint/semi": ["error", "always"]
+        "@typescript-eslint/semi": ["error", "always"],
+        "@typescript-eslint/explicit-function-return-type": 1,
     },
     "ignorePatterns": ["src/**/*.test.ts", "src/styles/*"]
 }

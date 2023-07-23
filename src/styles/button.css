@@ -78,19 +78,19 @@
 }
 
 .button-smpl:focus {
-  color: #ffd633ff;
+  color: #290f8eff;
 }
 
 .button-smpl:hover {
-  border-color: #ff3333ff;
-  color: #ff3333ff;
-  fill: #ff3333ff;
+  border-color: #2248f1ff;
+  color: #2248f1ff;
+  fill: #2248f1ff;
 }
 
 .button-smpl:active {
-  border-color: #ff3333ff;
-  color: #ff3333ff;
-  fill: #ff3333ff;
+  border-color: #3f1fb2ff;
+  color: #3f1fb2ff;
+  fill: #3f1fb2ff;
 }
 
 @media (min-width: 768px) {

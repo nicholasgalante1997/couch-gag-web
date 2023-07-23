@@ -1,21 +1,9 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import classnames from 'classnames';
+import { useTranslation } from '@/contexts';
 import { withProfiler, withErrorWrapper } from '@/hocs';
 import { isServer, combine, svgMap } from '@/utils';
-
-const AsideClassnames = {
-  Container: 'aside__container',
-  ContainerExpanded: 'aside__container-open',
-  LogoContainer: 'aside__logo-container',
-  LogoExpandedText: 'aside__logo-expanded-text',
-  ExpandButtonContainer: 'aside__expand-container',
-  Badge: 'aside__badge-normal',
-  BadgeExpanded: 'aside__badge-expanded',
-  BadgeExpandedText: 'aside__badge-text',
-  SeasonContainer: 'aside__season-container',
-  ExpandAsideContainer: 'aside__expand-container',
-  ExpandeAsideText: 'aside__expand-container-text'
-};
+import { AsideClassnames } from './classnames';
 
 function AsideComponent () {
   const isBrowser = !isServer();
@@ -28,6 +16,7 @@ function AsideComponent () {
   }
 
   const [expanded, setExpanded] = useState(lsAsideOpen);
+  const { t } = useTranslation();
 
   const to = useCallback((path: string) => {
     if (!isServer()) {
@@ -79,7 +68,7 @@ function AsideComponent () {
     <div className={parentClassName}>
       <div className={AsideClassnames.LogoContainer}>
         <img src="/web.svg" height="48px" width="48px" />
-        {expanded && <p className={badgeTextClassname}>The Couch Gag</p>}
+        {expanded && <p className={badgeTextClassname}>{t('aside_logo_text')}</p>}
       </div>
       <div className={AsideClassnames.SeasonContainer}>
         <div
@@ -90,7 +79,7 @@ function AsideComponent () {
           }}
         >
           <img height="20px" width="20px" src={svgMap.books} alt="a stack of papers icon" />
-          {expanded && <p className={badgeTextClassname}>Browse Stories</p>}
+          {expanded && <p className={badgeTextClassname}>{t('aside_browse_stories')}</p>}
         </div>
         <div
           className={classnames(badgeClassName, 'mt-4')}
@@ -100,10 +89,17 @@ function AsideComponent () {
           }}
         >
           <img height="20px" width="20px" src={svgMap.upload} alt="an upload file icon" />
-          {expanded && <p className={badgeTextClassname}>Submit A Story</p>}
+          {expanded && <p className={badgeTextClassname}>{t('aside_submit_story')}</p>}
         </div>
-        <div className={classnames(badgeClassName, 'mt-4')}>
-          <img height="20px" width="20px" />
+        <div
+          role="button"
+          onClick={() => {
+            to('/about');
+          }}
+          className={classnames(badgeClassName, 'mt-4')}
+        >
+          <img height="20px" width="20px" src={svgMap.info} alt="an icon of an info circle" />
+          {expanded && <p className={badgeTextClassname}>{t('aside_about')}</p>}
         </div>
       </div>
       <div className={AsideClassnames.ExpandAsideContainer}>
@@ -114,7 +110,7 @@ function AsideComponent () {
           }}
         >
           <img height="20px" width="20px" {...imgProperties} />
-          {expanded && <p className={badgeTextClassname}>Close</p>}
+          {expanded && <p className={badgeTextClassname}>{t('aside_close')}</p>}
         </div>
       </div>
     </div>

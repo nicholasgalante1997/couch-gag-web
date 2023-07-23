@@ -1,6 +1,15 @@
 {
   "assets": {},
   "resources": {
+    "aside_logo_text": "The Couch Gag",
+    "aside_browse_stories": "Browse Stories",
+    "aside_submit_story": "Submit A Story",
+    "aside_about": "About CouchGag",
+    "aside_close": "Close",
+    "content_widget_season": "Season",
+    "content_widget_episode": "Episode",
+    "content_widget_talks_about": "Discusses:",
+    "content_widget_action": "Read This Story",
     "lp_title_shard_1": "The",
     "lp_title_shard_2": "Couch",
     "lp_title_shard_3": "Gag",
