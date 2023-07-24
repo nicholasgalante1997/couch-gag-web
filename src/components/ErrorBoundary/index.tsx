@@ -1,27 +1,31 @@
-import { logger } from '@/utils';
 import React, { memo } from 'react';
+import { logger } from '@/utils';
 
 class ErrorBoundary extends React.Component<
 { id: string, fallback: JSX.Element, children: React.ReactNode },
-{ hasError: boolean }
+{ hasError: boolean, error?: Error }
 > {
   constructor (props: { id: string, fallback: JSX.Element, children: React.ReactNode }) {
     super(props);
     this.state = {
-      hasError: false
+      hasError: false,
+      error: undefined
     };
   }
 
-  static getDerivedStateFromError (error: any) {
-    return { hasError: true };
+  static getDerivedStateFromError (error: any): { hasError: boolean, error: Error } {
+    error = (error as Error);
+    const { ...all } = error;
+    logger.error({ ...all });
+    return { hasError: true, error: new Error(...all) };
   }
 
-  componentDidCatch (error: any, info: { componentStack: any } & Record<string, unknown>) {
+  componentDidCatch (error: any, info: { componentStack: any } & Record<string, unknown>): void {
     logger.error(error);
     logger.error(info);
   }
 
-  render () {
+  render (): React.JSX.Element | React.ReactNode {
     if (this.state.hasError) {
       return this.props.fallback;
     }

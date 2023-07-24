@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 export type ChipProps = {
   text: string
@@ -6,4 +6,4 @@ export type ChipProps = {
   className?: string
   id?: string
   role?: string
-} & JSX.IntrinsicAttributes;
+} & React.JSX.IntrinsicAttributes;

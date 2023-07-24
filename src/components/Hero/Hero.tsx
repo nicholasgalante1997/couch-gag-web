@@ -1,18 +1,10 @@
 import React, { memo, useMemo } from 'react';
 import classnames from 'classnames';
-import { withProfiler } from '@/hocs';
+import { withProfiler, withErrorWrapper, combine } from '@/hocs';
 import { useTranslation } from '@/contexts';
+import { HeroImageClassnames } from './classnames';
 
-const HeroImageClassnames = {
-  Container: 'hero__container',
-  MiniCol: 'hero__mini-col',
-  Title: 'hero__title',
-  Text: 'hero__text',
-  Image: 'hero__lp-image',
-  Button: 'button-smpl'
-} as const;
-
-function HeroImageComponent () {
+function HeroImageComponent (): JSX.Element {
   const { t } = useTranslation();
   const titleClassname = useMemo(() => classnames(HeroImageClassnames.Title, 'pac', 'fade-in-left'), []);
   const textClassname = useMemo(() => classnames(HeroImageClassnames.Text, 'ls'), []);
@@ -30,4 +22,4 @@ function HeroImageComponent () {
   );
 }
 
-export const Hero = withProfiler('HeroImage', memo(HeroImageComponent));
+export const Hero = combine([withProfiler, withErrorWrapper], memo(HeroImageComponent), 'lp-hero');

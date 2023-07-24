@@ -163,23 +163,24 @@ body {
   align-items: center;
 }
 
-@keyframes fade-in-right {
+@keyframes grow {
   0% {
     opacity: 0%;
-    transform: translateX(200px);
+    width: 0px;
   }
   100% {
     opacity: 100%;
-    transform: translateX(0px);
+    width: fit-content;
   }
 }
 
 .aside__badge-text {
-  font-family: Pacifico, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+  font-family: Abril, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 500;
   opacity: 0%;
+  font-size: 20px;
   vertical-align: middle;
-  animation: 200ms ease-in 400ms 1 forwards fade-in-right;
+  animation: grow 100ms linear 300ms 1 forwards;
+  color: white;
 }

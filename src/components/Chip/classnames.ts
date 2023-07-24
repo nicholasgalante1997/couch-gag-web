@@ -3,5 +3,5 @@ export const ChipClassnames = {
   Vermilion: 'chip__red',
   Gold: 'chip__gold',
   Green: 'chip__green',
-  Orange: 'chip__orange',
+  Orange: 'chip__orange'
 };

@@ -1,7 +1,7 @@
 import React, { memo, useMemo } from 'react';
 import classNames from 'classnames';
-import { withErrorWrapper, withProfiler } from '@/hocs';
-import { combine, toTitleCase } from '@/utils';
+import { withErrorWrapper, withProfiler, combine } from '@/hocs';
+import { toTitleCase } from '@/utils';
 import { ContentWidgetClassNames } from './classnames';
 import { type ContentWidgetComponentProps } from './types';
 import { useTranslation } from '@/contexts';
@@ -18,7 +18,7 @@ function ContentWidgetComponent ({
   episodeKey,
   genres,
   img
-}: ContentWidgetComponentProps) {
+}: ContentWidgetComponentProps): React.JSX.Element {
   const { t } = useTranslation();
   const isLightThemed = useMemo(() => supportingTheme === 'light', [supportingTheme]);
   const shadingClassName = useMemo(
@@ -63,7 +63,7 @@ function ContentWidgetComponent ({
             <p style={{ color: isLightThemed ? 'black' : 'white' }}>
               {t('content_widget_talks_about')}&nbsp;
               {genres.map((g) => (
-                <span style={{ color }} className="pac ml-1 mr-1">
+                <span key={g} style={{ color }} className="pac ml-1 mr-1">
                   {g} |
                 </span>
               ))}

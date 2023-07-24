@@ -1,2 +1,2 @@
-export * from './component';
+export * from './Story';
 export * from './types';

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --passWithNoTests",
-    "cp:assets": "cp -R src/styles/*.css src/styles/*.ttf assets/ build/",
+    "cp:assets": "cp -R src/styles/*.css src/styles/*.ttf assets/* build/",
     "clean:build": "rm -rf build",
     "storybook": "storybook dev -p 6006",
     "dev:lp": "webpack serve --config dev-configs/landing.webpack.js",

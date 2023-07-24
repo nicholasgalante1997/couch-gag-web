@@ -1,12 +1,13 @@
 import React, { memo, useMemo, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { combine, isServer, svgMap } from '@/utils';
 import { useTranslation } from '@/contexts';
+import { withErrorWrapper, withProfiler, combine } from '@/hocs';
+import { isServer } from '@/utils';
+import { Chip } from '../Chip';
 import { type StoryProps } from './types';
-import { withErrorWrapper, withProfiler } from '@/hocs';
-import { Chip } from '../Chip/component';
+import { StoryClassNames } from './classnames';
 
-function shadeFromIndex (index: number) {
+function shadeFromIndex (index: number): 'green' | 'gold' | 'red' | 'orange' {
   if (index % 5 === 0) return 'green';
   if (index % 4 === 0) return 'gold';
   if (index % 3 === 0) return 'red';
@@ -14,7 +15,7 @@ function shadeFromIndex (index: number) {
   return 'green';
 }
 
-function StoryComponent ({ title, description, author, imgAlt, imgSrc, content, genres }: StoryProps) {
+function StoryComponent ({ title, description, author, imgAlt, imgSrc, content, genres }: StoryProps): React.JSX.Element {
   const likes = 1521; /** Fetch this dynamically */
   const { t } = useTranslation();
   const isBrowser = !isServer();
@@ -26,33 +27,30 @@ function StoryComponent ({ title, description, author, imgAlt, imgSrc, content, 
     return lsDismissed.hasDismissed;
   }, [isBrowser]);
   const [isDismissed, setIsDismissed] = useState(hasAlreadyDismissed);
-  const onDismiss = () => {
+  const onDismiss: () => void = () => {
     if (isBrowser) {
       setIsDismissed(true);
       window.localStorage.setItem('has-dismissed-subscribe-banner', JSON.stringify({ hasDismissed: true }));
     }
   };
   return (
-    <div className="story__wrapper">
-      {/* Micro Subscribe Banner */}
+    <div className={StoryClassNames.Wrapper}>
       {!isDismissed && (
-        <div className="story__micro-banner">
+        <div className={StoryClassNames.MicroBanner}>
           <p>{t('story_micro_banner_text')}</p>
-          <button className="button-small ml-5">{t('story_micro_banner_subscribe_now')}</button>
-          <button onClick={onDismiss} className="button-small ml-5">
+          <button className={StoryClassNames.Button}>{t('story_micro_banner_subscribe_now')}</button>
+          <button onClick={onDismiss} className={StoryClassNames.Button}>
             {t('story_micro_banner_dismiss')}
           </button>
         </div>
       )}
-      {/** Title */}
-      <div className="story_title-container">
+      <div className={StoryClassNames.TitleContainer}>
         <h1>{title}</h1>
       </div>
-      {/** Story Metadata */}
-      <div className="story_sub-container">
-        <p className="story_description">{description}</p>
-        <p className="story_author">{[t('story_author_by'), author].join(' ')}</p>
-        <div className="story_badge_row">
+      <div className={StoryClassNames.SubContainer}>
+        <p className={StoryClassNames.Description}>{description}</p>
+        <p className={StoryClassNames.Author}>{[t('story_author_by'), author].join(' ')}</p>
+        <div className={StoryClassNames.BadgeRow}>
           {genres.map((genre, index) => (
             <Chip
               key={genre}
@@ -63,24 +61,21 @@ function StoryComponent ({ title, description, author, imgAlt, imgSrc, content, 
           ))}
         </div>
       </div>
-      {/** Views, Comments, Shares, Likes, Bookmark */}
-      <div className="story_social_bar">
-        <div className="story_social_bar_likes">
+      <div className={StoryClassNames.SocialBar}>
+        <div className={StoryClassNames.Likes}>
           <span>
             {likes} {t('story_social_likes')}
           </span>
         </div>
-        <div className="story_social_action_container">
+        <div className={StoryClassNames.ActionContainer}>
           <button className="button-smpl"></button>
         </div>
       </div>
-      {/** Full Screen Image */}
-      <div className="story_image-container">
-        <img src={imgSrc} alt={imgAlt} className="story_image" />
+      <div className={StoryClassNames.ImageContainer}>
+        <img src={imgSrc} alt={imgAlt} className={StoryClassNames.Image} />
       </div>
-      {/** Story */}
-      <article className="story_content">
-        <ReactMarkdown className="story__markdown-layer" children={content} />
+      <article className={StoryClassNames.ArticleContent}>
+        <ReactMarkdown className={StoryClassNames.Markdown}>{content}</ReactMarkdown>
       </article>
     </div>
   );

@@ -1,17 +1,16 @@
 import React, { memo, useCallback, useMemo } from 'react';
-import { Hero, SubscribeBanner, ContentWidget } from '@/components';
+import { Hero, SubscribeBanner, ContentWidget, ContributeBanner } from '@/components';
 import { useWritContext } from '@/contexts';
-import { withProfiler, withRootProviders } from '@/hocs';
-import { combine } from '@/utils';
+import { withErrorWrapper, withProfiler, withRootProviders, combine } from '@/hocs';
 
 const ColorSwatch = [
   ['#fca311ff', 'lightblue', 'light'],
   ['#0e0035ff', '#ff3333ff', 'dark']
 ] as const;
 
-function LandingPageComponent () {
+function LandingPageComponent (): JSX.Element {
   const { getAll } = useWritContext();
-  function filterGetAllBySeasonOne () {
+  function filterGetAllBySeasonOne (): ReturnType<typeof getAll> {
     return getAll().filter(({ seasonKey }) => seasonKey === '01');
   }
   const mFilterGetAllBySeasonOne = useCallback(filterGetAllBySeasonOne, [getAll]);
@@ -27,13 +26,14 @@ function LandingPageComponent () {
     <React.Fragment>
       <Hero />
       <SubscribeBanner />
-      {writ.map(writToContentJsx)}
+      {/* {writ.map(writToContentJsx)} */}
+      <ContributeBanner />
     </React.Fragment>
   );
 }
 
 export const LandingPage = combine(
-  [withProfiler, withRootProviders],
+  [withProfiler, withRootProviders, withErrorWrapper],
   memo(LandingPageComponent),
   'landing-page'
 );

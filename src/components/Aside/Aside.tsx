@@ -1,17 +1,17 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import classnames from 'classnames';
 import { useTranslation } from '@/contexts';
-import { withProfiler, withErrorWrapper } from '@/hocs';
-import { isServer, combine, svgMap } from '@/utils';
+import { withProfiler, withErrorWrapper, combine } from '@/hocs';
+import { isServer, svgMap } from '@/utils';
 import { AsideClassnames } from './classnames';
 
-function AsideComponent () {
+function AsideComponent (): JSX.Element {
   const isBrowser = !isServer();
   let lsAsideOpen = false;
   if (isBrowser) {
     const hasStoredValue = window.localStorage.getItem('couch-gag__aside__open');
     if (hasStoredValue) {
-      lsAsideOpen = !!JSON.parse(hasStoredValue).isOpen;
+      lsAsideOpen = JSON.parse(hasStoredValue).isOpen as boolean;
     }
   }
 
