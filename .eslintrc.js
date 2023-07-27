@@ -25,5 +25,5 @@ module.exports = {
         "@typescript-eslint/ban-types": 0,
         "@typescript-eslint/strict-boolean-expressions": 0
     },
-    "ignorePatterns": ["src/**/*.test.ts", "src/styles/*", ".eslintrc.js"]
+    "ignorePatterns": ["src/**/*.test.ts", "src/styles/*", ".eslintrc.js", "*.html"]
 }

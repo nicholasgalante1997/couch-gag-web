@@ -8,7 +8,7 @@ import { logger } from '@/utils';
 function replaceAll (
   file: string,
   metadata: { app: string, jsBundle: string, title: string, cssSheets: string[], description: string }
-) {
+): string {
   let rels = '';
   for (const sheet of metadata.cssSheets) {
     rels = rels + `<link rel="stylesheet" href="${sheet}.css">\n`;
@@ -20,8 +20,11 @@ function replaceAll (
     .replace(STYLE_MARKER, rels)
     .replace(PAGE_DESCRIPTION, metadata.description);
 }
-
-(async function () {
+/**
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void for an understanding
+ * of the void keyword in javascript and why eslint demands we use it in conjunction with IIFEs
+ */
+void (async function () {
   for (const page of pages) {
     const { component: Component, props, htmlFileName, bundle, title, styles, description } = page;
     try {

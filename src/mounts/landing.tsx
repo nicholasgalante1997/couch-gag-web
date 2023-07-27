@@ -3,7 +3,7 @@ import { hydrateRoot } from 'react-dom/client';
 import { DOCUMENT_ROOT_ID } from '@/config';
 import { LandingPage } from '@/pages';
 
-function mount () {
+function mount (): void {
   let mountingEl = document.getElementById(DOCUMENT_ROOT_ID);
   if (mountingEl == null) {
     mountingEl = document.createElement('div');

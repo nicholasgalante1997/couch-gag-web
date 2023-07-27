@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import { useTranslation } from '@/contexts';
 import { withProfiler, withErrorWrapper, combine } from '@/hocs';
 import { ContributeBannerClassNames } from './classnames';
-import { fmtLocaleString } from '@/utils';
 
 function ContributeBannerComponent (): JSX.Element {
   const { t } = useTranslation();
@@ -12,8 +11,13 @@ function ContributeBannerComponent (): JSX.Element {
               {t('lp_contribute_banner_title')}
             </h1>
             <p className={ContributeBannerClassNames.Text}>
-              {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-              {fmtLocaleString(t('lp_contribute_banner_text')!, { copyright: '&copy;' })}
+              {t('lp_contribute_banner_text')}
+            </p>
+            <p className={ContributeBannerClassNames.Bold}>
+              {t('lp_contribute_banner_bold')}
+            </p>
+            <p className={ContributeBannerClassNames.Text}>
+              {t('lp_contribute_banner_call')}
             </p>
             <button className="button-smpl mt-3">
               {t('lp_contribute_banner_cta')}
