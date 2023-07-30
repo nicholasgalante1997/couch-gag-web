@@ -2,21 +2,36 @@ import React, { memo } from 'react';
 import { useTranslation } from '@/contexts';
 import { withProfiler, withErrorWrapper, combine } from '@/hocs';
 import { ContributeBannerClassNames } from './classnames';
+import { useOnElementEnter } from '@/hooks';
+import {
+  headingLayerAnimationId,
+  headingOnEnter,
+  topParagraphLayerAnimationId,
+  topParagraphOnEnter,
+  boldParagraphLayerAnimationId,
+  boldParagraphOnEnter,
+  lowerParagraphLayerAnimationId,
+  trailParagraphOnEnter
+} from './animations';
 
 function ContributeBannerComponent (): JSX.Element {
   const { t } = useTranslation();
+  useOnElementEnter(headingLayerAnimationId, headingOnEnter);
+  useOnElementEnter(topParagraphLayerAnimationId, topParagraphOnEnter);
+  useOnElementEnter(boldParagraphLayerAnimationId, boldParagraphOnEnter);
+  useOnElementEnter(lowerParagraphLayerAnimationId, trailParagraphOnEnter);
   return (
         <div className={ContributeBannerClassNames.Wrapper}>
-            <h1 className={ContributeBannerClassNames.Title}>
+            <h1 id={headingLayerAnimationId} className={ContributeBannerClassNames.Title}>
               {t('lp_contribute_banner_title')}
             </h1>
-            <p className={ContributeBannerClassNames.Text}>
+            <p id={topParagraphLayerAnimationId} className={ContributeBannerClassNames.Text}>
               {t('lp_contribute_banner_text')}
             </p>
-            <p className={ContributeBannerClassNames.Bold}>
+            <p id={boldParagraphLayerAnimationId} className={ContributeBannerClassNames.Bold}>
               {t('lp_contribute_banner_bold')}
             </p>
-            <p className={ContributeBannerClassNames.Text}>
+            <p id={lowerParagraphLayerAnimationId} className={ContributeBannerClassNames.Text}>
               {t('lp_contribute_banner_call')}
             </p>
             <button className="button-smpl mt-3">

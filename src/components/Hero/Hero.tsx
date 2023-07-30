@@ -6,7 +6,7 @@ import { HeroImageClassnames } from './classnames';
 
 function HeroImageComponent (): JSX.Element {
   const { t } = useTranslation();
-  const titleClassname = useMemo(() => classnames(HeroImageClassnames.Title, 'pac', 'fade-in-left'), []);
+  const titleClassname = useMemo(() => classnames(HeroImageClassnames.Title, 'pac'), []);
   const textClassname = useMemo(() => classnames(HeroImageClassnames.Text, 'ls'), []);
   return (
     <div className={HeroImageClassnames.Container}>
