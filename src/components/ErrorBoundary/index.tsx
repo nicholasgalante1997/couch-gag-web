@@ -14,10 +14,9 @@ class ErrorBoundary extends React.Component<
   }
 
   static getDerivedStateFromError (error: any): { hasError: boolean, error: Error } {
-    error = (error as Error);
-    const { ...all } = error;
-    logger.error({ ...all });
-    return { hasError: true, error: new Error(...all) };
+    error = error as Error;
+    logger.error(error);
+    return { hasError: true, error: new Error(error) };
   }
 
   componentDidCatch (error: any, info: { componentStack: any } & Record<string, unknown>): void {
@@ -27,6 +26,7 @@ class ErrorBoundary extends React.Component<
 
   render (): React.JSX.Element | React.ReactNode {
     if (this.state.hasError) {
+      logger.info(this.state.error);
       return this.props.fallback;
     }
 

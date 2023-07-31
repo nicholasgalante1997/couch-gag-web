@@ -1,7 +1,7 @@
 import React, { memo, useMemo, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from '@/contexts';
-import { withErrorWrapper, withProfiler, combine } from '@/hocs';
+import { combine, withErrorWrapper, withProfiler } from '@/hocs';
 import { isServer } from '@/utils';
 import { Chip } from '../Chip';
 import { type StoryProps } from './types';
@@ -15,7 +15,15 @@ function shadeFromIndex (index: number): 'green' | 'gold' | 'red' | 'orange' {
   return 'green';
 }
 
-function StoryComponent ({ title, description, author, imgAlt, imgSrc, content, genres }: StoryProps): React.JSX.Element {
+function StoryComponent ({
+  title,
+  description,
+  author,
+  imgAlt,
+  imgSrc,
+  content,
+  genres
+}: StoryProps): React.JSX.Element {
   const likes = 1521; /** Fetch this dynamically */
   const { t } = useTranslation();
   const isBrowser = !isServer();

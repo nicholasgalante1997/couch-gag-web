@@ -1,7 +1,7 @@
 import React, { memo, useCallback, useMemo } from 'react';
-import { Hero, SubscribeBanner, ContentWidget, ContributeBanner } from '@/components';
+import { ContentWidget, ContributeBanner, Hero, SubscribeBanner } from '@/components';
 import { useWritContext } from '@/contexts';
-import { withErrorWrapper, withProfiler, withRootProviders, combine } from '@/hocs';
+import { combine, withErrorWrapper, withProfiler, withRootProviders } from '@/hocs';
 
 const ColorSwatch = [
   ['#fca311ff', 'lightblue', 'light'],

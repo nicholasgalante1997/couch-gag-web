@@ -73,6 +73,11 @@ module.exports = {
       alias: {
         "@": path.resolve(process.cwd(), "src"),
         handlebars: path.resolve(process.cwd(), 'node_modules', 'handlebars/dist/handlebars.min.js'),
+      },
+      fallback: {
+        path: false,
+        process: false,
+        fs: false
       }
     },
     plugins: [

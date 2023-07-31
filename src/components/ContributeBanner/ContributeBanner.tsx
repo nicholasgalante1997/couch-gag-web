@@ -1,16 +1,16 @@
 import React, { memo } from 'react';
 import { useTranslation } from '@/contexts';
-import { withProfiler, withErrorWrapper, combine } from '@/hocs';
+import { combine, withErrorWrapper, withProfiler } from '@/hocs';
 import { ContributeBannerClassNames } from './classnames';
 import { useOnElementEnter } from '@/hooks';
 import {
-  headingLayerAnimationId,
-  headingOnEnter,
-  topParagraphLayerAnimationId,
-  topParagraphOnEnter,
   boldParagraphLayerAnimationId,
   boldParagraphOnEnter,
+  headingLayerAnimationId,
+  headingOnEnter,
   lowerParagraphLayerAnimationId,
+  topParagraphLayerAnimationId,
+  topParagraphOnEnter,
   trailParagraphOnEnter
 } from './animations';
 
@@ -21,23 +21,21 @@ function ContributeBannerComponent (): JSX.Element {
   useOnElementEnter(boldParagraphLayerAnimationId, boldParagraphOnEnter);
   useOnElementEnter(lowerParagraphLayerAnimationId, trailParagraphOnEnter);
   return (
-        <div className={ContributeBannerClassNames.Wrapper}>
-            <h1 id={headingLayerAnimationId} className={ContributeBannerClassNames.Title}>
-              {t('lp_contribute_banner_title')}
-            </h1>
-            <p id={topParagraphLayerAnimationId} className={ContributeBannerClassNames.Text}>
-              {t('lp_contribute_banner_text')}
-            </p>
-            <p id={boldParagraphLayerAnimationId} className={ContributeBannerClassNames.Bold}>
-              {t('lp_contribute_banner_bold')}
-            </p>
-            <p id={lowerParagraphLayerAnimationId} className={ContributeBannerClassNames.Text}>
-              {t('lp_contribute_banner_call')}
-            </p>
-            <button className="button-smpl mt-3">
-              {t('lp_contribute_banner_cta')}
-            </button>
-        </div>
+    <div className={ContributeBannerClassNames.Wrapper}>
+      <h1 id={headingLayerAnimationId} className={ContributeBannerClassNames.Title}>
+        {t('lp_contribute_banner_title')}
+      </h1>
+      <p id={topParagraphLayerAnimationId} className={ContributeBannerClassNames.Text}>
+        {t('lp_contribute_banner_text')}
+      </p>
+      <p id={boldParagraphLayerAnimationId} className={ContributeBannerClassNames.Bold}>
+        {t('lp_contribute_banner_bold')}
+      </p>
+      <p id={lowerParagraphLayerAnimationId} className={ContributeBannerClassNames.Text}>
+        {t('lp_contribute_banner_call')}
+      </p>
+      <button className="button-smpl mt-3">{t('lp_contribute_banner_cta')}</button>
+    </div>
   );
 }
 

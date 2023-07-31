@@ -1,7 +1,7 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import classnames from 'classnames';
 import { useTranslation } from '@/contexts';
-import { withProfiler, withErrorWrapper, combine } from '@/hocs';
+import { combine, withErrorWrapper, withProfiler } from '@/hocs';
 import { isServer, svgMap } from '@/utils';
 import { AsideClassnames } from './classnames';
 

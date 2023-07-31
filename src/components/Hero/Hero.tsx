@@ -1,6 +1,6 @@
 import React, { memo, useMemo } from 'react';
 import classnames from 'classnames';
-import { withProfiler, withErrorWrapper, combine } from '@/hocs';
+import { combine, withErrorWrapper, withProfiler } from '@/hocs';
 import { useTranslation } from '@/contexts';
 import { HeroImageClassnames } from './classnames';
 

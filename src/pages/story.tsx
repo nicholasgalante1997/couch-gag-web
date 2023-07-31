@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Story, type StoryProps } from '@/components';
-import { withProfiler, withRootProviders, combine } from '@/hocs';
+import { combine, withProfiler, withRootProviders } from '@/hocs';
 
 function StoryComponent (props: StoryProps): React.JSX.Element {
   return (

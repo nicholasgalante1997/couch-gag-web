@@ -3,7 +3,10 @@ export const topParagraphLayerAnimationId = 'lp_contribute_lead_text_eluid' as c
 export const boldParagraphLayerAnimationId = 'lp_contribute_bold_text_eluid' as const;
 export const lowerParagraphLayerAnimationId = 'lp_contribute_trail_text_eluid' as const;
 
-export function headingOnEnter (entries: IntersectionObserverEntryInit[], observer: IntersectionObserver): void {
+export function headingOnEnter (
+  entries: IntersectionObserverEntryInit[],
+  observer: IntersectionObserver
+): void {
   const isolatedEl = entries.length ? entries[0] : null;
   if (isolatedEl) {
     const { isIntersecting } = isolatedEl;
@@ -14,7 +17,10 @@ export function headingOnEnter (entries: IntersectionObserverEntryInit[], observ
   }
 }
 
-export function topParagraphOnEnter (entries: IntersectionObserverEntryInit[], observer: IntersectionObserver): void {
+export function topParagraphOnEnter (
+  entries: IntersectionObserverEntryInit[],
+  observer: IntersectionObserver
+): void {
   const isolatedEl = entries.length ? entries[0] : null;
   if (isolatedEl) {
     const { isIntersecting } = isolatedEl;
@@ -25,7 +31,10 @@ export function topParagraphOnEnter (entries: IntersectionObserverEntryInit[], o
   }
 }
 
-export function boldParagraphOnEnter (entries: IntersectionObserverEntryInit[], observer: IntersectionObserver): void {
+export function boldParagraphOnEnter (
+  entries: IntersectionObserverEntryInit[],
+  observer: IntersectionObserver
+): void {
   const isolatedEl = entries.length ? entries[0] : null;
   if (isolatedEl) {
     const { isIntersecting } = isolatedEl;
@@ -36,7 +45,10 @@ export function boldParagraphOnEnter (entries: IntersectionObserverEntryInit[], 
   }
 }
 
-export function trailParagraphOnEnter (entries: IntersectionObserverEntryInit[], observer: IntersectionObserver): void {
+export function trailParagraphOnEnter (
+  entries: IntersectionObserverEntryInit[],
+  observer: IntersectionObserver
+): void {
   const isolatedEl = entries.length ? entries[0] : null;
   if (isolatedEl) {
     const { isIntersecting } = isolatedEl;

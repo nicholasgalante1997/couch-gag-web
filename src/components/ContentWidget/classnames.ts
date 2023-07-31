@@ -8,5 +8,5 @@ export const ContentWidgetClassNames = {
   Content: 'content__body',
   ImageContainerLeft: 'content__image-container-left',
   ImageContainerRight: 'content__image-container-right',
-  Image: 'content__image',
+  Image: 'content__image'
 } as const;

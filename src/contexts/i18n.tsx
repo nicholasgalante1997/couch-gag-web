@@ -1,10 +1,10 @@
-import React, { createContext, useContext, type ReactNode, useState, useEffect, memo } from 'react';
+import React, { type ReactNode, createContext, memo, useContext, useEffect, useState } from 'react';
 import { type Locale } from '@/types';
 import { AppStrings } from '@/locales';
 import { logger } from '@/utils';
 import { withProfiler } from '@/hocs';
 
-async function updateAppStrings (locale: string, update: (blob: typeof AppStrings) => void) {
+async function updateAppStrings (locale: string, update: (blob: typeof AppStrings) => void): Promise<void> {
   try {
     const resolvedModule = await import(
       /* webpackInclude: /\.json$/ */
@@ -23,7 +23,13 @@ async function updateAppStrings (locale: string, update: (blob: typeof AppString
 
 const I18NContext = createContext<typeof AppStrings>(AppStrings);
 
-export const useTranslation = () => {
+type UseTranslationFunction = () => {
+  t: (key: string) => string | undefined
+  media: (key: string) => string | undefined
+  raw: typeof AppStrings
+};
+
+export const useTranslation: UseTranslationFunction = () => {
   const i18nPool = useContext(I18NContext);
   const { assets, resources } = i18nPool;
   function t (key: string): string | undefined {
@@ -35,13 +41,13 @@ export const useTranslation = () => {
   return { t, media, raw: i18nPool };
 };
 
-function I18NProviderComponent ({ children, locale = 'en' }: { children: ReactNode, locale?: Locale }) {
+function I18NProviderComponent ({ children, locale = 'en' }: { children: ReactNode, locale?: Locale }): React.JSX.Element | React.ReactNode {
   const [langStrings, setLangStrings] = useState(AppStrings);
   useEffect(() => {
     if (locale !== 'en') {
       updateAppStrings(locale, (updatedStrings) => {
         setLangStrings(updatedStrings);
-      });
+      }).catch((e) => { logger.error(e); });
     }
   }, [locale]);
   return <I18NContext.Provider value={langStrings}>{children}</I18NContext.Provider>;

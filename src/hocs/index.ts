@@ -1,6 +1,7 @@
+import { type ErrorBoundaryProps } from './error';
 import type React from 'react';
 
-export function combine<P = {} & JSX.IntrinsicAttributes> (
+export function combine<P = ErrorBoundaryProps & {} & JSX.IntrinsicAttributes> (
   wrappers: Array<(id: string, Component: React.FC<P>) => React.FC<P>>,
   Component: React.FC<P>,
   id: string

@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import classnames from 'classnames';
-import { withErrorWrapper, withProfiler, combine } from '@/hocs';
+import { combine, withErrorWrapper, withProfiler } from '@/hocs';
 import { ChipClassnames } from './classnames';
 import { type ChipProps } from './types';
 

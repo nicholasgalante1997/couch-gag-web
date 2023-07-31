@@ -1,9 +1,9 @@
-import React from 'react';
+import { APP_MARKER, JS_BUNDLE_MARKER, PAGE_DESCRIPTION, STYLE_MARKER, TITLE_MARKER, getPages } from '@/config/server';
+import { logger } from '@/utils';
 import { renderToString } from 'react-dom/server';
+import React from 'react';
 import fs from 'fs';
 import path from 'path';
-import { pages, APP_MARKER, JS_BUNDLE_MARKER, TITLE_MARKER, STYLE_MARKER, PAGE_DESCRIPTION } from '@/config';
-import { logger } from '@/utils';
 
 function replaceAll (
   file: string,
@@ -25,7 +25,7 @@ function replaceAll (
  * of the void keyword in javascript and why eslint demands we use it in conjunction with IIFEs
  */
 void (async function () {
-  for (const page of pages) {
+  for (const page of getPages()) {
     const { component: Component, props, htmlFileName, bundle, title, styles, description } = page;
     try {
       /** load html hbs file */

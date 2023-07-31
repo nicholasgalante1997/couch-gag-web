@@ -1,6 +1,6 @@
 import React, { memo, useMemo } from 'react';
 import classNames from 'classnames';
-import { withErrorWrapper, withProfiler, combine } from '@/hocs';
+import { combine, withErrorWrapper, withProfiler } from '@/hocs';
 import { toTitleCase } from '@/utils';
 import { ContentWidgetClassNames } from './classnames';
 import { type ContentWidgetComponentProps } from './types';
@@ -59,7 +59,7 @@ function ContentWidgetComponent ({
               {episodeKey}
             </span>
           </p>
-          {genres && (genres.length > 0) && (
+          {genres && genres.length > 0 && (
             <p style={{ color: isLightThemed ? 'black' : 'white' }}>
               {t('content_widget_talks_about')}&nbsp;
               {genres.map((g) => (
@@ -69,7 +69,9 @@ function ContentWidgetComponent ({
               ))}
             </p>
           )}
-          <a href={`/${slug}`} target="_self" role="link" className="button-smpl">{t('content_widget_action')}</a>
+          <a href={`/${slug}`} target="_self" role="link" className="button-smpl">
+            {t('content_widget_action')}
+          </a>
         </div>
       </div>
     </div>

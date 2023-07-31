@@ -1,5 +1,5 @@
 import React, { createContext, memo, useContext, useState } from 'react';
-import { withErrorWrapper, withProfiler, combine } from '@/hocs';
+import { combine, withErrorWrapper, withProfiler } from '@/hocs';
 import writMd from './data/writ.json';
 
 interface WritContextType {
@@ -23,9 +23,10 @@ export const useWritContext = () => useContext(WritContext);
 const WritProviderComponent = function ({ children }: { children: React.ReactNode }): React.JSX.Element {
   const [writState] = useState(writMd);
   const getAll: () => typeof writState.metadata = () => writState.metadata;
-  const getOne: (key: string, value: unknown) => (typeof writState.metadata[number] | undefined) =
-    (key: string, value: unknown) =>
-      writState.metadata.find((mdObj) => mdObj[key as keyof typeof mdObj] === value);
+  const getOne: (key: string, value: unknown) => (typeof writState.metadata)[number] | undefined = (
+    key: string,
+    value: unknown
+  ) => writState.metadata.find((mdObj) => mdObj[key as keyof typeof mdObj] === value);
   return <WritContext.Provider value={{ getAll, getOne }}>{children}</WritContext.Provider>;
 };
 

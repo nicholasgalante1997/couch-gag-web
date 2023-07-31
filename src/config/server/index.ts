@@ -4,3 +4,5 @@ export const JS_BUNDLE_MARKER = '%JS_BUNDLE%' as const;
 export const APP_MARKER = '<!-- app -->' as const;
 export const STYLE_MARKER = '<!-- styles -->' as const;
 export const PAGE_DESCRIPTION = '%PAGE_DESCRIPTION%' as const;
+
+export * from './pages';
