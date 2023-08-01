@@ -1,11 +1,18 @@
-import { APP_MARKER, JS_BUNDLE_MARKER, PAGE_DESCRIPTION, STYLE_MARKER, TITLE_MARKER, getPages } from '@/config/server';
+import {
+  APP_MARKER,
+  JS_BUNDLE_MARKER,
+  PAGE_DESCRIPTION,
+  STYLE_MARKER,
+  TITLE_MARKER,
+  getPages
+} from '@/config/server';
 import { logger } from '@/utils';
 import { renderToString } from 'react-dom/server';
 import React from 'react';
 import fs from 'fs';
 import path from 'path';
 
-function replaceAll (
+function replaceAll(
   file: string,
   metadata: { app: string, jsBundle: string, title: string, cssSheets: string[], description: string }
 ): string {

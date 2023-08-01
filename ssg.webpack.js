@@ -7,7 +7,10 @@ const { EnvironmentPlugin } = webpack;
 dotenv.config();
 
 module.exports = {
-    entry: path.resolve(process.cwd(), 'src', 'ssg', 'build-app.tsx'),
+    entry: {
+      'build-app': path.resolve(process.cwd(), 'src', 'ssg', 'build-app.tsx'),
+      'build-entry-points': path.resolve(process.cwd(), 'src', 'ssg', 'build-dynamic-entrypoints.ts')
+    },
     mode: 'production',
     module: {
         rules: [
@@ -27,7 +30,7 @@ module.exports = {
       },
     output: {
         path: path.resolve(process.cwd(), '.build-process'),
-        filename: 'build-app.js'
+        filename: '[name].js'
     },
     target: 'node',
     node: {

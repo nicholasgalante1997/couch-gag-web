@@ -13,12 +13,13 @@
     "build-storybook": "storybook build",
     "format": "prettier --write src",
     "lint": "eslint --fix \"src/**/*.{ts,tsx}\"",
+    "pkg:entry": "node .build-process/build-entry-points.js",
     "pkg:js": "webpack --config client.webpack.js",
     "pkg:ts-script": "webpack --config ssg.webpack.js",
     "pkg:html": "node .build-process/build-app.js",
     "pkg:metadata": "node build-md.mjs",
     "clean:tmp": "rm -rf .build-process",
-    "build": "npm-run-all clean:build pkg:js pkg:ts-script pkg:html clean:tmp cp:assets"
+    "build": "npm-run-all clean:build pkg:ts-script pkg:entry pkg:js pkg:html clean:tmp cp:assets"
   },
   "keywords": [],
   "author": "",

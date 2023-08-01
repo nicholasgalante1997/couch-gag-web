@@ -3,6 +3,7 @@
 @import 'chip.css';
 @import 'margin.css';
 @import 'padding.css';
+@import 'button.css';
 
 .story__wrapper {
   height: 100%;
@@ -106,7 +107,7 @@
   font-family: League-Spartan;
 }
 
-.story_content p {
+.story__markdown-layer p {
   font-size: 16px;
 }
 

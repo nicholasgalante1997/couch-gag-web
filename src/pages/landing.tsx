@@ -8,9 +8,9 @@ const ColorSwatch = [
   ['#0e0035ff', '#ff3333ff', 'dark']
 ] as const;
 
-function LandingPageComponent (): JSX.Element {
+function LandingPageComponent(): JSX.Element {
   const { getAll } = useWritContext();
-  function filterGetAllBySeasonOne (): ReturnType<typeof getAll> {
+  function filterGetAllBySeasonOne(): ReturnType<typeof getAll> {
     return getAll().filter(({ seasonKey }) => seasonKey === '01');
   }
   const mFilterGetAllBySeasonOne = useCallback(filterGetAllBySeasonOne, [getAll]);
