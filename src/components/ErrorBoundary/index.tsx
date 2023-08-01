@@ -2,10 +2,10 @@ import React, { memo } from 'react';
 import { logger } from '@/utils';
 
 class ErrorBoundary extends React.Component<
-{ id: string, fallback: JSX.Element, children: React.ReactNode },
-{ hasError: boolean, error?: Error }
+  { id: string; fallback: JSX.Element; children: React.ReactNode },
+  { hasError: boolean; error?: Error }
 > {
-  constructor(props: { id: string, fallback: JSX.Element, children: React.ReactNode }) {
+  constructor(props: { id: string; fallback: JSX.Element; children: React.ReactNode }) {
     super(props);
     this.state = {
       hasError: false,
@@ -13,7 +13,7 @@ class ErrorBoundary extends React.Component<
     };
   }
 
-  static getDerivedStateFromError(error: any): { hasError: boolean, error: Error } {
+  static getDerivedStateFromError(error: any): { hasError: boolean; error: Error } {
     error = error as Error;
     logger.error(error);
     return { hasError: true, error: new Error(error) };

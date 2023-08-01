@@ -1,6 +1,6 @@
 import pino from 'pino';
 
-function logLevel() {
+function logLevel(): pino.Level {
   if (process.env.NODE_ENV === 'production') {
     return 'info'; /** TODO: before launching change this to silent */
   }

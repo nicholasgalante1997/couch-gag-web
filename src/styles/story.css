@@ -107,8 +107,31 @@
   font-family: League-Spartan;
 }
 
+@media screen and (min-width: 1224px) {
+  .story_content {
+    max-width: 1024px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .story_content {
+    max-width: 90%;
+  }
+}
+
 .story__markdown-layer p {
-  font-size: 16px;
+  font-size: 20px;
+}
+
+.story__markdown-layer h2 {
+  font-size: 40px;
+  font-weight: 900;
+  background: linear-gradient(to right, var(--vermilion), var(--gold));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 
 .story_badge_row {

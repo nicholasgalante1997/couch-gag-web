@@ -3,8 +3,8 @@ import { combine, withErrorWrapper, withProfiler } from '@/hocs';
 import writMd from './data/writ.json';
 
 interface WritContextType {
-  getAll: () => (typeof writMd)['metadata']
-  getOne: (key: string, value: unknown) => (typeof writMd)['metadata'][number] | undefined
+  getAll: () => (typeof writMd)['metadata'];
+  getOne: (key: string, value: unknown) => (typeof writMd)['metadata'][number] | undefined;
 }
 
 const defaultWritContext = {
