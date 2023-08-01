@@ -37,7 +37,7 @@ Not one person at the 7 person table ran to the rescue of Wayne Gerbisch.
 
 &quot;`,
     description: 'The syndicate grows, and everyone gets a share.',
-    genres,
+    genres: genres,
     imgAlt: 'The syndicate grows, and everyone gets a share.',
     imgSrc: 'https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg',
     title: 'Milo, Il Mayore'

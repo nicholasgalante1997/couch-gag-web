@@ -52,7 +52,7 @@ She had no benefactors. She had, perhaps, fewer real friends. She often found sh
 `,
     description:
       'A discovery is made during a remote expedition to Antarctica that begins to unravel the fabric of the human storyline.',
-    genres,
+    genres: genres,
     imgAlt:
       'A discovery is made during a remote expedition to Antarctica that begins to unravel the fabric of the human storyline.',
     imgSrc: '/snow-red.webp',

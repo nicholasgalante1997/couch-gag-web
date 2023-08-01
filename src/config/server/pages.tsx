@@ -26,16 +26,16 @@ function buildStories(): Array<PageConfig<StoryProps>> {
         const storyProps: StoryProps = {
           author: attributes?.author,
           content: body,
-          description: attributes?.description,
+          description: attributes?.subtitle,
           genres: attributes?.genres,
-          imgAlt: attributes?.description,
+          imgAlt: attributes?.subtitle,
           imgSrc: attributes?.img,
           title: attributes?.title
         };
         configs.push({
           bundle: attributes?.slug,
           component: StoryPage,
-          description: buildDescription(attributes?.description),
+          description: buildDescription(attributes?.subtitle),
           htmlFileName: attributes?.slug,
           styles: ['story'],
           title: attributes?.title,

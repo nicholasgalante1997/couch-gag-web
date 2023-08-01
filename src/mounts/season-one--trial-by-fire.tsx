@@ -50,7 +50,7 @@ There&#x27;s an eruption of snickers. T pulls out 500 dollars in a fat folded wa
 
 `,
     description: 'no-name cult exacts an operation that spirals into control.',
-    genres,
+    genres: genres,
     imgAlt: 'no-name cult exacts an operation that spirals into control.',
     imgSrc: 'https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg',
     title: 'trial by fire'

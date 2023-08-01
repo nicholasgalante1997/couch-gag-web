@@ -48,7 +48,7 @@ function mount(): void {
 &quot;Uh-huh. And where are we Teddy?&quot;`,
     description:
       'A psychotherapist and his patient debate a fantasy that&#x27;s emerged since the great gag.',
-    genres,
+    genres: genres,
     imgAlt: 'A psychotherapist and his patient debate a fantasy that&#x27;s emerged since the great gag.',
     imgSrc: 'SusanSarandon',
     title: 'Being and Time'

@@ -21,10 +21,10 @@ function mount(): void {
   }
   const props: StoryProps = {
     author: 'Washington Irving',
-    content: '',
+    content: ``,
     description:
       'A local organized crime syndication attempts to elicit a protection payment from a new business that&#x27;s opened up in Somerset, Missouri.',
-    genres,
+    genres: genres,
     imgAlt:
       'A local organized crime syndication attempts to elicit a protection payment from a new business that&#x27;s opened up in Somerset, Missouri.',
     imgSrc: 'A Butcher&#x27;s Knife',

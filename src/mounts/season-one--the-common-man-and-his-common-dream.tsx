@@ -25,7 +25,7 @@ function mount(): void {
 `,
     description:
       'Weezer fails to show up to a concert at Nikon Jones Beach Theatre due to hedonism. A new hero sees an opportunity.',
-    genres,
+    genres: genres,
     imgAlt:
       'Weezer fails to show up to a concert at Nikon Jones Beach Theatre due to hedonism. A new hero sees an opportunity.',
     imgSrc: 'https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg',

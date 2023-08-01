@@ -25,7 +25,7 @@ function mount(): void {
 
 Anorath was singular and desolate.`,
     description: 'Ripples are created in a black lake that flows out into the ocean.',
-    genres,
+    genres: genres,
     imgAlt: 'Ripples are created in a black lake that flows out into the ocean.',
     imgSrc: 'some-lovecraft-image,shoggoth',
     title: 'Treehouse of Horror I: Anorath'

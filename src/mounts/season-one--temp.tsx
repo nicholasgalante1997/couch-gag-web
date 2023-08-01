@@ -44,7 +44,7 @@ function mount(): void {
 `,
     description:
       'There is finally a punchline offered to a worldly and dragging joke; The American Judicial System',
-    genres,
+    genres: genres,
     imgAlt:
       'There is finally a punchline offered to a worldly and dragging joke; The American Judicial System',
     imgSrc:
