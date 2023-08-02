@@ -69,7 +69,7 @@ function AsideComponent(): JSX.Element {
           className={badgeClassName}
           role="button"
           onClick={() => {
-            to('/browse');
+            to('/browse.html');
           }}
         >
           <img height="20px" width="20px" src={svgMap.books} alt="a stack of papers icon" />
@@ -79,7 +79,7 @@ function AsideComponent(): JSX.Element {
           className={classnames(badgeClassName, 'mt-4')}
           role="button"
           onClick={() => {
-            to('/contribute');
+            to('/contribute.html');
           }}
         >
           <img height="20px" width="20px" src={svgMap.upload} alt="an upload file icon" />
@@ -88,7 +88,7 @@ function AsideComponent(): JSX.Element {
         <div
           role="button"
           onClick={() => {
-            to('/about');
+            to('/about.html');
           }}
           className={classnames(badgeClassName, 'mt-4')}
         >
