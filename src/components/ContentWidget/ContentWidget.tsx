@@ -1,9 +1,11 @@
-import React, { memo, useMemo } from 'react';
+/* eslint-disable @typescript-eslint/promise-function-async */
+/* eslint-disable @typescript-eslint/no-misused-promises */
+import React, { memo, useMemo, useState } from 'react';
 import { combine, withProfiler } from '@/hocs';
+import { isServer, toTitleCase } from '@/utils';
 import { ContentWidgetClassNames } from './classnames';
 import { type ContentWidgetComponentProps } from './types';
 import classNames from 'classnames';
-import { toTitleCase } from '@/utils';
 import { useTranslation } from '@/contexts';
 
 function ContentWidgetComponent({
@@ -21,6 +23,21 @@ function ContentWidgetComponent({
 }: ContentWidgetComponentProps): React.JSX.Element {
   const { t } = useTranslation();
   const isLightThemed = useMemo(() => supportingTheme === 'light', [supportingTheme]);
+  const [hasBeenCopied, setHasBeenCopied] = useState(false);
+  async function onCopy(slug: string): Promise<void> {
+    if (!isServer()) {
+      try {
+        const copyText = `${window.location.protocol}//${window.location.hostname}/${slug}.html`;
+        await window.navigator.clipboard.writeText(copyText);
+        setHasBeenCopied(true);
+        setTimeout(() => {
+          if (hasBeenCopied) {
+            setHasBeenCopied(false);
+          }
+        }, 5000);
+      } catch (e) {}
+    }
+  }
   const shadingClassName = useMemo(
     () =>
       classNames({
@@ -70,10 +87,10 @@ function ContentWidgetComponent({
             </p>
           )}
           <div className={ContentWidgetClassNames.ButtonRow}>
-            <a href={`/${slug}`} target="_self" role="button" className="button-smpl">
+            <a href={`/${slug}.html`} target="_self" role="button" className="button-smpl">
               {t('content_widget_action')}
             </a>
-            <button className="button-smpl">{t('content_widget_share')}</button>
+            <button onClick={() => onCopy(slug)} className="button-smpl">{hasBeenCopied ? 'Copied!' : t('content_widget_share')}</button>
             <button className="button-smpl">{t('content_widget_shelf')}</button>
           </div>
         </div>

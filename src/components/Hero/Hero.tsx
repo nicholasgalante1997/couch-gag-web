@@ -16,10 +16,10 @@ function HeroImageComponent(): JSX.Element {
   const titleClassname = useMemo(() => classnames(HeroImageClassnames.Title, 'pac'), []);
   const textClassname = useMemo(() => classnames(HeroImageClassnames.Text, 'ls'), []);
   const aboutOnClick = useCallback(() => {
-    to('/about');
+    to('/about.html');
   }, [to]);
   const readOnClick = useCallback(() => {
-    to(`/${slug}`);
+    to(`/${slug}.html`);
   }, [to]);
   return (
     <div className={HeroImageClassnames.Container}>
