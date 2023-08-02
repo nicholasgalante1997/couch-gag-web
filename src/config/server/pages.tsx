@@ -1,4 +1,4 @@
-import { LandingPage, StoryPage } from '@/pages';
+import { BrowsePage, LandingPage, StoryPage } from '@/pages';
 import { type PageConfig } from '@/types';
 import { type StoryProps } from '@/components';
 import frontmatter from 'front-matter';
@@ -58,6 +58,14 @@ export const staticPages: Array<PageConfig<any>> = [
       "An anthology of short stories by new American authors. We are currently accepting submissions for our first season's release.",
     htmlFileName: 'index',
     styles: ['landing-page']
+  },
+  {
+    bundle: 'browse',
+    component: BrowsePage,
+    title: 'The Couch Gag, Browse Stories',
+    description: 'Search for stories contained within "The Couch Gag" seasons\'s 1 and 2.',
+    htmlFileName: 'browse',
+    styles: ['browse']
   }
 ];
 

@@ -39,12 +39,16 @@ function mount(): void {
 &gt; Martin shoots a bear 9 times in the eye.
 &gt; He recovers the fallout.`,
     description: 'The leaders of the free world meet to discuss the recent exposition.',
-    genres: genres,
+    genres,
     imgAlt: 'The leaders of the free world meet to discuss the recent exposition.',
     imgSrc: 'https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg',
     title: 'Meanwhile, Under the Mountains'
   };
-  hydrateRoot(mountingEl, <StoryPage {...props} />);
+  hydrateRoot(
+    mountingEl,
+      <StoryPage {...props} />
+  );
 }
 
 mount();
+  
