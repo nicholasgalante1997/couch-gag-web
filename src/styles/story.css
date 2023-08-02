@@ -1,8 +1,8 @@
-@import 'palette-base.css';
-@import 'palette-twitch.css';
+@import 'palette.css';
 @import 'chip.css';
 @import 'margin.css';
 @import 'padding.css';
+@import 'button.css';
 
 .story__wrapper {
   height: 100%;
@@ -22,7 +22,7 @@
   margin-left: 0px;
   margin-right: 0px;
   height: 40px;
-  background: linear-gradient(to right, var(--vermilion), var(--gold));
+  background: linear-gradient(to right, var(--amethyst), var(--ultra-pink));
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -38,6 +38,7 @@
 }
 
 .story__micro-banner span {
+  @import 'palette-twitch.css';
   float: right;
 }
 
@@ -106,8 +107,31 @@
   font-family: League-Spartan;
 }
 
-.story_content p {
-  font-size: 16px;
+@media screen and (min-width: 1224px) {
+  .story_content {
+    max-width: 1024px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .story_content {
+    max-width: 90%;
+  }
+}
+
+.story__markdown-layer p {
+  font-size: 20px;
+}
+
+.story__markdown-layer h2 {
+  font-size: 40px;
+  font-weight: 900;
+  background: linear-gradient(to right, var(--orange-crayola), var(--gold));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 
 .story_badge_row {
@@ -140,6 +164,8 @@
   justify-content: space-between;
   align-items: center;
   min-width: 180px;
+  max-width: 236px;
+  flex-wrap: wrap;
   color: rgba(255, 255, 255, 0.9);
   font-size: 20px;
   margin-bottom: 20px;

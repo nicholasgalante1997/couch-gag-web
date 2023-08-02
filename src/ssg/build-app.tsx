@@ -1,13 +1,20 @@
-import { APP_MARKER, JS_BUNDLE_MARKER, PAGE_DESCRIPTION, STYLE_MARKER, TITLE_MARKER, getPages } from '@/config/server';
-import { logger } from '@/utils';
-import { renderToString } from 'react-dom/server';
+import {
+  APP_MARKER,
+  JS_BUNDLE_MARKER,
+  PAGE_DESCRIPTION,
+  STYLE_MARKER,
+  TITLE_MARKER,
+  getPages
+} from '@/config/server';
 import React from 'react';
 import fs from 'fs';
+import { logger } from '@/utils';
 import path from 'path';
+import { renderToString } from 'react-dom/server';
 
-function replaceAll (
+function replaceAll(
   file: string,
-  metadata: { app: string, jsBundle: string, title: string, cssSheets: string[], description: string }
+  metadata: { app: string; jsBundle: string; title: string; cssSheets: string[]; description: string }
 ): string {
   let rels = '';
   for (const sheet of metadata.cssSheets) {

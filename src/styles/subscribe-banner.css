@@ -6,7 +6,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  background-color: var(--ultramarine);
+  background-color: var(--amethyst);
 }
 
 .sb__text {
@@ -14,7 +14,7 @@
   line-height: 1.25;
   font-weight: 300;
   font-family: Chunk;
-  color: white;
+  color: var(--rich-black);
 }
 
 .sb__span {
@@ -22,7 +22,8 @@
   line-height: 1.25;
   font-weight: 500;
   font-family: Chunk;
-  background: linear-gradient(113.9deg, #ff3333 -4.5%, #ffd633 98.8%);
+  background: white;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;

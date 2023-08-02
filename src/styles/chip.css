@@ -1,5 +1,4 @@
-@import 'palette-base.css';
-@import 'palette-twitch.css';
+@import 'palette.css';
 
 .chip__root {
   height: 20px;
@@ -15,18 +14,18 @@
   align-items: center;
 }
 
-.chip__red {
-  background-color: var(--vermilion);
+.chip__risd-blue {
+  background-color: var(--risd-blue);
+}
+
+.chip__orange {
+  background-color: var(--orange-crayola);
+}
+
+.chip__amethyst {
+  background-color: var(--amethyst);
 }
 
 .chip__gold {
   background-color: var(--gold);
-}
-
-.chip__orange {
-  background-color: var(--orange-web);
-}
-
-.chip__green {
-  background-color: var(--yellow-green);
 }

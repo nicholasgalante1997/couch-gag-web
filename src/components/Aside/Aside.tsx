@@ -1,11 +1,11 @@
-import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { memo, useEffect, useMemo, useState } from 'react';
+import { combine, withProfiler } from '@/hocs';
+import { isServer, svgMap, to } from '@/utils';
+import { AsideClassnames } from './classnames';
 import classnames from 'classnames';
 import { useTranslation } from '@/contexts';
-import { combine, withErrorWrapper, withProfiler } from '@/hocs';
-import { isServer, svgMap } from '@/utils';
-import { AsideClassnames } from './classnames';
 
-function AsideComponent (): JSX.Element {
+function AsideComponent(): JSX.Element {
   const isBrowser = !isServer();
   let lsAsideOpen = false;
   if (isBrowser) {
@@ -17,12 +17,6 @@ function AsideComponent (): JSX.Element {
 
   const [expanded, setExpanded] = useState(lsAsideOpen);
   const { t } = useTranslation();
-
-  const to = useCallback((path: string) => {
-    if (!isServer()) {
-      window.location.assign(path);
-    }
-  }, []);
 
   useEffect(() => {
     window.localStorage.setItem('couch-gag__aside__open', JSON.stringify({ isOpen: expanded }));
@@ -75,7 +69,7 @@ function AsideComponent (): JSX.Element {
           className={badgeClassName}
           role="button"
           onClick={() => {
-            to('/browse-stories');
+            to('/browse');
           }}
         >
           <img height="20px" width="20px" src={svgMap.books} alt="a stack of papers icon" />
@@ -117,4 +111,4 @@ function AsideComponent (): JSX.Element {
   );
 }
 
-export const Aside = combine([withProfiler, withErrorWrapper], memo(AsideComponent), 'PageSidebar');
+export const Aside = combine([withProfiler], memo(AsideComponent), 'PageSidebar');

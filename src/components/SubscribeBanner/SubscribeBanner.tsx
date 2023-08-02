@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
-import { useTranslation } from '@/contexts';
-import { combine, withErrorWrapper, withProfiler } from '@/hocs';
+import { combine, withProfiler } from '@/hocs';
 import { SubscribeBannerClassNames } from './classnames';
+import { useTranslation } from '@/contexts';
 
-function SubscribeBannerComponent (): React.JSX.Element {
+function SubscribeBannerComponent(): React.JSX.Element {
   const { t } = useTranslation();
   return (
     <div className={SubscribeBannerClassNames.Wrapper}>
@@ -18,8 +18,4 @@ function SubscribeBannerComponent (): React.JSX.Element {
   );
 }
 
-export const SubscribeBanner = combine(
-  [withProfiler, withErrorWrapper],
-  memo(SubscribeBannerComponent),
-  'subscribe-banner'
-);
+export const SubscribeBanner = combine([withProfiler], memo(SubscribeBannerComponent), 'subscribe-banner');

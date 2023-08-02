@@ -1,12 +1,12 @@
 import React, { memo, useMemo } from 'react';
-import classNames from 'classnames';
-import { combine, withErrorWrapper, withProfiler } from '@/hocs';
-import { toTitleCase } from '@/utils';
+import { combine, withProfiler } from '@/hocs';
 import { ContentWidgetClassNames } from './classnames';
 import { type ContentWidgetComponentProps } from './types';
+import classNames from 'classnames';
+import { toTitleCase } from '@/utils';
 import { useTranslation } from '@/contexts';
 
-function ContentWidgetComponent ({
+function ContentWidgetComponent({
   backgroundColor,
   foregroundColor: color,
   slug,
@@ -69,9 +69,13 @@ function ContentWidgetComponent ({
               ))}
             </p>
           )}
-          <a href={`/${slug}`} target="_self" role="link" className="button-smpl">
-            {t('content_widget_action')}
-          </a>
+          <div className={ContentWidgetClassNames.ButtonRow}>
+            <a href={`/${slug}`} target="_self" role="button" className="button-smpl">
+              {t('content_widget_action')}
+            </a>
+            <button className="button-smpl">{t('content_widget_share')}</button>
+            <button className="button-smpl">{t('content_widget_shelf')}</button>
+          </div>
         </div>
       </div>
     </div>
@@ -79,7 +83,7 @@ function ContentWidgetComponent ({
 }
 
 export const ContentWidget = combine<ContentWidgetComponentProps>(
-  [withErrorWrapper, withProfiler],
+  [withProfiler],
   memo(ContentWidgetComponent),
   'content-widget'
 );

@@ -1,8 +1,4 @@
 import React, { memo } from 'react';
-import { useTranslation } from '@/contexts';
-import { combine, withErrorWrapper, withProfiler } from '@/hocs';
-import { ContributeBannerClassNames } from './classnames';
-import { useOnElementEnter } from '@/hooks';
 import {
   boldParagraphLayerAnimationId,
   boldParagraphOnEnter,
@@ -13,8 +9,12 @@ import {
   topParagraphOnEnter,
   trailParagraphOnEnter
 } from './animations';
+import { combine, withProfiler } from '@/hocs';
+import { ContributeBannerClassNames } from './classnames';
+import { useOnElementEnter } from '@/hooks';
+import { useTranslation } from '@/contexts';
 
-function ContributeBannerComponent (): JSX.Element {
+function ContributeBannerComponent(): JSX.Element {
   const { t } = useTranslation();
   useOnElementEnter(headingLayerAnimationId, headingOnEnter);
   useOnElementEnter(topParagraphLayerAnimationId, topParagraphOnEnter);
@@ -40,7 +40,7 @@ function ContributeBannerComponent (): JSX.Element {
 }
 
 export const ContributeBanner = combine(
-  [withProfiler, withErrorWrapper],
+  [withProfiler],
   memo(ContributeBannerComponent),
   'lp-contribute-banner'
 );
