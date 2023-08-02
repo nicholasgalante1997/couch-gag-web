@@ -14,7 +14,7 @@ import { renderToString } from 'react-dom/server';
 
 function replaceAll(
   file: string,
-  metadata: { app: string; jsBundle: string; title: string; cssSheets: string[]; description: string }
+  metadata: { app: string, jsBundle: string, title: string, cssSheets: string[], description: string }
 ): string {
   let rels = '';
   for (const sheet of metadata.cssSheets) {
