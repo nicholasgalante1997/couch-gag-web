@@ -61,7 +61,7 @@ function AsideComponent(): JSX.Element {
   return (
     <div className={parentClassName}>
       <div className={AsideClassnames.LogoContainer}>
-        <img src="/web.svg" height="48px" width="48px" />
+        <img src="/favicon-32x32.png" height="32px" width="32px" />
         {expanded && <p className={badgeTextClassname}>{t('aside_logo_text')}</p>}
       </div>
       <div className={AsideClassnames.SeasonContainer}>
