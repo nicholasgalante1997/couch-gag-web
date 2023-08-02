@@ -73,12 +73,8 @@ function ContentWidgetComponent({
             <a href={`/${slug}`} target="_self" role="button" className="button-smpl">
               {t('content_widget_action')}
             </a>
-            <button className="button-smpl">
-              {t('content_widget_share')}
-            </button>
-            <button className="button-smpl">
-              {t('content_widget_shelf')}
-            </button>
+            <button className="button-smpl">{t('content_widget_share')}</button>
+            <button className="button-smpl">{t('content_widget_shelf')}</button>
           </div>
         </div>
       </div>

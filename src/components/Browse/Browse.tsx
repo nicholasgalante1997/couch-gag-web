@@ -5,8 +5,8 @@ import { BrowseComponentClassNames } from './classnames';
 import { ContentWidget } from '../ContentWidget';
 
 const ColorSwatch = [
-  ['#ff3333ff', '#0e0035ff', 'light'],
-  ['#0e0035ff', '#ff3333ff', 'dark']
+  ['var(--rich-black)', 'var(--risd-blue)', 'dark'],
+  ['var(--rich-black)', 'var(--risd-blue)', 'dark']
 ] as const;
 
 const seasons = [
@@ -41,11 +41,21 @@ function BrowseComponent(): React.JSX.Element {
     return <ContentWidget {...props} />;
   }, []);
 
-  const seasonToJsx = useCallback(({ plaintext, key }: typeof seasons[number]) => {
-    return <span onClick={() => { setSeason(key); }} className={season === key ? BrowseComponentClassNames.TabActive : BrowseComponentClassNames.Tab}>
-      {plaintext}
-    </span>;
-  }, [season]);
+  const seasonToJsx = useCallback(
+    ({ plaintext, key }: (typeof seasons)[number]) => {
+      return (
+        <span
+          onClick={() => {
+            setSeason(key);
+          }}
+          className={season === key ? BrowseComponentClassNames.TabActive : BrowseComponentClassNames.Tab}
+        >
+          {plaintext}
+        </span>
+      );
+    },
+    [season]
+  );
 
   const filterOnSearch = (writObject: (typeof writ)[number]): boolean => {
     if (!search) {
@@ -57,7 +67,10 @@ function BrowseComponent(): React.JSX.Element {
         title.toLowerCase().includes(search.toLowerCase()) ||
         slug.toLowerCase().includes(search.toLowerCase()) ||
         subtitle.toLowerCase().includes(search.toLowerCase()) ||
-        genres.map(g => g.toLowerCase()).join(' ').includes(search.toLowerCase())
+        genres
+          .map((g) => g.toLowerCase())
+          .join(' ')
+          .includes(search.toLowerCase())
       );
     }
   };
@@ -74,15 +87,13 @@ function BrowseComponent(): React.JSX.Element {
           <span className={BrowseComponentClassNames.SearchSpan}>{t('browse_heading')}</span>
           <input
             type="text"
-            placeholder="The Origin and What Came Before It"
+            placeholder="Search Stories..."
             value={search}
             onChange={updateSearch}
             className={BrowseComponentClassNames.SearchInput}
           />
         </div>
-        <div className={BrowseComponentClassNames.SeasonRow}>
-          {seasons.map(seasonToJsx)}
-        </div>
+        <div className={BrowseComponentClassNames.SeasonRow}>{seasons.map(seasonToJsx)}</div>
         {writ.filter(filterOnSearch).map(writToContentJsx)}
       </div>
     </div>

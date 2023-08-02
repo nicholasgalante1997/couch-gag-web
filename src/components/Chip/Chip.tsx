@@ -10,10 +10,10 @@ function ChipComponent({ shade, text, className, ...rest }: ChipProps): JSX.Elem
       {...rest}
       className={classnames({
         [ChipClassnames.Chip]: true,
-        [ChipClassnames.Vermilion]: shade === 'red',
+        [ChipClassnames.Amethyst]: shade === 'amethyst',
         [ChipClassnames.Gold]: shade === 'gold',
-        [ChipClassnames.Green]: shade === 'green',
         [ChipClassnames.Orange]: shade === 'orange',
+        [ChipClassnames.Blue]: shade === 'blue',
         ...(className ? { [className]: true } : {})
       })}
     >

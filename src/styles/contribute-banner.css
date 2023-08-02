@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: flex-start;
   padding-left: 32px;
-  background: linear-gradient(to bottom, var(--rich-black), var(--russian-violet));
+  background: linear-gradient(to bottom, var(--rich-black) 71%, var(--russian-violet));
   color: white;
 }
 
@@ -19,7 +19,8 @@
   margin-block-end: 20px;
   text-align: left;
   max-width: 800px;
-  background: linear-gradient(113.9deg, var(--vermilion) -4.5%, var(--gold) 98.8%);
+  background: var(--ultra-pink);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
@@ -42,7 +43,7 @@
 
 .contribute-banner__bold {
   opacity: 0;
-  color: var(--vermilion);
+  color: var(--amethyst);
   max-width: 720px;
   text-align: left;
   font-size: 24px;

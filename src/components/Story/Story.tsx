@@ -1,18 +1,31 @@
 import React, { memo, useMemo, useState } from 'react';
 import { combine, withProfiler } from '@/hocs';
 import { Chip } from '../Chip';
+import { type ChipProps } from '../Chip/types';
 import ReactMarkdown from 'react-markdown';
 import { StoryClassNames } from './classnames';
 import { type StoryProps } from './types';
 import { isServer } from '@/utils';
 import { useTranslation } from '@/contexts';
 
-function shadeFromIndex(index: number): 'green' | 'gold' | 'red' | 'orange' {
-  if (index % 5 === 0) return 'green';
-  if (index % 4 === 0) return 'gold';
-  if (index % 3 === 0) return 'red';
-  if (index % 2 === 0) return 'orange';
-  return 'green';
+function shadeFromIndex(index: number): ChipProps['shade'] {
+  switch (index) {
+    case 0: {
+      return 'amethyst';
+    }
+    case 1: {
+      return 'blue';
+    }
+    case 2: {
+      return 'orange';
+    }
+    case 3: {
+      return 'blue';
+    }
+    default: {
+      return 'amethyst';
+    }
+  }
 }
 
 function StoryComponent({
@@ -76,7 +89,10 @@ function StoryComponent({
           </span>
         </div>
         <div className={StoryClassNames.ActionContainer}>
-          <button className="button-smpl"></button>
+          <button className="button-small">Add To Shelf</button>
+          <button className="button-small">Share</button>
+          <button className="button-small">Like</button>
+          <button className="button-small">Tip</button>
         </div>
       </div>
       <div className={StoryClassNames.ImageContainer}>
