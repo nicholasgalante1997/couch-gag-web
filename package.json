@@ -10,6 +10,7 @@
     "storybook": "storybook dev -p 6006",
     "dev:lp": "webpack serve --config dev-configs/landing.webpack.js",
     "dev:story": "webpack serve --config dev-configs/story.webpack.js",
+    "dev:browse": "webpack serve --config dev-configs/browse.webpack.js",
     "build-storybook": "storybook build",
     "format": "prettier --write src",
     "lint": "eslint --fix \"src/**/*.{ts,tsx}\"",

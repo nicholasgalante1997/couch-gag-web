@@ -75,3 +75,28 @@
   object-position: center;
   aspect-ratio: 9 / 16;
 }
+
+@media screen and (min-width: 1224px) {
+  .content__image-container-left,
+  .content__image-container-right,
+  .content__image {
+    width: 644px;
+  }
+
+  .content__body {
+    max-width: 600px;
+  }
+}
+
+.content__button-row {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+  padding-bottom: 6px;
+  align-items: center;
+}
+
+.content__button-row a,
+.content__button-row button {
+  margin-right: 8px;
+}

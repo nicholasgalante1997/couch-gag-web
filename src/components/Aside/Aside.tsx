@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { combine, withErrorWrapper, withProfiler } from '@/hocs';
+import { combine, withProfiler } from '@/hocs';
 import { isServer, svgMap } from '@/utils';
 import { AsideClassnames } from './classnames';
 import classnames from 'classnames';
@@ -117,4 +117,4 @@ function AsideComponent(): JSX.Element {
   );
 }
 
-export const Aside = combine([withProfiler, withErrorWrapper], memo(AsideComponent), 'PageSidebar');
+export const Aside = combine([withProfiler], memo(AsideComponent), 'PageSidebar');

@@ -1,5 +1,5 @@
 import React, { memo, useMemo, useState } from 'react';
-import { combine, withErrorWrapper, withProfiler } from '@/hocs';
+import { combine, withProfiler } from '@/hocs';
 import { Chip } from '../Chip';
 import ReactMarkdown from 'react-markdown';
 import { StoryClassNames } from './classnames';
@@ -89,8 +89,4 @@ function StoryComponent({
   );
 }
 
-export const Story = combine<StoryProps>(
-  [withErrorWrapper, withProfiler],
-  memo(StoryComponent),
-  'story-component'
-);
+export const Story = combine<StoryProps>([withProfiler], memo(StoryComponent), 'story-component');
