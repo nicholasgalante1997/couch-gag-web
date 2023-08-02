@@ -29,7 +29,7 @@ function mount(): void {
     author: '{{ author }}',
     content: \`{{ content }}\`,
     description: '{{ description }}',
-    genres: genres,
+    genres,
     imgAlt: '{{ imgAlt }}',
     imgSrc: '{{ imgSrc }}',
     title: '{{ title }}'

@@ -27,12 +27,16 @@ You can&#x27;t force your artistic perception; your voice. You almost can&#x27;t
 
 `,
     description: 'A writer struggles to find his voice in a sea of screaming.',
-    genres: genres,
+    genres,
     imgAlt: 'A writer struggles to find his voice in a sea of screaming.',
     imgSrc: '',
     title: 'Who laughs the loudest when everyone&#x27;s deaf'
   };
-  hydrateRoot(mountingEl, <StoryPage {...props} />);
+  hydrateRoot(
+    mountingEl,
+      <StoryPage {...props} />
+  );
 }
 
 mount();
+  

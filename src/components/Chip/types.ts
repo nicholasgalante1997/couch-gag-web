@@ -2,7 +2,7 @@ import type React from 'react';
 
 export type ChipProps = {
   text: string;
-  shade: 'red' | 'gold' | 'orange' | 'green';
+  shade: 'amethyst' | 'gold' | 'blue' | 'orange';
   className?: string;
   id?: string;
   role?: string;

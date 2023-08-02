@@ -1,6 +1,93 @@
+@import 'content-widget.css';
+
 .browse-frame {
   height: 100vh;
   width: 100%;
   box-sizing: border-box;
   padding: 32px 16px;
+}
+
+.browse-component__search-row {
+  box-sizing: border-box;
+  height: 72px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  flex-grow: 1;
+  background: var(--rich-black);
+}
+
+.browse-component__season-row {
+  box-sizing: border-box;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px;
+  align-items: center;
+  flex-grow: 1;
+  background-color: var(--rich-black);
+}
+
+.browse-component__search-input {
+  width: 320px;
+  font-family: League-Spartan;
+  font-size: 18px;
+  font-weight: 500;
+  box-sizing: border-box;
+  height: 36px;
+  padding: 8px;
+  padding-left: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.browse-component__search-input::placeholder {
+  font-family: League-Spartan;
+  font-size: 18px;
+  font-style: italic;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.browse-component__search-span {
+  font-size: 40px;
+  font-family: Chunk;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.02em;
+}
+
+.browse-component__tab {
+  font-family: Chunk;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-right: 10px;
+  cursor: pointer;
+  color: white;
+  letter-spacing: 0.04em;
+}
+
+.browse-component__tab-active {
+  font-family: Chunk;
+  font-size: 20px;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  margin-right: 10px;
+  cursor: pointer;
+  color: var(--amethyst);
+  font-weight: 700;
+}
+
+.browse-component__tab:hover {
+  font-size: 24px;
+  color: var(--ultra-pink);
+  transform: translateY(-2px);
+  letter-spacing: 0.04em;
+  transition: transform 200ms;
 }

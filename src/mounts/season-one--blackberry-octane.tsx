@@ -23,12 +23,16 @@ function mount(): void {
     author: 'Washington Irving',
     content: ``,
     description: 'Poetry in motion',
-    genres: genres,
+    genres,
     imgAlt: 'Poetry in motion',
     imgSrc: 'https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg',
     title: 'Blackberry Octane'
   };
-  hydrateRoot(mountingEl, <StoryPage {...props} />);
+  hydrateRoot(
+    mountingEl,
+      <StoryPage {...props} />
+  );
 }
 
 mount();
+  

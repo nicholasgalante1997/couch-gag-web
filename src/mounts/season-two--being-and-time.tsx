@@ -46,14 +46,17 @@ function mount(): void {
 &quot;You know I wouldn&#x27;t know. I haven&#x27;t read it. I just had it there on the counter. Saw the shiv- er knives. And presto. Here we are, 4 months later.&quot; 
 
 &quot;Uh-huh. And where are we Teddy?&quot;`,
-    description:
-      'A psychotherapist and his patient debate a fantasy that&#x27;s emerged since the great gag.',
-    genres: genres,
+    description: 'A psychotherapist and his patient debate a fantasy that&#x27;s emerged since the great gag.',
+    genres,
     imgAlt: 'A psychotherapist and his patient debate a fantasy that&#x27;s emerged since the great gag.',
     imgSrc: 'SusanSarandon',
     title: 'Being and Time'
   };
-  hydrateRoot(mountingEl, <StoryPage {...props} />);
+  hydrateRoot(
+    mountingEl,
+      <StoryPage {...props} />
+  );
 }
 
 mount();
+  

@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { combine, withErrorWrapper, withProfiler } from '@/hocs';
+import { combine, withProfiler } from '@/hocs';
 import { useTranslation, useWritContext } from '@/contexts';
 
 function NewEpisodePlugComponent(): React.JSX.Element | React.ReactNode {
@@ -23,8 +23,4 @@ function NewEpisodePlugComponent(): React.JSX.Element | React.ReactNode {
   );
 }
 
-export const NewEpisodePlug = combine(
-  [withProfiler, withErrorWrapper],
-  memo(NewEpisodePlugComponent),
-  'new-episode-plug'
-);
+export const NewEpisodePlug = combine([withProfiler], memo(NewEpisodePlugComponent), 'new-episode-plug');

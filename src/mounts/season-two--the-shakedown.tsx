@@ -22,15 +22,17 @@ function mount(): void {
   const props: StoryProps = {
     author: 'Washington Irving',
     content: ``,
-    description:
-      'A local organized crime syndication attempts to elicit a protection payment from a new business that&#x27;s opened up in Somerset, Missouri.',
-    genres: genres,
-    imgAlt:
-      'A local organized crime syndication attempts to elicit a protection payment from a new business that&#x27;s opened up in Somerset, Missouri.',
+    description: 'A local organized crime syndication attempts to elicit a protection payment from a new business that&#x27;s opened up in Somerset, Missouri.',
+    genres,
+    imgAlt: 'A local organized crime syndication attempts to elicit a protection payment from a new business that&#x27;s opened up in Somerset, Missouri.',
     imgSrc: 'A Butcher&#x27;s Knife',
     title: 'The Shakedown'
   };
-  hydrateRoot(mountingEl, <StoryPage {...props} />);
+  hydrateRoot(
+    mountingEl,
+      <StoryPage {...props} />
+  );
 }
 
 mount();
+  

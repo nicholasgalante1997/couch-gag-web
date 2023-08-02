@@ -9,7 +9,7 @@ import {
   topParagraphOnEnter,
   trailParagraphOnEnter
 } from './animations';
-import { combine, withErrorWrapper, withProfiler } from '@/hocs';
+import { combine, withProfiler } from '@/hocs';
 import { ContributeBannerClassNames } from './classnames';
 import { useOnElementEnter } from '@/hooks';
 import { useTranslation } from '@/contexts';
@@ -40,7 +40,7 @@ function ContributeBannerComponent(): JSX.Element {
 }
 
 export const ContributeBanner = combine(
-  [withProfiler, withErrorWrapper],
+  [withProfiler],
   memo(ContributeBannerComponent),
   'lp-contribute-banner'
 );

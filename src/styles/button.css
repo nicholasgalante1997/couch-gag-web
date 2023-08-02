@@ -49,7 +49,6 @@
   }
 }
 
-/* CSS */
 .button-smpl {
   align-items: center;
   background-color: #fff;
@@ -78,19 +77,19 @@
 }
 
 .button-smpl:focus {
-  color: #290f8eff;
+  color: var(--heliotrope);
 }
 
 .button-smpl:hover {
-  border-color: #2248f1ff;
-  color: #2248f1ff;
-  fill: #2248f1ff;
+  border-color: var(--amethyst);
+  color: var(--amethyst);
+  fill: var(--amethyst);
 }
 
 .button-smpl:active {
-  border-color: #3f1fb2ff;
-  color: #3f1fb2ff;
-  fill: #3f1fb2ff;
+  border-color: var(--heliotrope);
+  color: var(--heliotrope);
+  fill: var(--heliotrope);
 }
 
 @media (min-width: 768px) {
@@ -101,6 +100,8 @@
 
 /* CSS */
 .button-small {
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   background-color: #fff;
   border: 2px solid #000;
@@ -115,32 +116,31 @@
   height: 24px;
   justify-content: center;
   letter-spacing: -0.8px;
-  line-height: 20px;
-  min-width: 105px;
+  line-height: 16px;
+  min-width: 116px;
   outline: 0;
-  padding: 0 17px;
+  padding-left: 17px;
+  padding-right: 17px;
+  padding-top: 4px;
   text-align: center;
   text-decoration: none;
   transition: all 0.3s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  vertical-align: middle;
 }
 
 .button-small:hover {
   border-color: #3f1fb2ff;
   color: #3f1fb2ff;
   fill: #3f1fb2ff;
+  transform: scale(1.12);
 }
 
 .button-small:active {
   border-color: #3f1fb2ff;
   color: #3f1fb2ff;
   fill: #3f1fb2ff;
-}
-
-@media (min-width: 768px) {
-  .button-small {
-    min-width: 105px;
-  }
+  transform: scale(1.12);
 }

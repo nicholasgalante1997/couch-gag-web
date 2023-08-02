@@ -35,12 +35,16 @@ The Rocky Mountains actually span all the way up through Canada, into the Alaska
 
 &quot;Yeah, no I&#x27;ll go next. I&#x27;ve got some great ones.&quot;, There was a sadness in Neuman&#x27;s voice that hung resolute but restrained, and tapered by something altogether nostalgic. All beauty is a fragment of nostalgia, one supposes. &quot;I mean, I was actually there when he died, er um passed.&quot; He paused. &quot;He was actually super peaceful, which isn&#x27;t the craziest thing because he had taken a dab the size of a newborn calf only moments earlier. But a minute or so before falling asleep, he, with his eyes closed had, in that stupid god awful fucking french he did, spoke this, &#x27;Ounh sount les Niegedens danton&#x27;. And I had just no fucking clue what it meant. I honestly thought it was gibberish. e`,
     description: 'This story is for the lovers, the dreamers, and me.',
-    genres: genres,
+    genres,
     imgAlt: 'This story is for the lovers, the dreamers, and me.',
     imgSrc: 'Kermit the Frog, playing &#x27;The Rainbow Connection;&#x27;',
     title: 'The Rainbow Connection'
   };
-  hydrateRoot(mountingEl, <StoryPage {...props} />);
+  hydrateRoot(
+    mountingEl,
+      <StoryPage {...props} />
+  );
 }
 
 mount();
+  
