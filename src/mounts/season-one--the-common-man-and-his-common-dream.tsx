@@ -5,6 +5,7 @@ import React from 'react';
 import { StoryPage } from '@/pages';
 import { type StoryProps } from '@/components';
 import { hydrateRoot } from 'react-dom/client';
+import { inject } from '@vercel/analytics';
 import writMdJson from '@/contexts/data/writ.json';
 
 function mount(): void {
@@ -33,6 +34,10 @@ function mount(): void {
     mountingEl,
       <StoryPage {...props} />
   );
+}
+
+if (process.env.NODE_ENV === 'production') {
+  inject({ mode: 'production' });
 }
 
 mount();

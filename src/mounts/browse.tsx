@@ -2,6 +2,7 @@ import { BrowsePage } from '@/pages';
 import { DOCUMENT_ROOT_ID } from '@/config/client';
 import React from 'react';
 import { hydrateRoot } from 'react-dom/client';
+import { inject } from '@vercel/analytics';
 
 function mount(): void {
   let mountingEl = document.getElementById(DOCUMENT_ROOT_ID);
@@ -11,6 +12,10 @@ function mount(): void {
     document.body.appendChild(mountingEl);
   }
   hydrateRoot(mountingEl, <BrowsePage />);
+}
+
+if (process.env.NODE_ENV === 'production') {
+  inject({ mode: 'production' });
 }
 
 mount();
