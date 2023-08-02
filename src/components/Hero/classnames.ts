@@ -4,5 +4,6 @@ export const HeroImageClassnames = {
   Title: 'hero__title',
   Text: 'hero__text',
   Image: 'hero__lp-image',
+  Row: 'hero__lp-row',
   Button: 'button-smpl'
 } as const;

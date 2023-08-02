@@ -1,20 +1,21 @@
-import React, { memo, useCallback, useMemo } from 'react';
 import { ContentWidget, ContributeBanner, Hero, SubscribeBanner } from '@/components';
-import { useWritContext } from '@/contexts';
+import React, { memo, useCallback, useMemo } from 'react';
 import { combine, withErrorWrapper, withProfiler, withRootProviders } from '@/hocs';
+import { useWritContext } from '@/contexts';
 
 const ColorSwatch = [
   ['#fca311ff', 'lightblue', 'light'],
   ['#0e0035ff', '#ff3333ff', 'dark']
 ] as const;
 
-function LandingPageComponent (): JSX.Element {
+function LandingPageComponent(): JSX.Element {
   const { getAll } = useWritContext();
-  function filterGetAllBySeasonOne (): ReturnType<typeof getAll> {
+  function filterGetAllBySeasonOne(): ReturnType<typeof getAll> {
     return getAll().filter(({ seasonKey }) => seasonKey === '01');
   }
   const mFilterGetAllBySeasonOne = useCallback(filterGetAllBySeasonOne, [getAll]);
   const writ = useMemo(mFilterGetAllBySeasonOne, [mFilterGetAllBySeasonOne]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const writToContentJsx = useCallback((writObject: (typeof writ)[number], index: number) => {
     const remainder = index % 2;
     const [backgroundColor, foregroundColor, supportingTheme] = ColorSwatch[remainder];

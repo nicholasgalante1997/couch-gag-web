@@ -1,13 +1,13 @@
 import React, { memo, useMemo, useState } from 'react';
-import ReactMarkdown from 'react-markdown';
-import { useTranslation } from '@/contexts';
 import { combine, withErrorWrapper, withProfiler } from '@/hocs';
-import { isServer } from '@/utils';
 import { Chip } from '../Chip';
-import { type StoryProps } from './types';
+import ReactMarkdown from 'react-markdown';
 import { StoryClassNames } from './classnames';
+import { type StoryProps } from './types';
+import { isServer } from '@/utils';
+import { useTranslation } from '@/contexts';
 
-function shadeFromIndex (index: number): 'green' | 'gold' | 'red' | 'orange' {
+function shadeFromIndex(index: number): 'green' | 'gold' | 'red' | 'orange' {
   if (index % 5 === 0) return 'green';
   if (index % 4 === 0) return 'gold';
   if (index % 3 === 0) return 'red';
@@ -15,7 +15,7 @@ function shadeFromIndex (index: number): 'green' | 'gold' | 'red' | 'orange' {
   return 'green';
 }
 
-function StoryComponent ({
+function StoryComponent({
   title,
   description,
   author,

@@ -3,7 +3,7 @@ export const topParagraphLayerAnimationId = 'lp_contribute_lead_text_eluid' as c
 export const boldParagraphLayerAnimationId = 'lp_contribute_bold_text_eluid' as const;
 export const lowerParagraphLayerAnimationId = 'lp_contribute_trail_text_eluid' as const;
 
-export function headingOnEnter (
+export function headingOnEnter(
   entries: IntersectionObserverEntryInit[],
   observer: IntersectionObserver
 ): void {
@@ -17,7 +17,7 @@ export function headingOnEnter (
   }
 }
 
-export function topParagraphOnEnter (
+export function topParagraphOnEnter(
   entries: IntersectionObserverEntryInit[],
   observer: IntersectionObserver
 ): void {
@@ -31,7 +31,7 @@ export function topParagraphOnEnter (
   }
 }
 
-export function boldParagraphOnEnter (
+export function boldParagraphOnEnter(
   entries: IntersectionObserverEntryInit[],
   observer: IntersectionObserver
 ): void {
@@ -45,7 +45,7 @@ export function boldParagraphOnEnter (
   }
 }
 
-export function trailParagraphOnEnter (
+export function trailParagraphOnEnter(
   entries: IntersectionObserverEntryInit[],
   observer: IntersectionObserver
 ): void {

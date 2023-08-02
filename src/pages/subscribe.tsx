@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { combine, withProfiler, withRootProviders } from '@/hocs';
 
-function SubscribePageComponent (): React.JSX.Element {
+function SubscribePageComponent(): React.JSX.Element {
   return <React.Fragment></React.Fragment>;
 }
 

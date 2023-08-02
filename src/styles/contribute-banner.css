@@ -19,7 +19,7 @@
   margin-block-end: 20px;
   text-align: left;
   max-width: 800px;
-  background: linear-gradient(113.9deg, #ff3333 -4.5%, #ffd633 98.8%);
+  background: linear-gradient(113.9deg, var(--vermilion) -4.5%, var(--gold) 98.8%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
@@ -42,7 +42,7 @@
 
 .contribute-banner__bold {
   opacity: 0;
-  color: #ffd633;
+  color: var(--vermilion);
   max-width: 720px;
   text-align: left;
   font-size: 24px;

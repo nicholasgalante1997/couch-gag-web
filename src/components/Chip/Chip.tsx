@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
-import classnames from 'classnames';
 import { combine, withErrorWrapper, withProfiler } from '@/hocs';
 import { ChipClassnames } from './classnames';
 import { type ChipProps } from './types';
+import classnames from 'classnames';
 
-function ChipComponent ({ shade, text, className, ...rest }: ChipProps): JSX.Element {
+function ChipComponent({ shade, text, className, ...rest }: ChipProps): JSX.Element {
   return (
     <span
       {...rest}

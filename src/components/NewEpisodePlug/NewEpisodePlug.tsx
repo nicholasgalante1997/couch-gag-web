@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
-import { useTranslation, useWritContext } from '@/contexts';
 import { combine, withErrorWrapper, withProfiler } from '@/hocs';
+import { useTranslation, useWritContext } from '@/contexts';
 
-function NewEpisodePlugComponent (): React.JSX.Element | React.ReactNode {
+function NewEpisodePlugComponent(): React.JSX.Element | React.ReactNode {
   const { t } = useTranslation();
   const { getOne } = useWritContext();
   const plug = getOne('key', '0101');

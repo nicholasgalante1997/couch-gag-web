@@ -1,12 +1,12 @@
 import React, { memo, useMemo } from 'react';
-import classNames from 'classnames';
 import { combine, withErrorWrapper, withProfiler } from '@/hocs';
-import { toTitleCase } from '@/utils';
 import { ContentWidgetClassNames } from './classnames';
 import { type ContentWidgetComponentProps } from './types';
+import classNames from 'classnames';
+import { toTitleCase } from '@/utils';
 import { useTranslation } from '@/contexts';
 
-function ContentWidgetComponent ({
+function ContentWidgetComponent({
   backgroundColor,
   foregroundColor: color,
   slug,

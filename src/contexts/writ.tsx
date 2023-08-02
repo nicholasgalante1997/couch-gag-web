@@ -3,22 +3,22 @@ import { combine, withErrorWrapper, withProfiler } from '@/hocs';
 import writMd from './data/writ.json';
 
 interface WritContextType {
-  getAll: () => (typeof writMd)['metadata']
-  getOne: (key: string, value: unknown) => (typeof writMd)['metadata'][number] | undefined
+  getAll: () => (typeof writMd)['metadata'];
+  getOne: (key: string, value: unknown) => (typeof writMd)['metadata'][number] | undefined;
 }
 
 const defaultWritContext = {
-  getAll () {
+  getAll() {
     return writMd.metadata;
   },
-  getOne (key: string, value: unknown) {
+  getOne(key: string, value: unknown) {
     return writMd.metadata.find((mdObj) => mdObj[key as keyof typeof mdObj] === value);
   }
 };
 
 const WritContext = createContext<WritContextType>(defaultWritContext);
 
-export const useWritContext = () => useContext(WritContext);
+export const useWritContext = (): WritContextType => useContext(WritContext);
 
 const WritProviderComponent = function ({ children }: { children: React.ReactNode }): React.JSX.Element {
   const [writState] = useState(writMd);

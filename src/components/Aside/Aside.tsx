@@ -1,11 +1,11 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import classnames from 'classnames';
-import { useTranslation } from '@/contexts';
 import { combine, withErrorWrapper, withProfiler } from '@/hocs';
 import { isServer, svgMap } from '@/utils';
 import { AsideClassnames } from './classnames';
+import classnames from 'classnames';
+import { useTranslation } from '@/contexts';
 
-function AsideComponent (): JSX.Element {
+function AsideComponent(): JSX.Element {
   const isBrowser = !isServer();
   let lsAsideOpen = false;
   if (isBrowser) {

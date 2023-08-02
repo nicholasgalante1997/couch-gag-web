@@ -1,14 +1,9 @@
-import React, { memo } from 'react';
 import { I18NProvider, WritProvider } from '@/contexts';
-import { useOnMount } from '@/hooks';
-import { logger } from '@/utils';
-import { withProfiler } from '@/hocs';
+import React, { memo } from 'react';
 import { Aside } from '@/components/Aside';
+import { withProfiler } from '@/hocs';
 
-function PageComponent ({ children, id }: { children: React.ReactNode, id: string }): React.JSX.Element {
-  useOnMount(() => {
-    logger.info(`Component ${id} mounted.`);
-  });
+function PageComponent({ children, id }: { children: React.ReactNode; id: string }): React.JSX.Element {
   return (
     <I18NProvider>
       <WritProvider>
