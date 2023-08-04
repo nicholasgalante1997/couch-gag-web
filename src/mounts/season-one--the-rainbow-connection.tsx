@@ -41,10 +41,7 @@ The Rocky Mountains actually span all the way up through Canada, into the Alaska
     imgSrc: 'Kermit the Frog, playing &#x27;The Rainbow Connection;&#x27;',
     title: 'The Rainbow Connection'
   };
-  hydrateRoot(
-    mountingEl,
-      <StoryPage {...props} />
-  );
+  hydrateRoot(mountingEl, <StoryPage {...props} />);
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -52,4 +49,3 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mount();
-  

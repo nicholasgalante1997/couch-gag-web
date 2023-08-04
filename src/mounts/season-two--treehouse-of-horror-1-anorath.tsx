@@ -31,10 +31,7 @@ Anorath was singular and desolate.`,
     imgSrc: 'some-lovecraft-image,shoggoth',
     title: 'Treehouse of Horror I: Anorath'
   };
-  hydrateRoot(
-    mountingEl,
-      <StoryPage {...props} />
-  );
+  hydrateRoot(mountingEl, <StoryPage {...props} />);
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -42,4 +39,3 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mount();
-  

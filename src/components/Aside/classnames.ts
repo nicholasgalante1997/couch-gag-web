@@ -9,5 +9,6 @@ export const AsideClassnames = {
   BadgeExpandedText: 'aside__badge-text',
   SeasonContainer: 'aside__season-container',
   ExpandAsideContainer: 'aside__expand-container',
-  ExpandeAsideText: 'aside__expand-container-text'
+  ExpandeAsideText: 'aside__expand-container-text',
+  BottomContainer: 'aside__bottom-container'
 };

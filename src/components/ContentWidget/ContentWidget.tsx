@@ -90,7 +90,9 @@ function ContentWidgetComponent({
             <a href={`/${slug}.html`} target="_self" role="button" className="button-smpl">
               {t('content_widget_action')}
             </a>
-            <button onClick={() => onCopy(slug)} className="button-smpl">{hasBeenCopied ? 'Copied!' : t('content_widget_share')}</button>
+            <button onClick={() => onCopy(slug)} className="button-smpl">
+              {hasBeenCopied ? 'Copied!' : t('content_widget_share')}
+            </button>
             <button className="button-smpl">{t('content_widget_shelf')}</button>
           </div>
         </div>

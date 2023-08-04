@@ -1,4 +1,4 @@
-import { ContributeBanner, Hero, SubscribeBanner } from '@/components';
+import { ContributeBanner, Hero, ShelfWidget, SubscribeBanner } from '@/components';
 import React, { memo } from 'react';
 import { combine, withProfiler, withRootProviders } from '@/hocs';
 
@@ -8,6 +8,7 @@ function LandingPageComponent(): JSX.Element {
       <Hero />
       <SubscribeBanner />
       <ContributeBanner />
+      <ShelfWidget />
     </React.Fragment>
   );
 }

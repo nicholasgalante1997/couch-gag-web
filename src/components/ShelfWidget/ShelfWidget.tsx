@@ -5,8 +5,8 @@ import { ShelfWidgetClassNames } from './classnames';
 function ShelfWidgetComponent(): React.JSX.Element {
   return (
     <div className={ShelfWidgetClassNames.Wrapper}>
-      <div className="shelf-widget__animation-section"></div>
-      <div className="shelf-widget__create-shelf-container"></div>
+      <div className={ShelfWidgetClassNames.AnimationSection}></div>
+      <div className={ShelfWidgetClassNames.CreateSection}></div>
     </div>
   );
 }

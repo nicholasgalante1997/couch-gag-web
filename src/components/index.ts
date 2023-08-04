@@ -4,5 +4,6 @@ export * from './ContributeBanner';
 export * from './ErrorBoundary';
 export * from './Hero';
 export * from './Root';
+export * from './ShelfWidget';
 export * from './Story';
 export * from './SubscribeBanner';
