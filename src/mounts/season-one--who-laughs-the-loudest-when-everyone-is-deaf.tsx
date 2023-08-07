@@ -33,7 +33,10 @@ You can&#x27;t force your artistic perception; your voice. You almost can&#x27;t
     imgSrc: '',
     title: 'Who laughs the loudest when everyone&#x27;s deaf'
   };
-  hydrateRoot(mountingEl, <StoryPage {...props} />);
+  hydrateRoot(
+    mountingEl,
+      <StoryPage {...props} />
+  );
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -41,3 +44,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mount();
+  

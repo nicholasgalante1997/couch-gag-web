@@ -1,4 +1,4 @@
-import { type ExceptionToastProps, type ExceptionContextType } from '@/contexts/error';
+import { type ExceptionContextType, type ExceptionToastProps } from '@/contexts/error';
 import { LOCAL_STORAGE_SHELF_KEY, type ShelfContextState, type ShelfContextType } from '@/contexts';
 import axios, { type AxiosInstance } from 'axios';
 import { isServer } from './iso';
@@ -62,8 +62,10 @@ class Api {
   private readonly net = axios.create({
     baseURL: process.env.VERCEL_PRODUCTION_EF_API_URL,
     timeout: 1500,
+    withCredentials: true,
     headers: {
-      Accept: 'text/html, application/json, image/webp, image/jpg, image/png, */*;q=0.1'
+      Accept: 'text/html, application/json, image/webp, image/jpg, image/png, */*;q=0.1',
+      'Referrer-Policy': 'strict-origin-when-cross-origin'
     }
   });
 
