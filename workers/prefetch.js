@@ -49,6 +49,8 @@ self.onmessage = function (e) {
    */
   const hostname = url.hostname;
   const protocol = url.protocol;
+
+  const isDev = hostname.includes('localhost');
   /**
    * Derive the file path from event.data
    */
@@ -56,7 +58,7 @@ self.onmessage = function (e) {
   /**
    * Create a new URL with the full filepath, assumed to be served from the protocol:hostname/path
    */
-  const requestUrl = new URL(`${protocol}//${hostname}/${path}`);
+  const requestUrl = new URL(`${protocol}//${hostname}${isDev ? `:${url.port}` : ''}/${path}`);
   /**
    * Create a Fetch Request Init Object describing the request we want to prefetch/cache
    */
@@ -135,7 +137,9 @@ self.onmessage = function (e) {
               });
           }
         })
-        .catch();
+        .catch((e) => {
+          throw e;
+        });
     })
     .catch((e) => {
       console.warn('A process in Worker "prefetch.js" has thrown an error.');
