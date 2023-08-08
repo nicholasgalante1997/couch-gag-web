@@ -1,12 +1,22 @@
 import React, { memo, useCallback, useMemo } from 'react';
 import { combine, withProfiler } from '@/hocs';
-import { useTranslation, useWritContext } from '@/contexts';
+import { useTranslation, useWorkerContext, useWritContext } from '@/contexts';
+import { useOnElementEnter } from '@/hooks';
 import { HeroImageClassnames } from './classnames';
 import classnames from 'classnames';
-import { to } from '@/utils';
+import { PrefetchOnEntryFnFactory, to } from '@/utils';
+
+const buttonPrefetchId = 'lp_story_one_prefetch' as const;
 
 function HeroImageComponent(): JSX.Element {
   const { t } = useTranslation();
+  const { addWorker, dispatchWorkerMsg, workers, requestWorker } = useWorkerContext();
+  const memoPrefetchAssetFn = useMemo(
+    () => PrefetchOnEntryFnFactory.build('prefetch.js', workers, addWorker, requestWorker, dispatchWorkerMsg),
+    []
+  );
+  useOnElementEnter(buttonPrefetchId, memoPrefetchAssetFn, { disabled: !memoPrefetchAssetFn });
+
   const { getOne } = useWritContext();
   const originStory = getOne('key', '0101');
   let slug = '/404';
@@ -29,7 +39,12 @@ function HeroImageComponent(): JSX.Element {
         </h6>
         <p className={textClassname}>{t('lp_subtext_block')}</p>
         <div className={HeroImageClassnames.Row}>
-          <button onClick={readOnClick} className={HeroImageClassnames.Button}>
+          <button
+            data-prefetch={`/${slug}.html`}
+            id={buttonPrefetchId}
+            onClick={readOnClick}
+            className={HeroImageClassnames.Button}
+          >
             {t('lp_action_cta')}
           </button>
           <button onClick={aboutOnClick} className={HeroImageClassnames.Button}>
