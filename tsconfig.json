@@ -20,9 +20,10 @@
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true,
       "strict": true,
-      "skipLibCheck": true
+      "skipLibCheck": true,
+      "allowJs": true
     },
-    "include": ["src"],
+    "include": ["src", "workers/prefetch.js"],
     "exclude": ["node_modules"]
   }
   

@@ -2,17 +2,17 @@ import React, { createContext, memo, useContext, useEffect, useState } from 'rea
 import { combine, withProfiler } from '@/hocs';
 
 interface ExceptionContextProviderProps {
-  children: React.ReactNode | React.ReactNode[] | React.JSX.Element | React.JSX.Element[]
+  children: React.ReactNode | React.ReactNode[] | React.JSX.Element | React.JSX.Element[];
 }
 
 export interface ExceptionToastProps {
-  error: string
-  cause: string
-  id: string
+  error: string;
+  cause: string;
+  id: string;
 }
 
 export interface ExceptionContextType {
-  dispatchException: (props: ExceptionToastProps) => void
+  dispatchException: (props: ExceptionToastProps) => void;
 }
 
 const defaultDispatchException = (_props: ExceptionToastProps): void => {};
@@ -21,12 +21,14 @@ const ExceptionContext = createContext<ExceptionContextType>({ dispatchException
 
 export const useExceptionContext = (): ExceptionContextType => useContext(ExceptionContext);
 
-function ExceptionContextProviderComponent({ children }: ExceptionContextProviderProps): React.JSX.Element | React.JSX.Element[] {
+function ExceptionContextProviderComponent({
+  children
+}: ExceptionContextProviderProps): React.JSX.Element | React.JSX.Element[] {
   const [toasts, setToasts] = useState<ExceptionToastProps[]>([]);
   function autoclose(toastId: string): void {
     const toastToBeClosed = toasts.find((toast) => toast.id === toastId);
     if (toastToBeClosed) {
-      setToasts((current) => current.filter(toast => toast.id !== toastToBeClosed.id));
+      setToasts((current) => current.filter((toast) => toast.id !== toastToBeClosed.id));
     }
   }
 
@@ -43,11 +45,7 @@ function ExceptionContextProviderComponent({ children }: ExceptionContextProvide
     setToasts((current) => [...current, toast]);
   }
 
-  return (
-    <ExceptionContext.Provider value={{ dispatchException }}>
-      {children}
-    </ExceptionContext.Provider>
-  );
+  return <ExceptionContext.Provider value={{ dispatchException }}>{children}</ExceptionContext.Provider>;
 }
 
 export const ExceptionContextProvider = combine<ExceptionContextProviderProps>(

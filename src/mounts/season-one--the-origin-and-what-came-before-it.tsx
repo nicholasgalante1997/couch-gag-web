@@ -51,16 +51,15 @@ She had no benefactors. She had, perhaps, fewer real friends. She often found sh
 
 ## Simpsons Did It, Simpsons Did It
 `,
-    description: 'A discovery is made during a remote expedition to Antarctica that begins to unravel the fabric of the human storyline.',
+    description:
+      'A discovery is made during a remote expedition to Antarctica that begins to unravel the fabric of the human storyline.',
     genres,
-    imgAlt: 'A discovery is made during a remote expedition to Antarctica that begins to unravel the fabric of the human storyline.',
+    imgAlt:
+      'A discovery is made during a remote expedition to Antarctica that begins to unravel the fabric of the human storyline.',
     imgSrc: '/snow-red.webp',
     title: 'The Origin, and What Came Before It'
   };
-  hydrateRoot(
-    mountingEl,
-      <StoryPage {...props} />
-  );
+  hydrateRoot(mountingEl, <StoryPage {...props} />);
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -68,4 +67,3 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mount();
-  

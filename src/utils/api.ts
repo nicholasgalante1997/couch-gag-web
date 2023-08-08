@@ -5,13 +5,13 @@ import { isServer } from './iso';
 import { v4 as uuidv4 } from 'uuid';
 
 interface ApiResponseType<T> {
-  ok: boolean
-  data: T | null
-  error?: string | null
+  ok: boolean;
+  data: T | null;
+  error?: string | null;
 }
 
 interface ShelfApiClientOptions {
-  net: AxiosInstance
+  net: AxiosInstance;
 }
 
 class ShelfApiClient {
@@ -33,17 +33,16 @@ class ShelfApiClient {
     this.net = options.net;
   }
 
-  public async create(update: ShelfContextType['update'], dispatchError: ExceptionContextType['dispatchException']): Promise<void> {
+  public async create(
+    update: ShelfContextType['update'],
+    dispatchError: ExceptionContextType['dispatchException']
+  ): Promise<void> {
     try {
       const uuid = uuidv4();
-      const { data, status } = await this.net.get<ApiResponseType<ShelfContextState>>(`/shelf/create?uuid=${uuid}`);
-      const hasFailed = (
-        data == null ||
-        !data.ok ||
-        !data.data ||
-        (status < 200 || status > 201) ||
-        data.error
+      const { data, status } = await this.net.get<ApiResponseType<ShelfContextState>>(
+        `/shelf/create?uuid=${uuid}`
       );
+      const hasFailed = data == null || !data.ok || !data.data || status < 200 || status > 201 || data.error;
       if (hasFailed) {
         throw new Error(data.error ?? this.__defaultFailToCreateException);
       } else {

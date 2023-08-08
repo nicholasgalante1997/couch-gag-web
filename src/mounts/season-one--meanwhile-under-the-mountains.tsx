@@ -45,10 +45,7 @@ function mount(): void {
     imgSrc: 'https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg',
     title: 'Meanwhile, Under the Mountains'
   };
-  hydrateRoot(
-    mountingEl,
-      <StoryPage {...props} />
-  );
+  hydrateRoot(mountingEl, <StoryPage {...props} />);
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -56,4 +53,3 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mount();
-  
