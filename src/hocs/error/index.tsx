@@ -2,7 +2,7 @@ import { ErrorWrapper } from '@/components/ErrorBoundary';
 import React from 'react';
 
 export interface ErrorBoundaryProps {
-  fallback?: JSX.Element;
+  fallback?: React.JSX.Element;
 }
 
 export function withErrorWrapper<P = {} & JSX.IntrinsicAttributes & ErrorBoundaryProps>(
