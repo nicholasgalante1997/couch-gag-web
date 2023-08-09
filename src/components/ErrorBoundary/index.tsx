@@ -1,32 +1,42 @@
 import React, { memo } from 'react';
 import { logger } from '@/utils';
 
-class ErrorBoundary extends React.Component<
-  { id: string; fallback: JSX.Element; children: React.ReactNode },
-  { hasError: boolean; error?: Error }
-> {
-  constructor(props: { id: string; fallback: JSX.Element; children: React.ReactNode }) {
+type ChildNode = React.JSX.Element | React.ReactNode | React.ReactElement;
+
+interface ErrorBoundaryProps {
+  id?: string;
+  lazy?: boolean;
+  hide?: boolean;
+  fallback?: ChildNode;
+  children: ChildNode;
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+  error?: any;
+}
+
+class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = {
-      hasError: false,
-      error: undefined
+      hasError: false
     };
   }
 
-  static getDerivedStateFromError(error: any): { hasError: boolean; error: Error } {
-    error = error as Error;
+  static getDerivedStateFromError(error: any): ErrorBoundaryState {
+    logger.warn('ErrorBoundary encountered an error thrown during child rendering.');
     logger.error(error);
-    return { hasError: true, error: new Error(error) };
+    return { hasError: true, error };
   }
 
   componentDidCatch(error: any, info: { componentStack: any } & Record<string, unknown>): void {
     logger.error(error);
-    logger.error(info);
+    logger.error(info.componentStack);
   }
 
   render(): React.JSX.Element | React.ReactNode {
-    if (this.state.hasError) {
-      logger.info(this.state.error);
+    if (this.state.hasError && !this.props.hide && this.props.fallback) {
       return this.props.fallback;
     }
 
