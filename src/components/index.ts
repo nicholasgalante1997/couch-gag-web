@@ -2,6 +2,7 @@ export * from './Aside';
 export * from './ContentWidget';
 export * from './ContributeBanner';
 export * from './ErrorBoundary';
+export * from './ErrorCode';
 export * from './Hero';
 export * from './Root';
 export * from './ShelfWidget';

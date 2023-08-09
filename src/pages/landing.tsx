@@ -1,6 +1,6 @@
 import { ContributeBanner, Hero, ShelfWidget, SubscribeBanner } from '@/components';
 import React, { memo } from 'react';
-import { combine, withProfiler, withRootProviders } from '@/hocs';
+import { combine, withProfiler, withRootProviders, withRouteGuard } from '@/hocs';
 
 function LandingPageComponent(): JSX.Element {
   return (
@@ -14,7 +14,7 @@ function LandingPageComponent(): JSX.Element {
 }
 
 export const LandingPage = combine(
-  [withRootProviders, withProfiler],
+  [withRouteGuard('couch-gag-landing-page-route-v0.1'), withRootProviders, withProfiler],
   memo(LandingPageComponent),
   'landing-page'
 );
