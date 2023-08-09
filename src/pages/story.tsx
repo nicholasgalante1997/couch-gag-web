@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Story, type StoryProps } from '@/components';
-import { combine, withProfiler, withRootProviders } from '@/hocs';
+import { combine, withProfiler, withRootProviders, withRouteGuard } from '@/hocs';
 
 function StoryComponent(props: StoryProps): React.JSX.Element {
   return (
@@ -11,7 +11,7 @@ function StoryComponent(props: StoryProps): React.JSX.Element {
 }
 
 export const StoryPage = combine<StoryProps>(
-  [withProfiler, withRootProviders],
+  [withRouteGuard('couch-gag-story-page-route-v0.1'), withProfiler, withRootProviders],
   memo(StoryComponent),
   'story-page'
 );
