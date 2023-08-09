@@ -26,14 +26,14 @@
   --cyber-punk-pink: #d600ff;
 
   /*  lasercat color pack */
-  --lasercat-black-1: '#010326';
-  --lasercat-black-2: '#020426';
-  --lasercat-royal-blue: '#150259';
-  --lasercat-royal-blue-2: '#1D0673';
-  --lasercat-blue-1: '#2B2073';
-  --lasercat-blue-2: '#21038C';
-  --lasercat-pink-1: '#D92365';
-  --lasercat-pink-2: '#F20775';
-  --lasercat-red: '#8C0343';
-  --lasercat-teal: '#99F2E9';
+  --lasercat-black-1: #010326;
+  --lasercat-black-2: #020426;
+  --lasercat-royal-blue: #150259;
+  --lasercat-royal-blue-2: #1D0673;
+  --lasercat-blue-1: #2B2073;
+  --lasercat-blue-2: #21038C;
+  --lasercat-pink-1:#D92365;
+  --lasercat-pink-2: #F20775;
+  --lasercat-red: #8C0343;
+  --lasercat-teal: #99F2E9;
 }

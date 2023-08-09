@@ -43,16 +43,16 @@ function mount(): void {
 
 
 `,
-    description:
-      'There is finally a punchline offered to a worldly and dragging joke; The American Judicial System',
+    description: 'There is finally a punchline offered to a worldly and dragging joke; The American Judicial System',
     genres,
-    imgAlt:
-      'There is finally a punchline offered to a worldly and dragging joke; The American Judicial System',
-    imgSrc:
-      'https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3NpbXBzb25zLW9yaWcuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoiMTIwMCJ9fX0&#x3D;',
+    imgAlt: 'There is finally a punchline offered to a worldly and dragging joke; The American Judicial System',
+    imgSrc: 'https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3NpbXBzb25zLW9yaWcuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoiMTIwMCJ9fX0&#x3D;',
     title: 'The Greatest Mistrial The World Had Ever Seen'
   };
-  hydrateRoot(mountingEl, <StoryPage {...props} />);
+  hydrateRoot(
+    mountingEl,
+      <StoryPage {...props} />
+  );
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -60,3 +60,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mount();
+  

@@ -24,15 +24,16 @@ function mount(): void {
     author: 'Irving Washington',
     content: `#### 
 `,
-    description:
-      'Weezer fails to show up to a concert at Nikon Jones Beach Theatre due to hedonism. A new hero sees an opportunity.',
+    description: 'Weezer fails to show up to a concert at Nikon Jones Beach Theatre due to hedonism. A new hero sees an opportunity.',
     genres,
-    imgAlt:
-      'Weezer fails to show up to a concert at Nikon Jones Beach Theatre due to hedonism. A new hero sees an opportunity.',
+    imgAlt: 'Weezer fails to show up to a concert at Nikon Jones Beach Theatre due to hedonism. A new hero sees an opportunity.',
     imgSrc: 'https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg',
     title: 'The Common Man and His Common Dream'
   };
-  hydrateRoot(mountingEl, <StoryPage {...props} />);
+  hydrateRoot(
+    mountingEl,
+      <StoryPage {...props} />
+  );
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -40,3 +41,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mount();
+  
