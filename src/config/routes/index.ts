@@ -7,7 +7,7 @@ export const RouteKeyMap = {
       development: 'public',
       beta: 'public',
       gamma: 'public',
-      production: 'private'
+      production: 'public'
     }
   },
   BrowsePage: {
@@ -16,7 +16,7 @@ export const RouteKeyMap = {
       development: 'public',
       beta: 'public',
       gamma: 'public',
-      production: 'private'
+      production: 'public'
     }
   },
   ContributePage: {
@@ -25,7 +25,7 @@ export const RouteKeyMap = {
       development: 'public',
       beta: 'public',
       gamma: 'public',
-      production: 'private'
+      production: 'public'
     }
   },
   LandingPage: {
@@ -34,7 +34,7 @@ export const RouteKeyMap = {
       development: 'public',
       beta: 'public',
       gamma: 'public',
-      production: 'private'
+      production: 'public'
     }
   },
   StoryPage: {
@@ -43,7 +43,7 @@ export const RouteKeyMap = {
       development: 'public',
       beta: 'public',
       gamma: 'public',
-      production: 'private'
+      production: 'public'
     }
   }
 } as const;
