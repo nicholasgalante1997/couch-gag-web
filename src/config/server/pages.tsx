@@ -1,4 +1,4 @@
-import { BrowsePage, LandingPage, StoryPage } from '@/pages';
+import { BrowsePage, ErrorPage, LandingPage, StoryPage } from '@/pages';
 import { type PageConfig } from '@/types';
 import { type StoryProps } from '@/components';
 import frontmatter from 'front-matter';
@@ -66,6 +66,14 @@ export const staticPages: Array<PageConfig<any>> = [
     description: 'Search for stories contained within "The Couch Gag" seasons\'s 1 and 2.',
     htmlFileName: 'browse',
     styles: ['browse']
+  },
+  {
+    bundle: 'error',
+    component: ErrorPage,
+    title: 'The Couch Gag, 404 Page',
+    description: 'The Couch Gag fallback page',
+    htmlFileName: '404',
+    styles: []
   }
 ];
 
