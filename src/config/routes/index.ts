@@ -28,6 +28,15 @@ export const RouteKeyMap = {
       production: 'public'
     }
   },
+  ErrorPage: {
+    key: `couch-gag-error-page-route-v${RouteKeyMapVersion}`,
+    environments: {
+      development: 'public',
+      beta: 'public',
+      gamma: 'public',
+      production: 'public'
+    }
+  },
   LandingPage: {
     key: `couch-gag-landing-page-route-v${RouteKeyMapVersion}`,
     environments: {
