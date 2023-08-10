@@ -32,7 +32,7 @@ export function withRouteGuard<P = {} & JSX.IntrinsicAttributes>(routeKey: Route
     return function (id: string, _Component: React.FC<P>) {
       // eslint-disable-next-line react/display-name
       return function (props: P) {
-        return <ErrorCode code={401} id={id} error='ProtectedRoute' />;
+        return <ErrorCode code={401} id={id} error="ProtectedRoute" />;
       };
     };
   }

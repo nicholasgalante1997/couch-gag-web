@@ -2,7 +2,7 @@ import { ContributeBanner, Hero, ShelfWidget, SubscribeBanner } from '@/componen
 import React, { memo } from 'react';
 import { combine, withProfiler, withRootProviders, withRouteGuard } from '@/hocs';
 
-function LandingPageComponent(): JSX.Element {
+function LandingPageComponent(): React.JSX.Element {
   return (
     <React.Fragment>
       <Hero />

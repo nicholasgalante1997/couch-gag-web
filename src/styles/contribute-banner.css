@@ -18,7 +18,7 @@
   margin-block-start: 8px;
   margin-block-end: 20px;
   text-align: left;
-  max-width: 800px;
+  max-width: 1024px;
   background: var(--cyber-punk-green);
   background-clip: text;
   -webkit-background-clip: text;
@@ -29,7 +29,7 @@
 
 .contribute-banner__text {
   opacity: 0;
-  max-width: 720px;
+  max-width: 1024px;
   text-align: left;
   font-size: 20px;
   font-weight: 500;
@@ -44,7 +44,7 @@
 
 .contribute-banner__bold {
   opacity: 0;
-  max-width: 720px;
+  max-width: 1024px;
   text-align: left;
   font-size: 20px;
   font-weight: 500;
@@ -69,7 +69,7 @@
 
 .fade-in-left {
   animation-name: fadeInLeft;
-  animation-duration: 400ms;
+  animation-duration: 800ms;
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-direction: normal;
