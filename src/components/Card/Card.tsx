@@ -16,29 +16,29 @@ export function CardComponent(props: CardProps): React.JSX.Element | React.React
   const renderImage = useCallback<() => React.ReactNode>(() => {
     if (type === 'mini') return false;
     return (
-        <div className={CardClassNames.CardImageWrapper} data-couchcardsize={size}>
-          <img src={image} alt={alt} className={CardClassNames.CardImage} data-couchcardsize={size} />
+        <div className={CardClassNames.CardImageWrapper} data-couchcardtype={type} data-couchcardsize={size}>
+          <img src={image} alt={alt} className={CardClassNames.CardImage} data-couchcardtype={type} data-couchcardsize={size} />
         </div>
     );
   }, [type, image, size]);
 
   const renderBody = useCallback<() => React.ReactNode>(() => {
     return (
-        <div className={CardClassNames.CardBody} data-couchcardsize={size}>
-          <h1 className={CardClassNames.CardTitle} data-couchcardsize={size}>
+        <div className={CardClassNames.CardBody} data-couchcardtype={type} data-couchcardsize={size}>
+          <h1 className={CardClassNames.CardTitle} data-couchcardtype={type} data-couchcardsize={size}>
             {title}
           </h1>
-          <p className={CardClassNames.CardText} data-couchcardsize={size}>
+          <p className={CardClassNames.CardText} data-couchcardtype={type} data-couchcardsize={size}>
             {description}
           </p>
           {type === 'full' && size === 'lg'
             ? (
-                <button onClick={() => to(cta.href)} className="button-small" data-couchcardsize={size}>
+                <button onClick={() => to(cta.href)} className="button-small" data-couchcardtype={type} data-couchcardsize={size}>
                 {cta.text}
                 </button>
               )
             : (
-                <a href={cta.href} target="_self" data-couchcardsize={size}>{cta.text}</a>
+                <a href={cta.href} target="_self" data-couchcardtype={type} data-couchcardsize={size}>{cta.text}</a>
               )}
         </div>
     );
@@ -49,7 +49,7 @@ export function CardComponent(props: CardProps): React.JSX.Element | React.React
   }
 
   return (
-    <div className={CardClassNames.CardWrapper} data-couchcardsize={size}>
+    <div className={CardClassNames.CardWrapper} data-couchcardtype={type} data-couchcardsize={size}>
       {renderImage()}
       {renderBody()}
     </div>

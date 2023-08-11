@@ -32,3 +32,19 @@ export const FullLarge: CardStory = {
   },
   render: (args: CardProps) => <CardComponent {...args} />
 };
+
+export const FullSmall: CardStory = {
+  args: {
+    type: 'full',
+    size: 'sm',
+    image: 'https://coincu.com/wp-content/uploads/2022/07/111.png',
+    alt: 'Doodles 2',
+    title: 'Doodles: A Case Study In NFTs',
+    description: 'What is Doodles? Doodles is a collection of NFT\'s (Non-Fungible Tokens) that has emerged as a result of the past wave of interest in NFT baedased trading, as an alternative to traditional means of trading.',
+    cta: {
+      href: '#',
+      text: 'Read More'
+    }
+  },
+  render: (args: CardProps) => <CardComponent {...args} />
+};
