@@ -1,6 +1,6 @@
 .shelf-widget__wrapper {
   width: 100%;
-  min-height: 440px;
+  min-height: 100vh;
   background: linear-gradient(to bottom, var(--russian-violet) 30%, var(--rich-black));
   box-sizing: border-box;
   padding: 16px;
@@ -16,7 +16,7 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: flex-end;
   padding: 16px;
   height: 100%;
@@ -32,6 +32,10 @@
   color: var(--lasercat-teal);
   max-width: 1024px;
   font-weight: 600;
+  margin-top: 16px;
+  margin-right: 16px;
+  margin-block-end: 20px;
+  margin-block-start: 4px;
 }
 
 .shelf-widget__create-shelf-container p {
@@ -44,4 +48,5 @@
   color: white;
   max-width: 710px;
   font-weight: 500;
+  margin-block: 8px;
 }

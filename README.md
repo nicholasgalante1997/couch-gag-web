@@ -137,3 +137,13 @@ This package leverages static site generation. It doesn't use any fancy framewor
 ## API
 
 ## Hosting, Deployment, CI/CD
+
+This project is hosted on Vercel. When we push to a remote branch, Vercel creates a preview deployment for us. Each stage, Dev, Beta, Gamma, Prod, has its own set of environment variables. When we merge into our main branch, Vercel kicks off a production release for us at our primary domain. This project is served entirely from the Vercel CDN/Host network. Its build process produces all files it needs to function correctly. 
+
+### Git Branching Strategy
+
+New work gets its own branch following the pattern `workstreams/{{ name of your workstream }}`  
+When work is ready for a PR, it is raised to be merged into the branch `dev`  
+If bake time goes great on dev, we raise a PR from `dev` to `gamma`  
+Finally, after extensive testing in gamma we, we can merge `gamm a` to `main`
+
