@@ -76,9 +76,6 @@
     box-sizing: border-box;
 }
 
-.card__body[data-couchcardsize="lg"] {
-}
-
 .card__title[data-couchcardsize="lg"][data-couchcardtype="full"] {
     color: white;
     margin-block-end: 10px;
