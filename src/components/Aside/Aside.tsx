@@ -1,112 +1,97 @@
-import React, { memo, useEffect, useMemo, useState } from 'react';
+import React, { memo, useState } from 'react';
 import { combine, withProfiler } from '@/hocs';
-import { isServer, svgMap, to } from '@/utils';
 import { AsideClassnames } from './classnames';
 import classnames from 'classnames';
-import { useTranslation } from '@/contexts';
+import { to } from '@/utils';
 
-function AsideComponent(): JSX.Element {
-  const isBrowser = !isServer();
-  let lsAsideOpen = false;
-  if (isBrowser) {
-    const hasStoredValue = window.localStorage.getItem('couch-gag__aside__open');
-    if (hasStoredValue) {
-      lsAsideOpen = JSON.parse(hasStoredValue).isOpen as boolean;
-    }
+const TooltipMap = {
+  home: {
+    title: 'Home',
+    sub: 'The landing page'
+  },
+  browse: {
+    title: 'Browse',
+    sub: 'Browse available stories'
+  },
+  upload: {
+    title: 'Upload',
+    sub: 'Submit a story'
+  },
+  about: {
+    title: 'About',
+    sub: 'Read our prologue'
   }
+} as const;
 
-  const [expanded, setExpanded] = useState(lsAsideOpen);
-  const { t } = useTranslation();
+function AsideComponent(): React.JSX.Element {
+  const [hover, setHover] = useState<keyof typeof TooltipMap>();
 
-  useEffect(() => {
-    window.localStorage.setItem('couch-gag__aside__open', JSON.stringify({ isOpen: expanded }));
-  }, [expanded]);
-
-  const parentClassName = useMemo(
-    () =>
-      classnames({
-        [AsideClassnames.Container]: !expanded,
-        [AsideClassnames.ContainerExpanded]: expanded,
-        chunk: true
-      }),
-    [expanded]
-  );
-
-  const badgeClassName = useMemo(
-    () =>
-      classnames({
-        [AsideClassnames.Badge]: !expanded,
-        [AsideClassnames.BadgeExpanded]: expanded
-      }),
-    [expanded]
-  );
-
-  const badgeTextClassname = useMemo(
-    () =>
-      classnames({
-        [AsideClassnames.BadgeExpandedText]: true,
-        'ml-2': true
-      }),
-    []
-  );
-
-  const imgProperties = useMemo(
-    () => ({
-      alt: expanded ? 'An image of a caret pointing up.' : 'An image of a caret pointing right',
-      src: expanded ? svgMap.pinch : svgMap.open
-    }),
-    [expanded]
-  );
+  const onHover = (k: keyof typeof TooltipMap): void => {
+    setHover(k);
+  };
+  const offHover = (): void => {
+    setHover(undefined);
+  };
 
   return (
-    <div className={parentClassName}>
-      <div className={AsideClassnames.LogoContainer}>
-        <img src="/favicon-32x32.png" height="32px" width="32px" />
-        {expanded && <p className={badgeTextClassname}>{t('aside_logo_text')}</p>}
+    <div className={AsideClassnames.Container}>
+      <div
+        onMouseEnter={() => onHover('home')}
+        onMouseLeave={offHover}
+        className={AsideClassnames.LogoContainer}
+      >
+        <img
+          onClick={() => {
+            to('/');
+          }}
+          className="pointer"
+          role="button"
+          tabIndex={1}
+          src="/favicon.ico"
+          height="40px"
+          width="40px"
+        />
       </div>
       <div className={AsideClassnames.SeasonContainer}>
         <div
-          className={badgeClassName}
+          onMouseEnter={() => onHover('browse')}
+          onMouseLeave={offHover}
+          className={AsideClassnames.Badge}
           role="button"
           onClick={() => {
             to('/browse.html');
           }}
         >
-          <img height="20px" width="20px" src={svgMap.books} alt="a stack of papers icon" />
-          {expanded && <p className={badgeTextClassname}>{t('aside_browse_stories')}</p>}
+          <img height="40px" width="40px" src="/bookshelf.png" alt="a stack of papers icon" />
         </div>
         <div
-          className={classnames(badgeClassName, 'mt-4')}
+          onMouseEnter={() => onHover('upload')}
+          onMouseLeave={offHover}
+          className={classnames(AsideClassnames.Badge, 'mt-4')}
           role="button"
           onClick={() => {
             to('/contribute.html');
           }}
         >
-          <img height="20px" width="20px" src={svgMap.upload} alt="an upload file icon" />
-          {expanded && <p className={badgeTextClassname}>{t('aside_submit_story')}</p>}
+          <img height="40px" width="40px" src="/upload_alt.png" alt="an upload file icon" />
         </div>
         <div
+          onMouseEnter={() => onHover('about')}
+          onMouseLeave={offHover}
+          className={classnames(AsideClassnames.Badge, 'mt-4')}
           role="button"
           onClick={() => {
             to('/about.html');
           }}
-          className={classnames(badgeClassName, 'mt-4')}
         >
-          <img height="20px" width="20px" src={svgMap.info} alt="an icon of an info circle" />
-          {expanded && <p className={badgeTextClassname}>{t('aside_about')}</p>}
+          <img height="40px" width="40px" src="/information.png" alt="an icon of an info circle" />
         </div>
       </div>
-      <div className={AsideClassnames.ExpandAsideContainer}>
-        <div
-          className={badgeClassName}
-          onClick={() => {
-            setExpanded((p) => !p);
-          }}
-        >
-          <img height="20px" width="20px" {...imgProperties} />
-          {expanded && <p className={badgeTextClassname}>{t('aside_close')}</p>}
+      {hover && (
+        <div className={AsideClassnames.BottomContainer}>
+          <p>{TooltipMap[hover].title}</p>
         </div>
-      </div>
+      )}
     </div>
   );
 }

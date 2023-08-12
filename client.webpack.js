@@ -29,6 +29,7 @@ function getEntryObject() {
 }
 
 module.exports = {
+    cache: false,
     mode: 'production',
     entry: getEntryObject(),
     target: ['web', 'es2017'],

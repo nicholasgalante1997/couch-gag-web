@@ -8,6 +8,7 @@ const { EnvironmentPlugin } = webpack;
 dotenv.config();
 
 module.exports = {
+    cache: false,
     mode: 'development',
     entry: path.resolve(process.cwd(), 'src', 'dev', 'story.tsx'),
     target: ['web', 'es2017'],

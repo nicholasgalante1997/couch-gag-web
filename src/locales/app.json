@@ -13,15 +13,15 @@
     "content_widget_action": "Read This Story",
     "content_widget_share": "Share This Story",
     "content_widget_shelf": "Add to shelf",
-    "lp_contribute_banner_title": "Submission Season Is Open",
-    "lp_contribute_banner_text": "The Couch Gag is still accepting submissions for their second season. We would love to hear from you. If you are interested, follow the link below and submit a story around the prompt provided.",
-    "lp_contribute_banner_bold": "If you are selected, with your permission, we'll publish your story in our upcoming second season!",
-    "lp_contribute_banner_call": " You'll also receive a prize pack for being selected. There is no limit to the number of stories a writer may contribute. We're looking forward to hearing from you!",
-    "lp_contribute_banner_cta": "Contribute",
+    "exception_create_shelf_default_error_text": "Create Shelf Failed",
+    "exception_create_shelf_default_cause_text": "The server made a mistake! It may be down. Try again later.",
+    "lp_contribute_banner_title": "Got a story to tell?",
+    "lp_contribute_banner_text": "Shoot your shot. Submit a story. Win some merch.",
+    "lp_contribute_banner_cta": "Learn More",
     "lp_title_shard_1": "The",
     "lp_title_shard_2": "Couch",
     "lp_title_shard_3": "Gag",
-    "lp_subtext_block": "A Collection of fictional stories about the absurd.",
+    "lp_subtext_block": "A collection of fictional stories about the absurd.",
     "lp_action_cta": "Read Story One",
     "lp_action_about_cta": "Read Our Anchor",
     "lp_sub_banner_text_shard_1": "Support",
@@ -35,6 +35,10 @@
     "story_social_likes": "Likes",
     "story_social_shares": "Shares",
     "story_social_like_cta": "Like",
-    "story_social_share_cta": "Share"
+    "story_social_share_cta": "Share",
+    "lp_shelf_banner_text_shard_1": "Come here often?",
+    "lp_shelf_banner_span_text": "Claim A Shelf,",
+    "lp_shelf_banner_text_shard_2": "and stake your place in the couchverse.",
+    "lp_shelf_banner_cta": "Learn More"
   }
 }
