@@ -28,7 +28,7 @@ Anorath was singular and desolate.`,
     description: 'Ripples are created in a black lake that flows out into the ocean.',
     genres,
     imgAlt: 'Ripples are created in a black lake that flows out into the ocean.',
-    imgSrc: 'some-lovecraft-image,shoggoth',
+    imgSrc: '/digital-art-purple.jpg',
     title: 'Treehouse of Horror I: Anorath'
   };
   hydrateRoot(

@@ -7,6 +7,7 @@ const { EnvironmentPlugin } = webpack;
 dotenv.config();
 
 module.exports = {
+    cache: false,
     entry: {
       'build-app': path.resolve(process.cwd(), 'src', 'ssg', 'build-app.tsx'),
       'build-entry-points': path.resolve(process.cwd(), 'src', 'ssg', 'build-dynamic-entrypoints.ts')
