@@ -16,31 +16,42 @@ export function CardComponent(props: CardProps): React.JSX.Element | React.React
   const renderImage = useCallback<() => React.ReactNode>(() => {
     if (type === 'mini') return false;
     return (
-        <div className={CardClassNames.CardImageWrapper} data-couchcardtype={type} data-couchcardsize={size}>
-          <img src={image} alt={alt} className={CardClassNames.CardImage} data-couchcardtype={type} data-couchcardsize={size} />
-        </div>
+      <div className={CardClassNames.CardImageWrapper} data-couchcardtype={type} data-couchcardsize={size}>
+        <img
+          src={image}
+          alt={alt}
+          className={CardClassNames.CardImage}
+          data-couchcardtype={type}
+          data-couchcardsize={size}
+        />
+      </div>
     );
   }, [type, image, size]);
 
   const renderBody = useCallback<() => React.ReactNode>(() => {
     return (
-        <div className={CardClassNames.CardBody} data-couchcardtype={type} data-couchcardsize={size}>
-          <h1 className={CardClassNames.CardTitle} data-couchcardtype={type} data-couchcardsize={size}>
-            {title}
-          </h1>
-          <p className={CardClassNames.CardText} data-couchcardtype={type} data-couchcardsize={size}>
-            {description}
-          </p>
-          {type === 'full' && size === 'lg'
-            ? (
-                <button onClick={() => to(cta.href)} className="button-small" data-couchcardtype={type} data-couchcardsize={size}>
-                {cta.text}
-                </button>
-              )
-            : (
-                <a href={cta.href} target="_self" data-couchcardtype={type} data-couchcardsize={size}>{cta.text}</a>
-              )}
-        </div>
+      <div className={CardClassNames.CardBody} data-couchcardtype={type} data-couchcardsize={size}>
+        <h1 className={CardClassNames.CardTitle} data-couchcardtype={type} data-couchcardsize={size}>
+          {title}
+        </h1>
+        <p className={CardClassNames.CardText} data-couchcardtype={type} data-couchcardsize={size}>
+          {description}
+        </p>
+        {type === 'full' && size === 'lg' ? (
+          <button
+            onClick={() => to(cta.href)}
+            className="button-small"
+            data-couchcardtype={type}
+            data-couchcardsize={size}
+          >
+            {cta.text}
+          </button>
+        ) : (
+          <a href={cta.href} target="_self" data-couchcardtype={type} data-couchcardsize={size}>
+            {cta.text}
+          </a>
+        )}
+      </div>
     );
   }, [size, type]);
 

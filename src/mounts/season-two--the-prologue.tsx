@@ -15,21 +15,19 @@ function mount(): void {
     mountingEl.id = DOCUMENT_ROOT_ID;
     document.body.appendChild(mountingEl);
   }
-  const story = writMdJson.metadata.find(({ key }) => key === '0201');
+  const story = writMdJson.metadata.find(({ key }) => key === '0204');
   let genres: string[] = [];
   if (story) {
     genres = story.genres;
   }
   const props: StoryProps = {
-    author: 'Lovecraft, HPV',
-    content: `#### The Anorath Before
-
-Anorath was singular and desolate.`,
-    description: 'Ripples are created in a black lake that flows out into the ocean.',
+    author: 'Washington Irving',
+    content: ``,
+    description: '',
     genres,
-    imgAlt: 'Ripples are created in a black lake that flows out into the ocean.',
-    imgSrc: '/digital-art-purple.jpg',
-    title: 'Treehouse of Horror I: Anorath'
+    imgAlt: '',
+    imgSrc: 'origin cavern',
+    title: 'The Prologue'
   };
   hydrateRoot(
     mountingEl,
