@@ -63,3 +63,24 @@
   align-self: center;
   justify-self: center;
 }
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0.5;
+    transform: translateY(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.fade-in-up {
+  animation-name: fadeInUp;
+  animation-duration: 800ms; 
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}

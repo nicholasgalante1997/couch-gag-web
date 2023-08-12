@@ -5,6 +5,6 @@ export * from './ErrorBoundary';
 export * from './ErrorCode';
 export * from './Hero';
 export * from './Root';
-export * from './ShelfWidget';
+export * from './ShelfBanner';
 export * from './Story';
 export * from './SubscribeBanner';

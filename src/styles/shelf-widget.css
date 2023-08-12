@@ -1,52 +1,51 @@
-.shelf-widget__wrapper {
+.shelf-banner__container {
   width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(to bottom, var(--russian-violet) 30%, var(--rich-black));
-  box-sizing: border-box;
+  height: 72px;
   padding: 16px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-evenly;
-  overflow: hidden;
-  padding-top: 16px;
+  background-color: var(--cyber-punk-green);
 }
 
-.shelf-widget__create-shelf-container {
-  box-sizing: border-box;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
-  padding: 16px;
-  height: 100%;
+.shelf-banner__text {
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 300;
+  font-family: Chunk;
+  color: var(--rich-black);
 }
 
-.shelf-widget__create-shelf-container h1 {
-  font-family: Pacifico;
-  margin-block: 8px;
-  text-align: right;
-  line-height: 1.15;
-  font-size: 4rem;
-  letter-spacing: 0.04em;
-  color: var(--lasercat-teal);
-  max-width: 1024px;
-  font-weight: 600;
-  margin-top: 16px;
-  margin-right: 16px;
-  margin-block-end: 20px;
-  margin-block-start: 4px;
-}
-
-.shelf-widget__create-shelf-container p {
-  font-family: League-Spartan;
-  margin-block: 4px;
-  text-align: right;
-  line-height: 1.15;
-  font-size: 20px;
-  letter-spacing: 0.02em;
-  color: white;
-  max-width: 710px;
+.shelf-banner__span {
+  font-size: 24px;
+  line-height: 1.25;
   font-weight: 500;
-  margin-block: 8px;
+  font-family: Chunk;
+  background: var(--cyber-punk-blue-1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0.5;
+    transform: translateY(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.fade-in-up {
+  animation-name: fadeInUp;
+  animation-duration: 500ms; 
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
 }

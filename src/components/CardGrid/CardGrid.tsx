@@ -1,7 +1,9 @@
+import { gridId, mainContentOnEnter } from './animations';
 import { Card } from '@/components/Card';
 import { CardGridClassNames } from './classnames';
 import React from 'react';
 import classNames from 'classnames';
+import { useOnElementEnter } from '@/hooks';
 
 const mockCardProps = {
   image: 'https://coincu.com/wp-content/uploads/2022/07/111.png',
@@ -16,8 +18,9 @@ const mockCardProps = {
 };
 
 export function CardGridComponent(): React.JSX.Element | React.ReactNode {
+  useOnElementEnter(gridId, mainContentOnEnter);
   return (
-    <div className={CardGridClassNames.Grid}>
+    <div id={gridId} className={CardGridClassNames.Grid}>
       <div className={CardGridClassNames.HeadingRow}>
         <h1>Season One</h1>
         <button className="button-smpl">Browse</button>

@@ -2,12 +2,36 @@
   min-height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   padding-left: 32px;
   background: linear-gradient(to bottom, var(--rich-black) 71%, var(--russian-violet));
   color: white;
+}
+
+.contribute-banner__main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 1024px;
+}
+
+.contribute-banner__image-container {
+  width: 400px;
+  max-width: 400px;
+  height: 100%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  overflow: hidden;
+}
+
+.contribute-banner__image {
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 5 / 16;
 }
 
 .contribute-banner__title {
@@ -29,7 +53,6 @@
 }
 
 .contribute-banner__text {
-  opacity: 0;
   max-width: 1024px;
   text-align: left;
   font-size: 20px;
@@ -40,41 +63,47 @@
   font-family: League-Spartan, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin-block: 8px;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.75);
 }
 
-.contribute-banner__bold {
-  opacity: 0;
-  max-width: 1024px;
-  text-align: left;
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  line-height: 1.15;
-  font-style: normal;
-  font-family: League-Spartan, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: white;
-}
-
-@keyframes fadeInLeft {
+@keyframes fadeInUp {
   0% {
-    opacity: 0.6;
-    transform: translateX(calc(-100vw - 50%));
+    opacity: 0.5;
+    transform: translateY(80px);
   }
   100% {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateY(0px);
   }
 }
 
-.fade-in-left {
-  animation-name: fadeInLeft;
-  animation-duration: 800ms;
+@keyframes fadeInFromRight {
+  0% {
+    opacity: 0.5;
+    transform: translatex(400px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.fade-in-up {
+  animation-name: fadeInUp;
+  animation-duration: 400ms; 
   animation-timing-function: ease-in;
+  animation-delay: 0s;
   animation-iteration-count: 1;
   animation-direction: normal;
-  animation-fill-mode: forwards;
+}
+
+.fade-in-from-right {
+  animation-name: fadeInFromRight;
+  animation-duration: 400ms; 
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
 }
 
 .delay-0 {
