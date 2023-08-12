@@ -38,6 +38,16 @@
     max-width: 244px;
 }
 
+.card__wrapper[data-couchcardsize="lg"][data-couchcardtype="mini"] {
+    width: 360px;
+    height: fit-content;
+}
+
+.card__wrapper[data-couchcardsize="sm"][data-couchcardtype="mini"] {
+    width: 244px;
+    height: fit-content;
+}
+
 .card__image-wrapper {
     overflow: hidden;
     width: 100%;
@@ -110,4 +120,54 @@
     -webkit-box-orient: vertical;  
     overflow: hidden;
     margin-block: 6px;
+}
+
+.card__title[data-couchcardsize="lg"][data-couchcardtype="mini"] {
+    color: white;
+    margin-block-end: 10px;
+    font-size: 36px;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+.card__text[data-couchcardsize="lg"][data-couchcardtype="mini"] {
+    font-family: League-Spartan;
+    font-weight: 500;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+.card__title[data-couchcardsize="sm"][data-couchcardtype="mini"] {
+    color: white;
+    margin-block-end: 10px;
+    font-size: 24px;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+.card__text[data-couchcardsize="sm"][data-couchcardtype="mini"] {
+    font-family: League-Spartan;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
 }
