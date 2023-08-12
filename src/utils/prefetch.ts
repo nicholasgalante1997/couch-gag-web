@@ -3,6 +3,7 @@ import { logger } from './logger';
 
 export const prefetchDataAttr = 'data-prefetch' as const;
 
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export class PrefetchOnEntryFnFactory {
   public static build(
     worker: string,
@@ -10,7 +11,7 @@ export class PrefetchOnEntryFnFactory {
     addWorker: (w: string) => Worker | null,
     requestWorker: (w: string) => Worker | undefined,
     dispatchWorkerMsg: (w: string, m: string) => boolean
-  ) {
+  ): IntersectionObserverCallback | null {
     if (isServer()) {
       return null;
     }

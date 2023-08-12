@@ -1,13 +1,16 @@
-import { ContributeBanner, Hero, SubscribeBanner } from '@/components';
+import { ContributeBanner, Hero, ShelfWidget, SubscribeBanner } from '@/components';
 import React, { memo } from 'react';
 import { combine, withProfiler, withRootProviders, withRouteGuard } from '@/hocs';
+import { CardGrid } from '@/components/CardGrid';
 
-function LandingPageComponent(): JSX.Element {
+function LandingPageComponent(): React.JSX.Element {
   return (
     <React.Fragment>
       <Hero />
       <SubscribeBanner />
+      <CardGrid />
       <ContributeBanner />
+      <ShelfWidget />
     </React.Fragment>
   );
 }

@@ -1,4 +1,4 @@
-import { I18NProvider, WorkerContextProvider, WritProvider } from '@/contexts';
+import { I18NProvider, ShelfContextProvider, WorkerContextProvider, WritProvider } from '@/contexts';
 import React, { memo } from 'react';
 import { Aside } from '@/components/Aside';
 import { withProfiler } from '@/hocs';
@@ -7,12 +7,14 @@ function PageComponent({ children, id }: { children: React.ReactNode; id: string
   return (
     <I18NProvider>
       <WorkerContextProvider>
-        <WritProvider>
-          <div id={id} className="couch-page">
-            <Aside />
-            <div className="couch-page-main">{children}</div>
-          </div>
-        </WritProvider>
+        <ShelfContextProvider>
+          <WritProvider>
+            <div id={id} className="couch-page">
+              <Aside />
+              <div className="couch-page-main">{children}</div>
+            </div>
+          </WritProvider>
+        </ShelfContextProvider>
       </WorkerContextProvider>
     </I18NProvider>
   );

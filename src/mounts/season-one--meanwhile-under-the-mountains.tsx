@@ -42,7 +42,7 @@ function mount(): void {
     description: 'The leaders of the free world meet to discuss the recent exposition.',
     genres,
     imgAlt: 'The leaders of the free world meet to discuss the recent exposition.',
-    imgSrc: 'https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg',
+    imgSrc: '/mountaincabin.jpg',
     title: 'Meanwhile, Under the Mountains'
   };
   hydrateRoot(

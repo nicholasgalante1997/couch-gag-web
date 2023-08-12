@@ -8,7 +8,7 @@ const onRender: ProfilerOnRenderCallback = (id, ...args) => {
 };
 
 export function withProfiler<P = any>(id: string, Component: React.FC<P>): React.FC<P> {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV !== 'profiling') {
     return Component;
   }
   // eslint-disable-next-line react/display-name

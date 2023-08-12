@@ -22,7 +22,9 @@ function mount(): void {
   }
   const props: StoryProps = {
     author: 'Irving Washington',
-    content: `#### 
+    content: `#### The Van
+
+The van was described as a huge fucking steal. 
 `,
     description: 'Weezer fails to show up to a concert at Nikon Jones Beach Theatre due to hedonism. A new hero sees an opportunity.',
     genres,
