@@ -6,5 +6,6 @@ export const BrowseComponentClassNames = {
   SearchSpan: 'browse-component__search-span',
   SearchInput: 'browse-component__search-input',
   Tab: 'browse-component__tab',
-  TabActive: 'browse-component__tab-active'
+  TabActive: 'browse-component__tab-active',
+  CardGrid: 'browse-component__card-grid'
 } as const;

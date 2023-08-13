@@ -1,61 +1,20 @@
-import React, { memo, useCallback, useMemo, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { combine, withProfiler } from '@/hocs';
 import { useTranslation, useWritContext } from '@/contexts';
 import { BrowseComponentClassNames } from './classnames';
-import { ContentWidget } from '../ContentWidget';
-
-const ColorSwatch = [
-  ['var(--rich-black)', 'var(--risd-blue)', 'dark'],
-  ['var(--rich-black)', 'var(--risd-blue)', 'dark']
-] as const;
-
-const seasons = [
-  {
-    plaintext: 'Season One',
-    key: '01'
-  },
-  {
-    plaintext: 'Season Two',
-    key: '02'
-  }
-] as const;
+import { Card } from '../Card';
 
 function BrowseComponent(): React.JSX.Element {
   const [search, setSearchValue] = useState<string>();
-  const [season, setSeason] = useState<`0${number}`>(seasons[0].key);
 
   const { t } = useTranslation();
   const { getAll } = useWritContext();
 
-  function filterOnSeason(): ReturnType<typeof getAll> {
-    return getAll().filter(({ seasonKey }) => seasonKey === season);
-  }
-  const mFilterGetAllBySeasonOne = useCallback(filterOnSeason, [getAll, season]);
-  const writ = useMemo(mFilterGetAllBySeasonOne, [mFilterGetAllBySeasonOne, season]);
+  const writ = getAll();
 
-  const writToContentJsx = useCallback((writObject: (typeof writ)[number], index: number) => {
-    const remainder = index % 2;
-    const [backgroundColor, foregroundColor, supportingTheme] = ColorSwatch[remainder];
-    const shadingDirection = index % 2 === 0 ? ('r' as const) : ('l' as const);
-    const props = { ...writObject, backgroundColor, foregroundColor, supportingTheme, shadingDirection };
-    return <ContentWidget {...props} />;
+  const writToContentJsx = useCallback((writObject: (typeof writ)[number], _index: number) => {
+    return <Card size='lg' type="full" title={writObject.title} description={writObject.subtitle} key={writObject.slug} image={'/doodles2.webp'} cta={{ href: `/${writObject.slug}.html`, text: 'Read More' }} />;
   }, []);
-
-  const seasonToJsx = useCallback(
-    ({ plaintext, key }: (typeof seasons)[number]) => {
-      return (
-        <span
-          onClick={() => {
-            setSeason(key);
-          }}
-          className={season === key ? BrowseComponentClassNames.TabActive : BrowseComponentClassNames.Tab}
-        >
-          {plaintext}
-        </span>
-      );
-    },
-    [season]
-  );
 
   const filterOnSearch = (writObject: (typeof writ)[number]): boolean => {
     if (!search) {
@@ -93,8 +52,9 @@ function BrowseComponent(): React.JSX.Element {
             className={BrowseComponentClassNames.SearchInput}
           />
         </div>
-        <div className={BrowseComponentClassNames.SeasonRow}>{seasons.map(seasonToJsx)}</div>
-        {writ.filter(filterOnSearch).map(writToContentJsx)}
+        <div className={BrowseComponentClassNames.CardGrid}>
+          {writ.filter(filterOnSearch).map(writToContentJsx)}
+        </div>
       </div>
     </div>
   );
