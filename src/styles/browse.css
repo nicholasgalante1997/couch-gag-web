@@ -1,10 +1,18 @@
-@import 'content-widget.css';
+@import 'card.css';
 
 .browse-frame {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   box-sizing: border-box;
   padding: 32px 16px;
+}
+
+.browse-component__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 100%;
 }
 
 .browse-component__search-row {
@@ -15,8 +23,10 @@
   justify-content: space-between;
   padding: 10px;
   align-items: center;
-  flex-grow: 1;
   background: var(--rich-black);
+  min-width: 100%;
+  margin-top: 32px;
+  margin-bottom: 64px;
 }
 
 .browse-component__season-row {
@@ -57,10 +67,11 @@
 
 .browse-component__search-span {
   font-size: 40px;
-  font-family: Chunk;
-  font-weight: 500;
+  font-family: League-Spartan;
+  font-weight: 600;
   color: white;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
 }
 
 .browse-component__tab {
@@ -90,4 +101,19 @@
   transform: translateY(-2px);
   letter-spacing: 0.04em;
   transition: transform 200ms;
+}
+
+.browse-component__card-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+  flex-grow: 1;
+  margin: 0px;
+  padding: 32px;
+  box-sizing: border-box;
+  max-width: 1440px;
+  align-self: center;
 }
