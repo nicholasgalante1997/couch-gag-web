@@ -29,6 +29,8 @@
   height: 446px;
   max-width: 310px;
   max-height: 446px;
+  min-width: 310px;
+  min-height: 446px;
 }
 
 .card__wrapper[data-couchcardsize='sm'][data-couchcardtype='full'] {
@@ -36,6 +38,8 @@
   width: 244px;
   max-height: 308px;
   max-width: 244px;
+  min-height: 308px;
+  min-width: 244px;
 }
 
 .card__wrapper[data-couchcardsize='lg'][data-couchcardtype='mini'] {
@@ -56,10 +60,14 @@
 
 .card__image-wrapper[data-couchcardsize='lg'][data-couchcardtype='full'] {
   height: 246px;
+  min-height: 246px;
+  max-height: 246px;
 }
 
 .card__image-wrapper[data-couchcardsize='sm'][data-couchcardtype='full'] {
   height: 168px;
+  min-height: 168px;
+  max-height: 168px;
 }
 
 .card__image {
@@ -69,11 +77,15 @@
 }
 
 .card__image[data-couchcardsize='lg'][data-couchcardtype='full'] {
+  min-height: 246px;
+  max-height: 246px;
   height: 246px;
   aspect-ratio: 16 / 14;
 }
 
 .card__image[data-couchcardsize='sm'][data-couchcardtype='full'] {
+  min-height: 168px;
+  max-height: 168px;
   height: 168px;
   aspect-ratio: 16 / 9;
 }
@@ -88,7 +100,11 @@
 
 .card__title[data-couchcardsize='lg'][data-couchcardtype='full'] {
   color: white;
-  margin-block-end: 10px;
+  margin-block-end: 0px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .card__text[data-couchcardsize='lg'][data-couchcardtype='full'] {
@@ -96,7 +112,7 @@
   line-height: 1.15;
   letter-spacing: 0.04em;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
