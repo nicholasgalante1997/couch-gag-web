@@ -1,23 +1,21 @@
 import React, { memo } from 'react';
 import { combine, withProfiler } from '@/hocs';
-import { shelfBannerId, shelfBannerOnEnter } from './animations';
 import { ShelfWidgetClassNames } from './classnames';
-import { useOnElementEnter } from '@/hooks';
+import { shelfBannerId } from './animations';
 import { useTranslation } from '@/contexts';
 
 function ShelfWidgetComponent(): React.JSX.Element {
   const { t } = useTranslation();
-  useOnElementEnter(shelfBannerId, shelfBannerOnEnter);
   return (
     <div id={shelfBannerId} className={ShelfWidgetClassNames.Wrapper}>
-    <p className={ShelfWidgetClassNames.Text}>
-      {t('lp_shelf_banner_text_shard_1')}&nbsp;
-      <span className={ShelfWidgetClassNames.Span}>{t('lp_shelf_banner_span_text')}</span>&nbsp;
-      {t('lp_shelf_banner_text_shard_2')}
-    </p>
-    &nbsp;
-    <button className="button-smpl">{t('lp_shelf_banner_cta')}</button>
-  </div>
+      <p className={ShelfWidgetClassNames.Text}>
+        {t('lp_shelf_banner_text_shard_1')}&nbsp;
+        <span className={ShelfWidgetClassNames.Span}>{t('lp_shelf_banner_span_text')}</span>&nbsp;
+        {t('lp_shelf_banner_text_shard_2')}
+      </p>
+      &nbsp;
+      <button className="button-smpl">{t('lp_shelf_banner_cta')}</button>
+    </div>
   );
 }
 

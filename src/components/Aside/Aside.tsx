@@ -48,8 +48,8 @@ function AsideComponent(): React.JSX.Element {
           role="button"
           tabIndex={1}
           src="/favicon.ico"
-          height="40px"
-          width="40px"
+          height="52px"
+          width="52px"
         />
       </div>
       <div className={AsideClassnames.SeasonContainer}>
@@ -62,7 +62,7 @@ function AsideComponent(): React.JSX.Element {
             to('/browse.html');
           }}
         >
-          <img height="40px" width="40px" src="/bookshelf.png" alt="a stack of papers icon" />
+          <img height="52px" width="52px" src="/bookshelf.png" alt="a stack of papers icon" />
         </div>
         <div
           onMouseEnter={() => onHover('upload')}
@@ -73,7 +73,7 @@ function AsideComponent(): React.JSX.Element {
             to('/contribute.html');
           }}
         >
-          <img height="40px" width="40px" src="/upload_alt.png" alt="an upload file icon" />
+          <img height="52px" width="52px" src="/upload_alt.png" alt="an upload file icon" />
         </div>
         <div
           onMouseEnter={() => onHover('about')}
@@ -84,7 +84,7 @@ function AsideComponent(): React.JSX.Element {
             to('/about.html');
           }}
         >
-          <img height="40px" width="40px" src="/information.png" alt="an icon of an info circle" />
+          <img height="52px" width="52px" src="/information.png" alt="an icon of an info circle" />
         </div>
       </div>
       {hover && (

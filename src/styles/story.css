@@ -22,7 +22,7 @@
   margin-left: 0px;
   margin-right: 0px;
   height: 40px;
-  background: linear-gradient(to right, var(--amethyst), var(--ultra-pink));
+  background: var(--cyber-punk-green);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -31,14 +31,13 @@
 
 .story__micro-banner p {
   font-family: Pacifico;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.15;
   color: black;
 }
 
 .story__micro-banner span {
-  @import 'palette-twitch.css';
   float: right;
 }
 
@@ -74,18 +73,25 @@
 }
 
 .story_description {
-  font-family: Chunk;
-  color: rgba(255, 255, 255, 0.8);
+  font-family: League-Spartan;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.75);
   text-align: left;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .story_author {
   font-family: Chunk;
-  text-align: left;
-  font-size: 16px;
-  color: var(--orange-web);
+  font-weight: 600;
+  font-style: normal;
   letter-spacing: 0.04em;
+  line-height: 1.25;
+  color: white;
+  text-align: left;
+  font-size: 28px;
 }
 
 .story_image-container {
@@ -120,18 +126,28 @@
 }
 
 .story__markdown-layer p {
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  font-family: League-Spartan;
+  font-weight: 500;
   font-size: 20px;
 }
 
-.story__markdown-layer h2 {
+.story__markdown-layer h1,
+.story__markdown-layer h2,
+.story__markdown-layer h3,
+.story__markdown-layer h4,
+.story__markdown-layer h5,
+.story__markdown-layer h6 {
   font-size: 40px;
   font-weight: 900;
-  background: linear-gradient(to right, var(--orange-crayola), var(--gold));
+  background: linear-gradient(to right, var(--cyber-punk-green), var(--amethyst));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
+  margin-block: 20px;
 }
 
 .story_badge_row {
@@ -161,14 +177,17 @@
 .story_social_action_container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  min-width: 180px;
-  max-width: 236px;
   flex-wrap: wrap;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 20px;
   margin-bottom: 20px;
+  width: 800px;
+}
+
+.story_social_action_container button {
+  margin-right: 16px;
 }
 
 .story_social_action_container span {

@@ -13,7 +13,17 @@ function BrowseComponent(): React.JSX.Element {
   const writ = getAll();
 
   const writToContentJsx = useCallback((writObject: (typeof writ)[number], _index: number) => {
-    return <Card size='lg' type="full" title={writObject.title} description={writObject.subtitle} key={writObject.slug} image={'/doodles2.webp'} cta={{ href: `/${writObject.slug}.html`, text: 'Read More' }} />;
+    return (
+      <Card
+        size="lg"
+        type="full"
+        title={writObject.title}
+        description={writObject.subtitle}
+        key={writObject.slug}
+        image={'/doodles2.webp'}
+        cta={{ href: `/${writObject.slug}.html`, text: 'Read More' }}
+      />
+    );
   }, []);
 
   const filterOnSearch = (writObject: (typeof writ)[number]): boolean => {

@@ -55,6 +55,13 @@ self.onmessage = function (e) {
    * Derive the file path from event.data
    */
   const path = e.data;
+
+  if (typeof path !== 'string') {
+    console.warn(
+      'e.data is not of type string. This is likely a malicious actor. Please check infosec logs.'
+    );
+    return;
+  }
   /**
    * Create a new URL with the full filepath, assumed to be served from the protocol:hostname/path
    */

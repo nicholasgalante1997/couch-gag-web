@@ -17,7 +17,11 @@ function ContributeBannerComponent(): JSX.Element {
         <button className="button-smpl mt-3">{t('lp_contribute_banner_cta')}</button>
       </div>
       <div id={imageContainerId} className={ContributeBannerClassNames.ImageContainer}>
-        <img src="digital-art-purple.jpg" alt="purple digital art" className={ContributeBannerClassNames.Image} />
+        <img
+          src="digital-art-purple.jpg"
+          alt="purple digital art"
+          className={ContributeBannerClassNames.Image}
+        />
       </div>
     </div>
   );

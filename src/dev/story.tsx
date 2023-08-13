@@ -1,8 +1,8 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { StoryPage } from '@/pages';
 import '../styles/index.css';
 import '../styles/story.css';
+import React from 'react';
+import { StoryPage } from '@/pages';
+import { createRoot } from 'react-dom/client';
 import storyMeta from '../contexts/data/writ.json';
 
 const mockStory = storyMeta.metadata[0];
@@ -21,6 +21,7 @@ Vulputate odio ut enim blandit volutpat maecenas volutpat. Ante in nibh mauris c
 Auctor elit sed vulputate mi sit amet mauris commodo. In ornare quam viverra orci sagittis eu volutpat odio facilisis. Vitae elementum curabitur vitae nunc. Id leo in vitae turpis massa sed elementum tempus egestas. Pulvinar pellentesque habitant morbi tristique. Enim tortor at auctor urna nunc id cursus metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. Volutpat ac tincidunt vitae semper quis lectus. Velit dignissim sodales ut eu. In fermentum et sollicitudin ac. Sed adipiscing diam donec adipiscing tristique. Consequat id porta nibh venenatis cras sed felis eget velit. Est ante in nibh mauris cursus mattis molestie a iaculis. Viverra maecenas accumsan lacus vel facilisis volutpat est.
 `;
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 createRoot(document.getElementById('evergreen-terrace')!).render(
   <StoryPage
     genres={mockStory.genres}

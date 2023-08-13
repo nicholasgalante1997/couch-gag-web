@@ -1,5 +1,5 @@
-import { combine, withProfiler } from '@/hocs';
 import React, { createContext, memo, useContext, useEffect, useState } from 'react';
+import { combine, withProfiler } from '@/hocs';
 
 interface WorkerContextType {
   workers: Map<string, Worker>;
@@ -7,14 +7,19 @@ interface WorkerContextType {
 }
 
 const initialWorkerMap = new Map<string, Worker>();
-const addWorker = (f: string) => null;
+const addWorker = (f: string): Worker | null => null;
 
 const WorkerContext = createContext<WorkerContextType>({
   workers: initialWorkerMap,
   addWorker
 });
 
-export const useWorkerContext = () => {
+type ExtendedWorkerContext = WorkerContextType & {
+  dispatchWorkerMsg: (w: string, m: unknown) => boolean;
+  requestWorker: (w: string) => Worker | undefined;
+};
+
+export const useWorkerContext = (): ExtendedWorkerContext => {
   const { addWorker, workers } = useContext(WorkerContext);
   function requestWorker(f: string): Worker | undefined {
     return workers.get(f);
@@ -35,7 +40,9 @@ interface WorkerContextProviderComponentProps {
   children: React.ReactNode | React.ReactNode[] | React.JSX.Element | React.JSX.Element[];
 }
 
-function WorkerContextProviderComponent({ children }: WorkerContextProviderComponentProps) {
+function WorkerContextProviderComponent({
+  children
+}: WorkerContextProviderComponentProps): React.ReactNode | React.JSX.Element {
   const [workers, setWorkers] = useState<Map<string, Worker>>(new Map());
   useEffect(() => {
     if (window.Worker) {
@@ -48,13 +55,13 @@ function WorkerContextProviderComponent({ children }: WorkerContextProviderCompo
     if (window.Worker) {
       const existingWorker = workers.has(f);
       if (existingWorker) {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         return workers.get(f)!;
       } else {
         const localWorker = new Worker(f);
         setWorkers((pastMap) => pastMap.set(f, localWorker));
         return localWorker;
       }
-      return null;
     } else {
       return null;
     }

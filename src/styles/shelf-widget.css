@@ -43,7 +43,7 @@
 
 .fade-in-up {
   animation-name: fadeInUp;
-  animation-duration: 200ms; 
+  animation-duration: 200ms;
   animation-timing-function: ease-in;
   animation-delay: 0s;
   animation-iteration-count: 1;

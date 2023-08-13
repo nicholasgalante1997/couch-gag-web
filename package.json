@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "w": "jest --watch",
     "x": "npm-run-all build local-prod-start",
+    "y": "npm-run-all lint format",
     "local-prod-start": "npx serve build",
     "test": "jest --passWithNoTests",
     "cp:assets": "cp -R src/styles/*.css src/styles/*.ttf assets/* build/",

@@ -1,32 +1,10 @@
 import React, { memo, useMemo, useState } from 'react';
 import { combine, withProfiler } from '@/hocs';
-import { Chip } from '../Chip';
-import { type ChipProps } from '../Chip/types';
 import ReactMarkdown from 'react-markdown';
 import { StoryClassNames } from './classnames';
 import { type StoryProps } from './types';
 import { isServer } from '@/utils';
 import { useTranslation } from '@/contexts';
-
-function shadeFromIndex(index: number): ChipProps['shade'] {
-  switch (index) {
-    case 0: {
-      return 'amethyst';
-    }
-    case 1: {
-      return 'blue';
-    }
-    case 2: {
-      return 'orange';
-    }
-    case 3: {
-      return 'blue';
-    }
-    default: {
-      return 'amethyst';
-    }
-  }
-}
 
 function StoryComponent({
   title,
@@ -71,28 +49,18 @@ function StoryComponent({
       <div className={StoryClassNames.SubContainer}>
         <p className={StoryClassNames.Description}>{description}</p>
         <p className={StoryClassNames.Author}>{[t('story_author_by'), author].join(' ')}</p>
-        <div className={StoryClassNames.BadgeRow}>
-          {genres.map((genre, index) => (
-            <Chip
-              key={genre}
-              text={genre}
-              shade={shadeFromIndex(index)}
-              className={index !== 0 ? 'ml-4' : ''}
-            />
-          ))}
-        </div>
+      </div>
+      <div className={StoryClassNames.ActionContainer}>
+        <button className="button-small">Add To Shelf</button>
+        <button className="button-small">Share</button>
+        <button className="button-small">Like</button>
+        <button className="button-small">Tip</button>
       </div>
       <div className={StoryClassNames.SocialBar}>
         <div className={StoryClassNames.Likes}>
           <span>
             {likes} {t('story_social_likes')}
           </span>
-        </div>
-        <div className={StoryClassNames.ActionContainer}>
-          <button className="button-small">Add To Shelf</button>
-          <button className="button-small">Share</button>
-          <button className="button-small">Like</button>
-          <button className="button-small">Tip</button>
         </div>
       </div>
       <div className={StoryClassNames.ImageContainer}>
