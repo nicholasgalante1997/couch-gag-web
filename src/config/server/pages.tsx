@@ -1,4 +1,4 @@
-import { BrowsePage, ErrorPage, LandingPage, StoryPage } from '@/pages';
+import { BrowsePage, ContributePage, ErrorPage, LandingPage, StoryPage } from '@/pages';
 import { type PageConfig } from '@/types';
 import { type StoryProps } from '@/components';
 import frontmatter from 'front-matter';
@@ -74,6 +74,14 @@ export const staticPages: Array<PageConfig<any>> = [
     description: 'The Couch Gag fallback page',
     htmlFileName: '404',
     styles: []
+  },
+  {
+    bundle: 'contribute',
+    component: ContributePage,
+    title: 'The Couch Gag, Contribute A Story',
+    description: 'Submit a story to the Couch Gag for a chance to be featured in our upcoming second season.',
+    htmlFileName: 'contribute',
+    styles: ['contribute']
   }
 ];
 

@@ -56,7 +56,10 @@ There&#x27;s an eruption of snickers. T pulls out 500 dollars in a fat folded wa
     imgSrc: 'https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg',
     title: 'trial by fire'
   };
-  hydrateRoot(mountingEl, <StoryPage {...props} />);
+  hydrateRoot(
+    mountingEl,
+      <StoryPage {...props} />
+  );
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -64,3 +67,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mount();
+  

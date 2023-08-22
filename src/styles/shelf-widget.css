@@ -22,7 +22,7 @@
   line-height: 1.25;
   font-weight: 500;
   font-family: Chunk;
-  background: var(--cyber-punk-blue-1);
+  background: rgb(255, 255, 255);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

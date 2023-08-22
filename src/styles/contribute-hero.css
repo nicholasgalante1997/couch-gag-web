@@ -1,0 +1,38 @@
+.contribute__hero-wrapper {
+  min-height: 240px;
+  height: 240px;
+  max-height: 240px;
+  box-sizing: border-box;
+  margin-top: 16px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.contribute__hero-title {
+  font-family: Pacifico;
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(to right, var(--cyber-punk-green), var(--lasercat-teal));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  margin-block: 20px;
+  text-align: center;
+  width: 105%;
+  letter-spacing: 0.06em;
+}
+
+.contribute__hero-subtext {
+  font-family: League-Spartan;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+}
