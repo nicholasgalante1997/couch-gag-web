@@ -1,5 +1,6 @@
 @import 'contribute-hero.css';
 @import 'contribute-description.css';
+@import 'contribute-dropfile.css';
 
 .contribute-frame {
   box-sizing: border-box;

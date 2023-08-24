@@ -7,7 +7,6 @@ export function ContributeHeroComponent(): React.JSX.Element {
   return (
     <div className={ContributeHeroClassNames.HeroWrapper}>
       <h1 className={ContributeHeroClassNames.HeroTitle}>{t('contribute__hero-title')}</h1>
-      <p className={ContributeHeroClassNames.HeroSubtext}>{t('contribute__hero-subtext')}</p>
     </div>
   );
 }

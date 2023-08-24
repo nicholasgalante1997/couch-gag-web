@@ -1,6 +1,7 @@
 export * from './Aside';
 export * from './ContentWidget';
 export * from './ContributeBanner';
+export * from './ContributeDropFile';
 export * from './ContributeDescription';
 export * from './ContributeHero';
 export * from './ErrorBoundary';

@@ -1,0 +1,13 @@
+.contribute-df__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  min-width: 90%;
+  align-self: center;
+  margin: 32px;
+  background-color: var(--dark-gray);
+  border: 4px dotted var(--lasercat-black-1);
+  border-radius: 10px;
+}

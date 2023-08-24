@@ -217,6 +217,14 @@ body {
   cursor: not-allowed;
 }
 
+.non-visible-element {
+  height: 0px;
+  width: 0px;
+  opacity: 0;
+  display: none;
+  visibility: hidden;
+}
+
 .couch-gag-401__wrapper {
   margin: 0px;
   padding: 0px;

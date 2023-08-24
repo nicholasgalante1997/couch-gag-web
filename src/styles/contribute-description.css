@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  max-width: 800px;
+  max-width: 1024px;
 }
 
 .contribute__description {

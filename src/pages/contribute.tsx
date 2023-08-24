@@ -1,4 +1,4 @@
-import { ContributeDescription, ContributeHero } from '@/components';
+import { ContributeDescription, ContributeDropFile, ContributeHero } from '@/components';
 import React, { memo } from 'react';
 import { combine, withProfiler, withRootProviders, withRouteGuard } from '@/hocs';
 
@@ -7,6 +7,7 @@ function ContributePageComponent(): React.JSX.Element {
     <div className="contribute-frame">
       <ContributeHero />
       <ContributeDescription />
+      <ContributeDropFile />
     </div>
   );
 }
