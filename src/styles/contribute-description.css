@@ -1,4 +1,16 @@
+@keyframes fade-up-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
 .contribute_desc-wrapper {
+  opacity: 0;
   box-sizing: border-box;
   margin-top: 16px;
   margin-bottom: 16px;
@@ -7,6 +19,12 @@
   justify-content: flex-start;
   align-items: center;
   max-width: 1024px;
+  animation-name: fade-up-in;
+  animation-duration: 600ms;
+  animation-delay: 350ms;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .contribute__description {

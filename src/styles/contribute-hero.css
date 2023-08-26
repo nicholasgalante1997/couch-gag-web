@@ -1,4 +1,16 @@
+@keyframes fade-up-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
 .contribute__hero-wrapper {
+  opacity: 0;
   box-sizing: border-box;
   margin-top: 16px;
   margin-bottom: 32px;
@@ -6,6 +18,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  animation-name: fade-up-in;
+  animation-duration: 600ms;
+  animation-delay: 350ms;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .contribute__hero-title {
@@ -22,14 +40,4 @@
   text-align: center;
   width: 105%;
   letter-spacing: 0.06em;
-}
-
-.contribute__hero-subtext {
-  font-family: League-Spartan;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 1);
-  text-align: center;
 }

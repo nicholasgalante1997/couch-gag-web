@@ -10,7 +10,7 @@ const s3 = new S3Client({
 });
 
 interface S3ContextType {
-  client: S3Client
+  client: S3Client;
 }
 
 const defaultCtx = { client: s3 };
@@ -20,7 +20,7 @@ const S3Context = createContext<S3ContextType>(defaultCtx);
 export const useS3Context = (): S3ContextType => useContext(S3Context);
 
 interface S3ContextProviderProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 function S3ContextProvider(props: S3ContextProviderProps): React.JSX.Element {

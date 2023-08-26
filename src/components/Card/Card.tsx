@@ -20,6 +20,7 @@ export function CardComponent(props: CardProps): React.JSX.Element | React.React
         <img
           src={image}
           alt={alt}
+          loading="lazy"
           className={CardClassNames.CardImage}
           data-couchcardtype={type}
           data-couchcardsize={size}
