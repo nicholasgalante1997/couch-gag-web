@@ -2,8 +2,8 @@ import React, { createContext, memo, useContext, useEffect, useState } from 'rea
 import { combine } from '@/hocs';
 
 interface WorkerContextType {
-  workers: Map<string, Worker>
-  addWorker: (f: string) => Worker | null
+  workers: Map<string, Worker>;
+  addWorker: (f: string) => Worker | null;
 }
 
 const initialWorkerMap = new Map<string, Worker>();
@@ -15,8 +15,8 @@ const WorkerContext = createContext<WorkerContextType>({
 });
 
 type ExtendedWorkerContext = WorkerContextType & {
-  dispatchWorkerMsg: (w: string, m: unknown) => boolean
-  requestWorker: (w: string) => Worker | undefined
+  dispatchWorkerMsg: (w: string, m: unknown) => boolean;
+  requestWorker: (w: string) => Worker | undefined;
 };
 
 export const useWorkerContext = (): ExtendedWorkerContext => {
@@ -37,7 +37,7 @@ export const useWorkerContext = (): ExtendedWorkerContext => {
 };
 
 interface WorkerContextProviderComponentProps {
-  children: React.ReactNode | React.ReactNode[] | React.JSX.Element | React.JSX.Element[]
+  children: React.ReactNode | React.ReactNode[] | React.JSX.Element | React.JSX.Element[];
 }
 
 function WorkerContextProviderComponent({

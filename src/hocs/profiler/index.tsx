@@ -1,12 +1,11 @@
 import type React from 'react';
-import { logger } from '@/utils';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const onRender = (id, ...args): void => {
-  if (process.env.NODE_ENV === 'profiling') {
-    logger.info({ id, ...args });
-  }
-};
+// const onRender = (id, ...args): void => {
+//   if (process.env.NODE_ENV === 'profiling') {
+//     logger.info({ id, ...args });
+//   }
+// };
 
 export function withProfiler<P = any>(id: string, Component: React.FC<P>): React.FC<P> {
   // if (process.env.NODE_ENV !== 'profiling') {

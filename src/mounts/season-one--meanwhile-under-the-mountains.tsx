@@ -45,10 +45,7 @@ function mount(): void {
     imgSrc: '/mountaincabin.jpg',
     title: 'Meanwhile, Under the Mountains'
   };
-  hydrateRoot(
-    mountingEl,
-      <StoryPage {...props} />
-  );
+  hydrateRoot(mountingEl, <StoryPage {...props} />);
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -56,4 +53,3 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mount();
-  

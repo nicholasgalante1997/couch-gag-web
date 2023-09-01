@@ -4,14 +4,14 @@ import { useS3Context } from '@/contexts';
 import { v4 as v4uuid } from 'uuid';
 
 interface UseFileUploadObject {
-  upload: (file: File) => void
-  succeeded: boolean
-  failed: boolean
-  idle: boolean
-  loading: boolean
-  error?: Error | string
-  submissionId?: string
-};
+  upload: (file: File) => void;
+  succeeded: boolean;
+  failed: boolean;
+  idle: boolean;
+  loading: boolean;
+  error?: Error | string;
+  submissionId?: string;
+}
 
 export const useFileUpload = function (): UseFileUploadObject {
   const [succeeded, setSucceeded] = useState(false);
@@ -40,8 +40,7 @@ export const useFileUpload = function (): UseFileUploadObject {
       const params = {
         Bucket: 'couch-gag-story-submissions', // Replace with your bucket name
         Key: objectKey,
-        Body: file,
-        ACL: 'public-read' // Adjust the permissions as needed
+        Body: file
       };
 
       try {

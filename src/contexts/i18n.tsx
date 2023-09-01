@@ -23,9 +23,9 @@ async function updateAppStrings(locale: string, update: (blob: typeof AppStrings
 const I18NContext = createContext<typeof AppStrings>(AppStrings);
 
 type UseTranslationFunction = () => {
-  t: (key: string) => string | undefined
-  media: (key: string) => string | undefined
-  raw: typeof AppStrings
+  t: (key: string) => string | undefined;
+  media: (key: string) => string | undefined;
+  raw: typeof AppStrings;
 };
 
 export const useTranslation: UseTranslationFunction = () => {
@@ -44,8 +44,8 @@ function I18NProviderComponent({
   children,
   locale = 'en'
 }: {
-  children: ReactNode
-  locale?: Locale
+  children: ReactNode;
+  locale?: Locale;
 }): React.JSX.Element | React.ReactNode {
   const [langStrings, setLangStrings] = useState(AppStrings);
   useEffect(() => {

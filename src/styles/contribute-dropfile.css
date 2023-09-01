@@ -30,7 +30,7 @@
   animation-fill-mode: forwards;
 }
 
-.contribute-df__wrapper[data-dragcurrent="active"] {
+.contribute-df__wrapper[data-dragcurrent='active'] {
   background-color: var(--mimi-pink);
   border: 2px solid var(--medium-blue);
 }
@@ -45,7 +45,7 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.contribute-df__wrapper [data-dragcurrent="active"] p {
+.contribute-df__wrapper [data-dragcurrent='active'] p {
   color: var(--rich-black);
 }
 
@@ -54,9 +54,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  min-width: 600px;
+  max-width: 450px;
   background-color: transparent;
-  min-height: 500px;
+  flex-grow: 1;
 }
 
 .contribute-has-file__filename {
@@ -66,7 +66,7 @@
   font-style: normal;
   letter-spacing: 0.02em;
   line-height: 1.25;
-  color: #FFF;
+  color: #fff;
   margin-right: 24px;
 }
 
@@ -76,4 +76,12 @@
   align-items: center;
   flex-direction: flex-start;
   flex-grow: 1;
+}
+
+.contribute-loading__wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
 }

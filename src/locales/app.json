@@ -44,6 +44,13 @@
     "contribute__hero-subtext": "We want to read it",
     "contribute__description_shard_1": "Couch Gag is a community driven project. It's a collection of unique voices from our community. If you'd like to submit a story, please ",
     "contribute__description_shard_2": " which will contain all the latest details on submission, document formatting, and response time.",
-    "contribute__description_download_string": "download and read our \"Couch Gag Extended Submission Guide\""
+    "contribute__description_download_string": "download and read our \"Couch Gag Extended Submission Guide\"",
+    "contribute__dropfile": "Drop Or Click To Upload Your Files",
+    "contribute__choose_another_story_action": "Choose Another Story",
+    "contribute__submit_action": "Submit",
+    "contribute__error_text": "Something went wrong while trying to upload your file. Try refreshing the page and trying again, or waiting a short time before trying again.",
+    "contribute__file_uploaded": "Nice! Your submission went through! Your submission id is ",
+    "contribute__file-uploaded-subtext": "If your story is selected, we'll reach out to you in 5-10 business days with next steps for publishing.",
+    "contribute__dismiss-action": "Dismiss"
   }
 }

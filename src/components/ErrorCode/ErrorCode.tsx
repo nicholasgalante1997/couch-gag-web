@@ -1,7 +1,6 @@
 import React, { memo, useEffect } from 'react';
 import { combine, withProfiler } from '@/hocs';
 import { FourZeroOneComponentClassNames } from './classnames';
-import { logger } from '@/utils/logger';
 
 interface FourZeroOneComponentProps {
   code: number;
@@ -15,13 +14,11 @@ function ErrorCodeComponent({
   error
 }: FourZeroOneComponentProps): React.JSX.Element | React.ReactNode {
   useEffect(() => {
-    /** Set the window hash to indicate an error has occurred */
-    window.location.hash = 'UnauthorizedAttemptToViewContent';
-    logger.warn(`${id ?? 'AnonymousComponent'} redirected to an ErrorCode route.`);
-    if (error) {
-      logger.warn(error);
+    if (code === 401) {
+      window.location.hash = 'UnauthorizedAttemptToViewContent';
+    } else if (id) {
+      window.location.hash = id;
     }
-
     return () => {
       window.location.hash = '';
     };
@@ -32,7 +29,7 @@ function ErrorCodeComponent({
         <span className={FourZeroOneComponentClassNames.ErrorCode}>{code}</span>
         <div className={FourZeroOneComponentClassNames.VerticalLine} />
         <span className={FourZeroOneComponentClassNames.ScriptedText}>
-          {"We hope you find what you're looking for, but it likely won't be here."}
+          {error ?? "We hope you find what you're looking for, but it likely won't be here."}
         </span>
       </div>
     </div>
