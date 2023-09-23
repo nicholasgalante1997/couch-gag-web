@@ -39,6 +39,11 @@
     "lp_shelf_banner_text_shard_1": "Come here often?",
     "lp_shelf_banner_span_text": "Claim A Shelf,",
     "lp_shelf_banner_text_shard_2": "and stake your place in the couchverse.",
-    "lp_shelf_banner_cta": "Learn More"
+    "lp_shelf_banner_cta": "Learn More",
+    "contribute__hero-title": "Share Your Absurd Story",
+    "contribute__hero-subtext": "We want to read it",
+    "contribute__description_shard_1": "Couch Gag is a community driven project. It's a collection of unique voices from our community. If you'd like to submit a story, please ",
+    "contribute__description_shard_2": " which will contain all the latest details on submission, document formatting, and response time.",
+    "contribute__description_download_string": "download and read our \"Couch Gag Extended Submission Guide\""
   }
 }

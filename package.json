@@ -15,6 +15,7 @@
     "dev:lp": "webpack serve --config dev-configs/landing.webpack.js",
     "dev:story": "webpack serve --config dev-configs/story.webpack.js",
     "dev:browse": "webpack serve --config dev-configs/browse.webpack.js",
+    "dev:contribute": "webpack serve --config dev-configs/contribute.webpack.js",
     "build-storybook": "storybook build",
     "format": "prettier --write src workers",
     "lint": "eslint --fix \"{src,workers}/**/*.{ts,tsx,js}\" ",
@@ -31,6 +32,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.398.0",
     "@vercel/analytics": "^1.0.1",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",

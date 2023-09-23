@@ -1,0 +1,43 @@
+@keyframes fade-up-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.contribute__hero-wrapper {
+  opacity: 0;
+  box-sizing: border-box;
+  margin-top: 16px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  animation-name: fade-up-in;
+  animation-duration: 600ms;
+  animation-delay: 350ms;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.contribute__hero-title {
+  font-family: Pacifico;
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(to right, var(--cyber-punk-green), var(--lasercat-teal));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  margin-block: 20px;
+  text-align: center;
+  width: 105%;
+  letter-spacing: 0.06em;
+}

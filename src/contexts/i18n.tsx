@@ -2,7 +2,6 @@ import React, { type ReactNode, createContext, memo, useContext, useEffect, useS
 import { AppStrings } from '@/locales';
 import { type Locale } from '@/types';
 import { logger } from '@/utils';
-import { withProfiler } from '@/hocs';
 
 async function updateAppStrings(locale: string, update: (blob: typeof AppStrings) => void): Promise<void> {
   try {
@@ -24,9 +23,9 @@ async function updateAppStrings(locale: string, update: (blob: typeof AppStrings
 const I18NContext = createContext<typeof AppStrings>(AppStrings);
 
 type UseTranslationFunction = () => {
-  t: (key: string) => string | undefined;
-  media: (key: string) => string | undefined;
-  raw: typeof AppStrings;
+  t: (key: string) => string | undefined
+  media: (key: string) => string | undefined
+  raw: typeof AppStrings
 };
 
 export const useTranslation: UseTranslationFunction = () => {
@@ -45,8 +44,8 @@ function I18NProviderComponent({
   children,
   locale = 'en'
 }: {
-  children: ReactNode;
-  locale?: Locale;
+  children: ReactNode
+  locale?: Locale
 }): React.JSX.Element | React.ReactNode {
   const [langStrings, setLangStrings] = useState(AppStrings);
   useEffect(() => {
@@ -61,4 +60,4 @@ function I18NProviderComponent({
   return <I18NContext.Provider value={langStrings}>{children}</I18NContext.Provider>;
 }
 
-export const I18NProvider = withProfiler('I18NProvider', memo(I18NProviderComponent));
+export const I18NProvider = memo(I18NProviderComponent);

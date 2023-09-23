@@ -1,0 +1,79 @@
+@keyframes fade-up-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.contribute-df__wrapper {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  min-width: 90%;
+  align-self: center;
+  margin: 32px;
+  background-color: var(--dark-gray);
+  border: 2px solid var(--lasercat-black-1);
+  border-radius: 10px;
+  animation-name: fade-up-in;
+  animation-duration: 600ms;
+  animation-delay: 350ms;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.contribute-df__wrapper[data-dragcurrent="active"] {
+  background-color: var(--mimi-pink);
+  border: 2px solid var(--medium-blue);
+}
+
+.contribute-df__wrapper p {
+  font-family: Chunk;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contribute-df__wrapper [data-dragcurrent="active"] p {
+  color: var(--rich-black);
+}
+
+.contribute-has-file__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 600px;
+  background-color: transparent;
+  min-height: 500px;
+}
+
+.contribute-has-file__filename {
+  font-size: 24px;
+  font-family: League-Spartan;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  color: #FFF;
+  margin-right: 24px;
+}
+
+.contribute-has-file__actions-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-direction: flex-start;
+  flex-grow: 1;
+}

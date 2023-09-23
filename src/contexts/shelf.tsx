@@ -1,13 +1,13 @@
 import React, { createContext, memo, useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import isEqual from 'lodash.isequal';
 
 export const LOCAL_STORAGE_SHELF_KEY = 'couch_gag_v0_shelf_storage' as const;
 
 export interface ShelfContextType {
-  uuid?: string;
-  shelfKey?: string;
-  update: (shelfObj: Pick<ShelfContextType, 'shelfKey' | 'uuid'>) => void;
+  uuid?: string
+  shelfKey?: string
+  update: (shelfObj: Pick<ShelfContextType, 'shelfKey' | 'uuid'>) => void
 }
 
 function update(shelfObj: Pick<ShelfContextType, 'uuid' | 'shelfKey'>): void {}
@@ -17,7 +17,7 @@ const ShelfContext = createContext<ShelfContextType>({ update });
 export const useShelfContext = (): ShelfContextType => useContext(ShelfContext);
 
 interface ShelfContextProviderProps {
-  children: React.ReactNode | React.ReactNode[] | React.JSX.Element | React.JSX.Element[];
+  children: React.ReactNode | React.ReactNode[] | React.JSX.Element | React.JSX.Element[]
 }
 
 export type ShelfContextState = Partial<Pick<ShelfContextType, 'uuid' | 'shelfKey'>>;
@@ -50,7 +50,7 @@ function ShelfContextProviderComponent({ children }: ShelfContextProviderProps):
 }
 
 export const ShelfContextProvider = combine<ShelfContextProviderProps>(
-  [withProfiler],
+  [],
   memo(ShelfContextProviderComponent),
   'shelf-context-provider'
 );

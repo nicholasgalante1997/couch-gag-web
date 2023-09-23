@@ -1,5 +1,5 @@
 import React, { createContext, memo, useContext, useState } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import writMd from './data/writ.json';
 
 interface WritContextType {
@@ -31,7 +31,7 @@ const WritProviderComponent = function ({ children }: { children: React.ReactNod
 };
 
 export const WritProvider = combine<{ children: React.ReactNode }>(
-  [withProfiler],
+  [],
   memo(WritProviderComponent),
   'writ-provider'
 );
