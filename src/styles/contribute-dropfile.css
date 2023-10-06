@@ -31,8 +31,10 @@
 }
 
 .contribute-df__wrapper[data-dragcurrent='active'] {
-  background-color: var(--mimi-pink);
-  border: 2px solid var(--medium-blue);
+  /* background-color: var(--mimi-pink);
+  border: 2px solid var(--medium-blue); */
+  background-color: var(--dark-gray);
+  border: 2px solid var(--lasercat-black-1);
 }
 
 .contribute-df__wrapper p {
@@ -45,9 +47,9 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.contribute-df__wrapper [data-dragcurrent='active'] p {
+/* .contribute-df__wrapper [data-dragcurrent='active'] p {
   color: var(--rich-black);
-}
+} */
 
 .contribute-has-file__wrapper {
   display: flex;

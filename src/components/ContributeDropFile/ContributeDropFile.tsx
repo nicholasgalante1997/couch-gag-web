@@ -95,23 +95,35 @@ export function ContributeDropFileComponent(): React.JSX.Element {
 
   function renderHasCurrentFileMarkup(): React.JSX.Element {
     return (
-      <div className={ContributeDropFileClassNames.FileWrapper}>
-        <div className={ContributeDropFileClassNames.FileActionsWrapper}>
-          <h1 className={ContributeDropFileClassNames.FileName}>{submittedFile?.name}</h1>
-          <button
-            onClick={requestFile}
-            className={classNames(ContributeDropFileClassNames.FileActionsSelect, 'button-smpl')}
-          >
-            {t('contribute__choose_another_story_action')}
-          </button>
-        </div>
-        <button
-          onClick={onSubmit}
-          className={classNames(ContributeDropFileClassNames.FileActionsSubmit, 'button-smpl')}
-        >
-          {t('contribute__submit_action')}
-        </button>
-      </div>
+      // <div className={ContributeDropFileClassNames.FileWrapper}>
+      //   <div className={ContributeDropFileClassNames.FileActionsWrapper}>
+      //     <h1 className={ContributeDropFileClassNames.FileName}>{submittedFile?.name}</h1>
+      //     <button
+      //       onClick={requestFile}
+      //       className={classNames(ContributeDropFileClassNames.FileActionsSelect, 'button-smpl')}
+      //     >
+      //       {t('contribute__choose_another_story_action')}
+      //     </button>
+      //   </div>
+      //   <button
+      //     onClick={onSubmit}
+      //     className={classNames(ContributeDropFileClassNames.FileActionsSubmit, 'button-smpl')}
+      //   >
+      //     {t('contribute__submit_action')}
+      //   </button>
+      // </div>
+    <div
+      data-dragcurrent={getDragDataAttr()}
+      onDragEnd={handleOnDragEnd}
+      onDrop={handleDrop}
+      onDragExit={handleOnDragExit}
+      onDragOver={handleOnDrag}
+      onDragEnter={handleOnDragEnter}
+      onClick={requestFile}
+      className={ContributeDropFileClassNames.Wrapper}
+    >
+      <p>{submittedFile?.name}</p>
+    </div>
     );
   }
 

@@ -4,13 +4,13 @@ import { useS3Context } from '@/contexts';
 import { v4 as v4uuid } from 'uuid';
 
 interface UseFileUploadObject {
-  upload: (file: File) => void;
-  succeeded: boolean;
-  failed: boolean;
-  idle: boolean;
-  loading: boolean;
-  error?: Error | string;
-  submissionId?: string;
+  upload: (file: File) => void
+  succeeded: boolean
+  failed: boolean
+  idle: boolean
+  loading: boolean
+  error?: Error | string
+  submissionId?: string
 }
 
 export const useFileUpload = function (): UseFileUploadObject {

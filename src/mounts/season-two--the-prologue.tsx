@@ -22,14 +22,17 @@ function mount(): void {
   }
   const props: StoryProps = {
     author: 'Washington Irving',
-    content: '',
+    content: ``,
     description: '',
     genres,
     imgAlt: '',
     imgSrc: 'origin cavern',
     title: 'The Prologue'
   };
-  hydrateRoot(mountingEl, <StoryPage {...props} />);
+  hydrateRoot(
+    mountingEl,
+      <StoryPage {...props} />
+  );
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -37,3 +40,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mount();
+  

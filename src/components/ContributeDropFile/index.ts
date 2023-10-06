@@ -1,5 +1,5 @@
 import { combine, withProfiler } from '@/hocs';
-import { ContributeDropFileComponent } from './ContributeDropFIle';
+import { ContributeDropFileComponent } from './ContributeDropFile';
 import { memo } from 'react';
 
 export const ContributeDropFile = combine(
