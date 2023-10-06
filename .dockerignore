@@ -5,3 +5,5 @@ dev-configs
 docs
 .eslintrc.js
 .prettierrc
+Dockerfile
+docker-compose.yml
