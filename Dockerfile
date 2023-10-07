@@ -1,5 +1,5 @@
 # https://pnpm.io/docker
-FROM node:20-slim as node
+FROM node:18-slim as node
 # Set PNPM Env Variables
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
