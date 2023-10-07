@@ -147,3 +147,7 @@ When work is ready for a PR, it is raised to be merged into the branch `dev`
 If bake time goes great on dev, we raise a PR from `dev` to `gamma`  
 Finally, after extensive testing in gamma we, we can merge `gamm a` to `main`
 
+## Using Corepack For Package Management
+
+Please read the [Node JS Corepack Docs](https://nodejs.org/api/corepack.html) which will provide an overview of enabling and working with corepack. This project uses pnpm, which is available by default through corepack. Corepack is an experimental feature that ships with versions of node greater than 16.9.x
+
