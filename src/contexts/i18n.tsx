@@ -2,7 +2,7 @@ import React, { type ReactNode, createContext, memo, useContext, useEffect, useS
 import { AppStrings } from '@/locales';
 import { type Locale } from '@/types';
 import { logger } from '@/utils';
-import { withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 
 async function updateAppStrings(locale: string, update: (blob: typeof AppStrings) => void): Promise<void> {
   try {
@@ -61,4 +61,5 @@ function I18NProviderComponent({
   return <I18NContext.Provider value={langStrings}>{children}</I18NContext.Provider>;
 }
 
-export const I18NProvider = withProfiler('I18NProvider', memo(I18NProviderComponent));
+export const I18NProvider = combine([], memo(I18NProviderComponent), 'I18NProvider');
+I18NProvider.displayName = 'CouchContext__I18NProviderComponent';
