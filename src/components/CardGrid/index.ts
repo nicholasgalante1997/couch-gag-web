@@ -1,7 +1,8 @@
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import { CardGridComponent } from './CardGrid';
 import { memo } from 'react';
 
-const CardGrid = combine([withProfiler], memo(CardGridComponent), 'card-grid');
+const CardGrid = combine<{}>([], memo(CardGridComponent), 'card-grid');
+CardGrid.displayName = 'Couch__CardGrid';
 
 export { CardGrid };

@@ -1,5 +1,5 @@
 import React, { createContext, memo, useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import isEqual from 'lodash.isequal';
 
 export const LOCAL_STORAGE_SHELF_KEY = 'couch_gag_v0_shelf_storage' as const;
@@ -50,7 +50,8 @@ function ShelfContextProviderComponent({ children }: ShelfContextProviderProps):
 }
 
 export const ShelfContextProvider = combine<ShelfContextProviderProps>(
-  [withProfiler],
+  [],
   memo(ShelfContextProviderComponent),
   'shelf-context-provider'
 );
+ShelfContextProvider.displayName = 'CouchContext__ShelfContextProviderComponent';

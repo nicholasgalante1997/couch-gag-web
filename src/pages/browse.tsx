@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { combine, withProfiler, withRootProviders, withRouteGuard } from '@/hocs';
+import { combine, withRootProviders, withRouteGuard } from '@/hocs';
 import { Browse } from '@/components/Browse';
 
 function BrowsePageComponent(): React.JSX.Element {
@@ -11,7 +11,8 @@ function BrowsePageComponent(): React.JSX.Element {
 }
 
 export const BrowsePage = combine(
-  [withRouteGuard('couch-gag-browse-page-route-v0.1'), withRootProviders, withProfiler],
+  [withRouteGuard('couch-gag-browse-page-route-v0.1'), withRootProviders],
   memo(BrowsePageComponent),
   'browse-page'
 );
+BrowsePage.displayName = 'CouchPage__Browse';

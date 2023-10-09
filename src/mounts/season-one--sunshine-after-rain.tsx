@@ -26,15 +26,16 @@ function mount(): void {
 
 plcaeholder
 `,
-    description:
-      'One learns a lesson on coping with loss in the wake of the grand reveal, a lesson that he&#x27;ll have to teach himself.',
+    description: 'One learns a lesson on coping with loss in the wake of the grand reveal, a lesson that he&#x27;ll have to teach himself.',
     genres,
-    imgAlt:
-      'One learns a lesson on coping with loss in the wake of the grand reveal, a lesson that he&#x27;ll have to teach himself.',
+    imgAlt: 'One learns a lesson on coping with loss in the wake of the grand reveal, a lesson that he&#x27;ll have to teach himself.',
     imgSrc: 'https://www.chicitysports.com/wp-content/uploads/2020/07/the_simpsons_couch_a_l.0.jpg',
     title: 'sunshine, after rain'
   };
-  hydrateRoot(mountingEl, <StoryPage {...props} />);
+  hydrateRoot(
+    mountingEl,
+      <StoryPage {...props} />
+  );
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -42,3 +43,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mount();
+  

@@ -1,9 +1,9 @@
 import React, { memo, useEffect } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import { FourZeroOneComponentClassNames } from './classnames';
 import { logger } from '@/utils/logger';
 
-interface FourZeroOneComponentProps {
+interface ErrorCodeProps {
   code: number;
   error?: string;
   id?: string;
@@ -13,7 +13,7 @@ function ErrorCodeComponent({
   code,
   id,
   error
-}: FourZeroOneComponentProps): React.JSX.Element | React.ReactNode {
+}: ErrorCodeProps): React.JSX.Element | React.ReactNode {
   useEffect(() => {
     /** Set the window hash to indicate an error has occurred */
     window.location.hash = 'UnauthorizedAttemptToViewContent';
@@ -39,8 +39,9 @@ function ErrorCodeComponent({
   );
 }
 
-export const ErrorCode = combine<FourZeroOneComponentProps>(
-  [withProfiler],
+export const ErrorCode = combine<ErrorCodeProps>(
+  [],
   memo(ErrorCodeComponent),
   '401-unauthorized-exception-component'
 );
+ErrorCode.displayName = 'Couch__ErrorCodeComponent';

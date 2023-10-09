@@ -1,6 +1,6 @@
 import { PrefetchOnEntryFnFactory, to } from '@/utils';
 import React, { memo, useCallback, useMemo } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import { useTranslation, useWorkerContext, useWritContext } from '@/contexts';
 import { HeroImageClassnames } from './classnames';
 import classnames from 'classnames';
@@ -80,4 +80,5 @@ function HeroImageComponent(): JSX.Element {
   );
 }
 
-export const Hero = combine([withProfiler], memo(HeroImageComponent), 'lp-hero');
+export const Hero = combine<{}>([], memo(HeroImageComponent), 'lp-hero');
+Hero.displayName = 'Couch__HeroComponent';

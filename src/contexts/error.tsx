@@ -1,5 +1,5 @@
 import React, { createContext, memo, useContext, useEffect, useState } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 
 interface ExceptionContextProviderProps {
   children: React.ReactNode | React.ReactNode[] | React.JSX.Element | React.JSX.Element[];
@@ -49,7 +49,8 @@ function ExceptionContextProviderComponent({
 }
 
 export const ExceptionContextProvider = combine<ExceptionContextProviderProps>(
-  [withProfiler],
+  [],
   memo(ExceptionContextProviderComponent),
   'exception-provider-component'
 );
+ExceptionContextProvider.displayName = 'CouchContext__ExceptionsProviderComponent';

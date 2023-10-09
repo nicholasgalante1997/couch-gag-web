@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import { AsideClassnames } from './classnames';
 import classnames from 'classnames';
 import { to } from '@/utils';
@@ -96,4 +96,5 @@ function AsideComponent(): React.JSX.Element {
   );
 }
 
-export const Aside = combine([withProfiler], memo(AsideComponent), 'PageSidebar');
+export const Aside = combine<{}>([], memo(AsideComponent), 'Couch-Aside-Component');
+Aside.displayName = 'Couch__AsideComponent';
