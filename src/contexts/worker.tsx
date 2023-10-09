@@ -1,5 +1,5 @@
 import React, { createContext, memo, useContext, useEffect, useState } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 
 interface WorkerContextType {
   workers: Map<string, Worker>;
@@ -70,7 +70,8 @@ function WorkerContextProviderComponent({
 }
 
 export const WorkerContextProvider = combine<WorkerContextProviderComponentProps>(
-  [withProfiler],
+  [],
   memo(WorkerContextProviderComponent),
   'worker-ctx-provider-component'
 );
+WorkerContextProvider.displayName = 'CouchContext__WorkerContextProviderComponent';

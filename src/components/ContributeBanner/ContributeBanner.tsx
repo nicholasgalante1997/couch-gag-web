@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import { imageContainerId, imageContainerOnEnter, mainContentId, mainContentOnEnter } from './animations';
 import { ContributeBannerClassNames } from './classnames';
 import { useOnElementEnter } from '@/hooks';
@@ -27,8 +27,9 @@ function ContributeBannerComponent(): JSX.Element {
   );
 }
 
-export const ContributeBanner = combine(
-  [withProfiler],
+export const ContributeBanner = combine<{}>(
+  [],
   memo(ContributeBannerComponent),
   'lp-contribute-banner'
 );
+ContributeBanner.displayName = 'Couch__ContributeBannerComponent';

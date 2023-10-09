@@ -18,7 +18,6 @@ export function combine<P = ErrorBoundaryProps & {} & JSX.IntrinsicAttributes>(
   return WrappedComponent;
 }
 
-export * from './profiler';
 export * from './root';
 export * from './error';
 export * from './route';
