@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import { SubscribeBannerClassNames } from './classnames';
 import { useTranslation } from '@/contexts';
 
@@ -18,4 +18,5 @@ function SubscribeBannerComponent(): React.JSX.Element {
   );
 }
 
-export const SubscribeBanner = combine([withProfiler], memo(SubscribeBannerComponent), 'subscribe-banner');
+export const SubscribeBanner = combine([], memo(SubscribeBannerComponent), 'subscribe-banner');
+SubscribeBanner.displayName = 'Couch__SubscribeBannerComponent';

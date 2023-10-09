@@ -1,13 +1,15 @@
 /* eslint-disable @typescript-eslint/promise-function-async */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import React, { memo, useMemo, useState } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import { isServer, toTitleCase } from '@/utils';
 import { ContentWidgetClassNames } from './classnames';
 import { type ContentWidgetComponentProps } from './types';
 import classNames from 'classnames';
 import { useTranslation } from '@/contexts';
 
+
+/** @deprecated 10/08/23 */
 function ContentWidgetComponent({
   backgroundColor,
   foregroundColor: color,
@@ -102,7 +104,9 @@ function ContentWidgetComponent({
 }
 
 export const ContentWidget = combine<ContentWidgetComponentProps>(
-  [withProfiler],
+  [],
   memo(ContentWidgetComponent),
   'content-widget'
 );
+
+ContentWidget.displayName = 'Couch__ContentWidgetComponent';

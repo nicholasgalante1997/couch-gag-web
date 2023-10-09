@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import { ShelfWidgetClassNames } from './classnames';
 import { shelfBannerId } from './animations';
 import { useTranslation } from '@/contexts';
@@ -19,4 +19,5 @@ function ShelfWidgetComponent(): React.JSX.Element {
   );
 }
 
-export const ShelfWidget = combine([withProfiler], memo(ShelfWidgetComponent), 'lp-shelf-widget');
+export const ShelfWidget = combine<{}>([], memo(ShelfWidgetComponent), 'lp-shelf-widget');
+ShelfWidget.displayName = 'Couch__ShelfWidgetComponent';

@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useState } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import { useTranslation, useWritContext } from '@/contexts';
 import { BrowseComponentClassNames } from './classnames';
 import { Card } from '../Card';
@@ -70,4 +70,5 @@ function BrowseComponent(): React.JSX.Element {
   );
 }
 
-export const Browse = combine([withProfiler], memo(BrowseComponent), 'browse-component');
+export const Browse = combine<{}>([], memo(BrowseComponent), 'browse-component');
+Browse.displayName = 'Couch__BrowseComponent'

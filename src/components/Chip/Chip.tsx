@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import { ChipClassnames } from './classnames';
 import { type ChipProps } from './types';
 import classnames from 'classnames';
@@ -22,4 +22,5 @@ function ChipComponent({ shade, text, className, ...rest }: ChipProps): JSX.Elem
   );
 }
 
-export const Chip = combine<ChipProps>([withProfiler], memo(ChipComponent), 'Chip');
+export const Chip = combine<ChipProps>([], memo(ChipComponent), 'Chip');
+Chip.displayName = 'Couch__ChipComponent';

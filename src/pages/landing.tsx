@@ -1,6 +1,6 @@
 import { ContributeBanner, Hero, ShelfWidget, SubscribeBanner } from '@/components';
 import React, { memo } from 'react';
-import { combine, withProfiler, withRootProviders, withRouteGuard } from '@/hocs';
+import { combine, withRootProviders, withRouteGuard } from '@/hocs';
 import { CardGrid } from '@/components/CardGrid';
 
 function LandingPageComponent(): React.JSX.Element {
@@ -16,7 +16,8 @@ function LandingPageComponent(): React.JSX.Element {
 }
 
 export const LandingPage = combine(
-  [withRouteGuard('couch-gag-landing-page-route-v0.1'), withRootProviders, withProfiler],
+  [withRouteGuard('couch-gag-landing-page-route-v0.1'), withRootProviders],
   memo(LandingPageComponent),
   'landing-page'
 );
+LandingPage.displayName = 'CouchPage__Landing';

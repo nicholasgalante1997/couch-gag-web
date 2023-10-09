@@ -1,5 +1,5 @@
 import React, { memo, useMemo, useState } from 'react';
-import { combine, withProfiler } from '@/hocs';
+import { combine } from '@/hocs';
 import ReactMarkdown from 'react-markdown';
 import { StoryClassNames } from './classnames';
 import { type StoryProps } from './types';
@@ -73,4 +73,5 @@ function StoryComponent({
   );
 }
 
-export const Story = combine<StoryProps>([withProfiler], memo(StoryComponent), 'story-component');
+export const Story = combine<StoryProps>([], memo(StoryComponent), 'story-component');
+Story.displayName = 'Couch__StoryPageComponent';
