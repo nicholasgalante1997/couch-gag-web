@@ -25,7 +25,7 @@
     "pkg:metadata": "node build-md.mjs",
     "clean:tmp": "rm -rf .build-process",
     "cp:workers": "cp -R workers/* build",
-    "build": "npm-run-all clean:build pkg:ts-script pkg:entry pkg:js pkg:html clean:tmp cp:assets cp:workers"
+    "build": "npm-run-all clean:build pkg:metadata pkg:ts-script pkg:entry pkg:js pkg:html clean:tmp cp:assets cp:workers"
   },
   "keywords": [],
   "author": "",

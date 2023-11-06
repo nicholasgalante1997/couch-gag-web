@@ -2,12 +2,12 @@ import path from 'path';
 import fs from 'fs';
 import frontmatter from 'front-matter';
 
-const version = process.argv[2];
-
-if (!version) {
-    console.error('Must supply a version');
-    process.exit(1);
-}
+let version;
+const existingMetadataPath = path.resolve(process.cwd(), 'src', 'contexts', 'data', 'writ.json'),
+    readFileOptions = { encoding: 'utf-8' };
+const existingMetadata = JSON.parse(fs.readFileSync(existingMetadataPath, readFileOptions));
+const [major, minor, patch] = existingMetadata.version.split(".");
+version = [major, minor, +patch + 1].join(".");
 
 (async function() {
     let didError = false;

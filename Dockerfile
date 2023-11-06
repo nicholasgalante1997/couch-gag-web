@@ -25,8 +25,6 @@ COPY ./workers/ ./workers/
 COPY ./writ/ ./writ/
 # Install build dependencies
 RUN pnpm install
-# Package story metadata
-RUN pnpm pkg:metadata docker.${TAG}
 # Build a static dist of the website
 RUN pnpm build
 # Clean development source code and deps
