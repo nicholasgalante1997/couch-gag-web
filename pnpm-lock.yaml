@@ -14,6 +14,12 @@ dependencies:
   classnames:
     specifier: ^2.3.2
     version: 2.3.2
+  heller-2-lite:
+    specifier: ^0.0.16
+    version: 0.0.16
+  heller-2-react:
+    specifier: ^0.0.3
+    version: 0.0.3(heller-2-lite@0.0.16)(react-dom@18.2.0)(react@18.2.0)
   lodash.isequal:
     specifier: ^4.5.0
     version: 4.5.0
@@ -23,6 +29,9 @@ dependencies:
   pino:
     specifier: ^8.14.1
     version: 8.14.1
+  process:
+    specifier: ^0.11.10
+    version: 0.11.10
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -5861,6 +5870,10 @@ packages:
     resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
     dev: false
 
+  /classnames@2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
+    dev: false
+
   /clean-css@5.3.2:
     resolution: {integrity: sha512-JVJbM+f3d3Q704rF4bqQ5UUyTtuJ0JRKNbTKVEeujCCBoMdkEi+V+e8oktO9qGQNSvHrFTM6JZRXrUvGR1czww==}
     engines: {node: '>= 10.0'}
@@ -7752,6 +7765,23 @@ packages:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
     dev: true
+
+  /heller-2-lite@0.0.16:
+    resolution: {integrity: sha512-AthV9aBxcrhSlNmQy2+7mwDaxtFm9Qfxn45VPfKek6qdybUYxn9aERimxIUk1Htm/zHVnx5dnUecU5MhDhmCiA==}
+    dev: false
+
+  /heller-2-react@0.0.3(heller-2-lite@0.0.16)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-xxk3HsnqCtisI6T6kT9eR+1yOQucB8lBviRa+46zV4okOIYDsJm0/0T3K74NAp1dBLBHoxsrKIgScjNFdzjiLw==}
+    peerDependencies:
+      heller-2-lite: ^0.0.15
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      classnames: 2.5.1
+      heller-2-lite: 0.0.16
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /hosted-git-info@2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}

@@ -19,7 +19,6 @@ export function withRouteGuard<P = {} & JSX.IntrinsicAttributes>(routeKey: Route
   }
   /** The page is public */
   if (isServer() || canRenderRoute) {
-    logger.info('the page is public');
     return function (_id: string, Component: React.FC<P>) {
       // eslint-disable-next-line react/display-name
       return function (props: P) {
@@ -28,7 +27,6 @@ export function withRouteGuard<P = {} & JSX.IntrinsicAttributes>(routeKey: Route
     };
   } else {
     /** The page is protected */
-    logger.info('the page is protected');
     return function (id: string, _Component: React.FC<P>) {
       // eslint-disable-next-line react/display-name
       return function (props: P) {

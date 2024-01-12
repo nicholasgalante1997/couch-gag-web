@@ -1,10 +1,11 @@
-import { PrefetchOnEntryFnFactory, to } from '@/utils';
 import React, { memo, useCallback, useMemo } from 'react';
-import { combine } from '@/hocs';
-import { useTranslation, useWorkerContext, useWritContext } from '@/contexts';
-import { HeroImageClassnames } from './classnames';
 import classnames from 'classnames';
+import { Body } from 'heller-2-react';
+import { useTranslation, useWorkerContext, useWritContext } from '@/contexts';
+import { combine } from '@/hocs';
 import { useOnElementEnter } from '@/hooks';
+import { PrefetchOnEntryFnFactory, to } from '@/utils';
+import { HeroImageClassnames } from './classnames';
 
 const originStoryPrefetchId = 'lp_story_one_prefetch' as const;
 const anchorPrefetchId = 'lp_about_anchor_prefetch' as const;
@@ -55,7 +56,7 @@ function HeroImageComponent(): JSX.Element {
         <h6 className={titleClassname}>
           {t('lp_title_shard_1')} {t('lp_title_shard_2')} {t('lp_title_shard_3')}
         </h6>
-        <p className={textClassname}>{t('lp_subtext_block')}</p>
+        <Body as="p" className={textClassname}>{t('lp_subtext_block')}</Body>
         <div className={HeroImageClassnames.Row}>
           <button
             data-prefetch={`/${slug}.html`}
