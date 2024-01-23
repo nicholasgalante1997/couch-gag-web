@@ -5,6 +5,8 @@
   width: 100vw;
   box-sizing: border-box;
   padding: 32px;
+  background-color: var(--color-base-black-eta);
+
 }
 
 .browse-component__wrapper {
@@ -22,7 +24,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: var(--rich-black);
+  background-color: var(--color-base-black-eta);
   min-width: 1224px;
   width: 1224px;
   margin-top: 32px;

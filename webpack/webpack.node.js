@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const dotenv = require('dotenv');
-const BundleStatsWebpackPlugin = require('bundle-stats-webpack-plugin').BundleStatsWebpackPlugin;
 const { EnvironmentPlugin } = webpack;
 
 dotenv.config();
@@ -38,8 +37,5 @@ module.exports = {
   node: {
     global: false
   },
-  plugins: [
-    new EnvironmentPlugin({ ...process.env }),
-    new BundleStatsWebpackPlugin({ outDir: 'stats/webpack/server' })
-  ]
+  plugins: [new EnvironmentPlugin({ ...process.env })]
 };

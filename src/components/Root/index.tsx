@@ -9,7 +9,7 @@ function PageComponent({ children, id }: { children: React.ReactNode; id: string
       <WorkerContextProvider>
         <ShelfContextProvider>
           <WritProvider>
-            <div id={id} className="couch-page">
+            <div id={id} className="couch-page heller2-theme" data-theme-mode="dark">
               <Aside />
               <div className="couch-page-main">{children}</div>
             </div>

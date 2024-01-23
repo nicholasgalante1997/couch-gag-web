@@ -6,7 +6,7 @@
   align-items: center;
   z-index: 1;
   isolation: isolate;
-  background-color: var(--rich-black);
+  background-color: var(--color-base-black-eta);
   overflow: hidden;
   flex-wrap: nowrap;
 }
@@ -25,7 +25,7 @@
   z-index: 3;
   margin-block: 8px;
   width: 105%;
-  background: var(--cyber-punk-green);
+  background: var(--color-base-blue-primary);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -41,7 +41,7 @@
   align-items: flex-start;
   padding-left: 40px;
   flex-grow: 1;
-  min-width: 800px;
+  min-width: 1024px;
 }
 
 @keyframes grow {
@@ -69,6 +69,14 @@
   animation-iteration-count: 1;
   animation-delay: 100ms;
   animation-fill-mode: forwards;
+}
+
+@media screen and (max-width: 1024px) {
+  .hero__lp-image {
+    width: 0;
+    visibility: none;
+    display: none;
+  }
 }
 
 .hero__lp-row {

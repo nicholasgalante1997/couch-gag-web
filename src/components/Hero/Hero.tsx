@@ -1,6 +1,8 @@
 import React, { memo, useCallback, useMemo } from 'react';
+
+import { Body, Heading, Button } from 'heller-2-react';
 import classnames from 'classnames';
-import { Body } from 'heller-2-react';
+
 import { useTranslation, useWorkerContext, useWritContext } from '@/contexts';
 import { combine } from '@/hocs';
 import { useOnElementEnter } from '@/hooks';
@@ -53,32 +55,36 @@ function HeroImageComponent(): JSX.Element {
   return (
     <div className={HeroImageClassnames.Container}>
       <div className={HeroImageClassnames.MiniCol}>
-        <h6 className={titleClassname}>
+        <Heading as="h1" className={titleClassname} style={{ lineHeight: 1.845 }}>
           {t('lp_title_shard_1')} {t('lp_title_shard_2')} {t('lp_title_shard_3')}
-        </h6>
+        </Heading>
         <Body as="p" className={textClassname}>
           {t('lp_subtext_block')}
         </Body>
         <div className={HeroImageClassnames.Row}>
-          <button
+          <Button
             data-prefetch={`/${slug}.html`}
             id={originStoryPrefetchId}
             onClick={readOnClick}
             className={HeroImageClassnames.Button}
+            size="small"
+            hover={{ animationType: 'background-transition' }}
           >
             {t('lp_action_cta')}
-          </button>
-          <button
+          </Button>
+          <Button
             data-prefetch="about.html"
             id={anchorPrefetchId}
             onClick={aboutOnClick}
             className={HeroImageClassnames.Button}
+            size="small"
+            hover={{ animationType: 'background-transition' }}
           >
             {t('lp_action_about_cta')}
-          </button>
+          </Button>
         </div>
       </div>
-      <img src="/woods.webp" alt="A skyview shot of a woodland area" className={HeroImageClassnames.Image} />
+      {/* <img src="/woods.webp" alt="A skyview shot of a woodland area" className={HeroImageClassnames.Image} /> */}
     </div>
   );
 }

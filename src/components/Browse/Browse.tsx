@@ -52,16 +52,6 @@ function BrowseComponent(): React.JSX.Element {
   return (
     <div className={BrowseComponentClassNames.Wrapper}>
       <div className={BrowseComponentClassNames.Column}>
-        <div className={BrowseComponentClassNames.SearchRow}>
-          <span className={BrowseComponentClassNames.SearchSpan}>{t('browse_heading')}</span>
-          <input
-            type="text"
-            placeholder="Search Stories..."
-            value={search}
-            onChange={updateSearch}
-            className={BrowseComponentClassNames.SearchInput}
-          />
-        </div>
         <div className={BrowseComponentClassNames.CardGrid}>
           {writ.filter(filterOnSearch).map(writToContentJsx)}
         </div>

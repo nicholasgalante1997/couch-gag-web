@@ -1,19 +1,25 @@
 import React, { memo } from 'react';
-import { combine } from '@/hocs';
-import { SubscribeBannerClassNames } from './classnames';
+import { Heading, Body, Button } from 'heller-2-react';
 import { useTranslation } from '@/contexts';
+import { combine } from '@/hocs';
+
+import { SubscribeBannerClassNames } from './classnames';
 
 function SubscribeBannerComponent(): React.JSX.Element {
   const { t } = useTranslation();
   return (
     <div className={SubscribeBannerClassNames.Wrapper}>
-      <p className={SubscribeBannerClassNames.Text}>
-        {t('lp_sub_banner_text_shard_1')}&nbsp;
-        <span className={SubscribeBannerClassNames.Span}>{t('lp_sub_banner_span_text')}</span>&nbsp;
+      <Heading as="h6" className={SubscribeBannerClassNames.Text} style={{ color: 'black' }}>
+        {t('lp_sub_banner_text_shard_1')}{' '}
+        <Body as="span" className={SubscribeBannerClassNames.Span}>
+          {t('lp_sub_banner_span_text')}
+        </Body>{' '}
         {t('lp_sub_banner_text_shard_2')}
-      </p>
+      </Heading>
       &nbsp;
-      <button className="button-smpl">{t('lp_sub_banner_cta')}</button>
+      <Button hover={{ animationType: 'scale-content' }} v="tertiary" className="ls">
+        {t('lp_sub_banner_cta')}
+      </Button>
     </div>
   );
 }
