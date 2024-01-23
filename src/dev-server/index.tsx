@@ -1,8 +1,18 @@
 import '../styles/index.css';
+import '../styles/browse.css';
+import '../styles/landing-page.css';
 import '../styles/story.css';
+
+import 'heller-2-lite/css/variables.css';
+import 'heller-2-lite/css/base.min.css';
+import 'heller-2-lite/css/button.min.css';
+import 'heller-2-lite/css/typography.min.css';
+
 import React from 'react';
-import { StoryPage } from '@/pages';
 import { createRoot } from 'react-dom/client';
+
+import { PageRegistry } from '@/pages';
+
 import storyMeta from '../contexts/data/writ.json';
 
 const mockStory = storyMeta.metadata[0];
@@ -21,15 +31,28 @@ Vulputate odio ut enim blandit volutpat maecenas volutpat. Ante in nibh mauris c
 Auctor elit sed vulputate mi sit amet mauris commodo. In ornare quam viverra orci sagittis eu volutpat odio facilisis. Vitae elementum curabitur vitae nunc. Id leo in vitae turpis massa sed elementum tempus egestas. Pulvinar pellentesque habitant morbi tristique. Enim tortor at auctor urna nunc id cursus metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. Volutpat ac tincidunt vitae semper quis lectus. Velit dignissim sodales ut eu. In fermentum et sollicitudin ac. Sed adipiscing diam donec adipiscing tristique. Consequat id porta nibh venenatis cras sed felis eget velit. Est ante in nibh mauris cursus mattis molestie a iaculis. Viverra maecenas accumsan lacus vel facilisis volutpat est.
 `;
 
+const indexingKey = process.env.DEVELOPMENT_PAGE_INDEXING_KEY;
+let Component = PageRegistry.get(indexingKey as any);
+if (Component == null) {
+    Component = PageRegistry.get('error')!;
+}
+
+const props = {};
+
+if (indexingKey === 'story') {
+    Object.assign(
+        props,
+        {
+            genres: mockStory.genres,
+            content: mockContent,
+            imgSrc: mockStory.img,
+            imgAlt: mockStory.longKey,
+            author: mockStory.author,
+            description: mockStory.subtitle,
+            title: mockStory.title
+        }
+    )
+}
+
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-createRoot(document.getElementById('evergreen-terrace')!).render(
-  <StoryPage
-    genres={mockStory.genres}
-    content={mockContent}
-    imgSrc={mockStory.img}
-    imgAlt={mockStory.longKey}
-    author={mockStory.author}
-    description={mockStory.subtitle}
-    title={mockStory.title}
-  />
-);
+createRoot(document.getElementById('evergreen-terrace')!).render(<Component {...props} />);

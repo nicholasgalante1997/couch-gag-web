@@ -1,51 +1,86 @@
+import path from 'path';
+import fs from 'fs';
+
 import { BrowsePage, ErrorPage, LandingPage, StoryPage } from '@/pages';
 import { type PageConfig } from '@/types';
 import { type StoryProps } from '@/components';
 import frontmatter from 'front-matter';
-import fs from 'fs';
-import { logger } from '@/utils';
-import path from 'path';
+
+import { attempt, logger } from '@/utils';
 
 function buildDescription(d: string): string {
   /** impl story description injection schema */
   return d;
 }
 
-function buildStories(): Array<PageConfig<StoryProps>> {
-  try {
-    const configs: Array<PageConfig<StoryProps>> = [];
-    const storiesDir = path.resolve(process.cwd(), 'writ');
-    const storiesDirContents = fs.readdirSync(storiesDir, { encoding: 'utf-8' });
-    for (const dir of storiesDirContents) {
-      const newDirPath = path.resolve(storiesDir, dir);
-      const stories = fs.readdirSync(newDirPath, { encoding: 'utf-8' });
-      for (const storyFile of stories) {
-        const storyString = fs.readFileSync(path.resolve(newDirPath, storyFile), { encoding: 'utf-8' });
-        const formattedStory = frontmatter<any>(storyString);
-        const { attributes, body } = formattedStory;
-        const storyProps: StoryProps = {
-          author: attributes?.author,
-          content: body,
-          description: attributes?.subtitle,
-          genres: attributes?.genres,
-          imgAlt: attributes?.subtitle,
-          imgSrc: attributes?.img,
-          title: attributes?.title
-        };
-        configs.push({
-          bundle: attributes?.slug,
-          component: StoryPage,
-          description: buildDescription(attributes?.subtitle),
-          htmlFileName: attributes?.slug,
-          styles: ['story'],
-          title: attributes?.title,
-          props: storyProps
-        });
-      }
+function loadWritDirStories() {
+  const storiesDir = path.resolve(process.cwd(), 'writ');
+  return fs.readdirSync(storiesDir, { encoding: 'utf-8' });
+}
+
+function attemotLoadWritDirStories() {
+  const { data, ok, error } = attempt(loadWritDirStories);
+  if (data && ok) return data;
+  else {
+    logger.fatal(error || new Error('getPages():::UnknownException'));
+    process.exit(2);
+  }
+}
+
+function iterateThroughWritStories() {
+  let configs: Array<PageConfig<StoryProps>> = [];
+  for (const dir of attemotLoadWritDirStories()) {
+    const newDirPath = path.resolve(process.cwd(), 'writ', dir);
+    const stories = fs.readdirSync(newDirPath, { encoding: 'utf-8' });
+    configs = Array.from(new Set(pushStories(configs, stories, newDirPath)));
+  }
+  return configs;
+}
+
+function pushStories(configs: Array<PageConfig<StoryProps>>, stories: string[], rootDir: string) {
+  for (const story of stories) {
+    const storyString = fs.readFileSync(path.resolve(rootDir, story), { encoding: 'utf-8' });
+    const { attributes, body } = frontmatter<any>(storyString);
+    const storyProps = buildStoryProps(attributes, body);
+    configs.push(buildConfig(storyProps, attributes));
+  }
+  return configs;
+}
+
+function buildStoryProps(attributes: any, body: any): StoryProps {
+  return (
+    {
+      author: attributes?.author,
+      content: body,
+      description: attributes?.subtitle,
+      genres: attributes?.genres,
+      imgAlt: attributes?.subtitle,
+      imgSrc: attributes?.img,
+      title: attributes?.title
     }
-    return configs;
-  } catch (e: any) {
-    throw new Error('DynamicPageConfigurationException', { cause: e });
+  );
+}
+
+function buildConfig(props: StoryProps, attributes: any) {
+  return ({
+      bundle: attributes?.slug,
+      component: StoryPage,
+      description: buildDescription(attributes?.subtitle),
+      htmlFileName: attributes?.slug,
+      styles: ['story'],
+      title: attributes?.title,
+      props: props
+  });
+}
+
+function buildStories(): Array<PageConfig<StoryProps>> {
+  const { data, ok, error } = attempt(
+    () => iterateThroughWritStories()
+  );
+  if (data && ok) return data;
+  else {
+    logger.fatal(error || new Error('buildStories():::UnknownException'));
+    process.exit(2);
   }
 }
 

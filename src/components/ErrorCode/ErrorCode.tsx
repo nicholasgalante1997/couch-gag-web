@@ -9,11 +9,7 @@ interface ErrorCodeProps {
   id?: string;
 }
 
-function ErrorCodeComponent({
-  code,
-  id,
-  error
-}: ErrorCodeProps): React.JSX.Element | React.ReactNode {
+function ErrorCodeComponent({ code, id, error }: ErrorCodeProps): React.JSX.Element | React.ReactNode {
   useEffect(() => {
     /** Set the window hash to indicate an error has occurred */
     window.location.hash = 'UnauthorizedAttemptToViewContent';

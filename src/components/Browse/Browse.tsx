@@ -71,4 +71,4 @@ function BrowseComponent(): React.JSX.Element {
 }
 
 export const Browse = combine<{}>([], memo(BrowseComponent), 'browse-component');
-Browse.displayName = 'Couch__BrowseComponent'
+Browse.displayName = 'Couch__BrowseComponent';

@@ -16,17 +16,16 @@ COPY ./pnpm-lock.yaml ./
 # Copy over app
 COPY ./tsconfig.json ./
 COPY ./.babelrc ./
-COPY ./*.webpack.js ./
 COPY ./*.mjs ./
 COPY ./assets/ ./assets/
 COPY ./html/ ./html/
 COPY ./src/ ./src/
-COPY ./workers/ ./workers/
+COPY ./webpack/ ./webpack/
 COPY ./writ/ ./writ/
 # Install build dependencies
 RUN pnpm install
 # Package story metadata
-RUN pnpm pkg:metadata docker.${TAG}
+RUN pnpm pkg:metadata docker.0.0
 # Build a static dist of the website
 RUN pnpm build
 # Clean development source code and deps
@@ -34,7 +33,7 @@ RUN rm -rf node_modules \
     src \
     assets \
     html \
-    workers \
+    webpack \
     writ
 # Nginx webserver
 FROM nginx as webserver

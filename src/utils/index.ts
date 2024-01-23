@@ -1,4 +1,5 @@
 export * from './api';
+export * from './general';
 export * from './logger';
 export * from './iso';
 export * from './svg';

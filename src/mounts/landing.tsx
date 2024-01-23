@@ -9,7 +9,6 @@ import { inject } from '@vercel/analytics';
 import { DOCUMENT_ROOT_ID } from '@/config/client';
 import { LandingPage } from '@/pages';
 
-
 function mount(): void {
   let mountingEl = document.getElementById(DOCUMENT_ROOT_ID);
   if (mountingEl == null) {

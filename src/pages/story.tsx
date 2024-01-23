@@ -3,11 +3,7 @@ import { Story, type StoryProps } from '@/components';
 import { combine, withRootProviders, withRouteGuard } from '@/hocs';
 
 function StoryComponent(props: StoryProps): React.JSX.Element {
-  return (
-    <React.Fragment>
-      <Story {...props} />
-    </React.Fragment>
-  );
+  return <Story {...props} />;
 }
 
 export const StoryPage = combine<StoryProps>(
@@ -15,4 +11,5 @@ export const StoryPage = combine<StoryProps>(
   memo(StoryComponent),
   'story-page'
 );
-StoryPage.displayName = 'CouchPage__Story'
+
+StoryPage.displayName = 'CouchPage__Story';

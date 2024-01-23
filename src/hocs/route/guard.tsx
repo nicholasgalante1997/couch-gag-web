@@ -1,12 +1,12 @@
-import { type RouteKey, RouteKeyMap } from '@/config/routes';
-import { isServer, logger } from '@/utils';
-import { ErrorCode } from '@/components';
-import { type HOCWrapperFn } from '../index';
 import React from 'react';
+import { ErrorCode } from '@/components';
 import { type RuntimeStage } from '@/config/client';
+import { type RouteKey, RouteKeyMap } from '@/config/routes';
+import { isServer } from '@/utils';
+
+import { type HOCWrapperFn } from '../index';
 
 export function withRouteGuard<P = {} & JSX.IntrinsicAttributes>(routeKey: RouteKey): HOCWrapperFn<P> {
-  logger.info('Invoking "withRouteGuard" higher order function');
   const kvArrayOrUndefined = Object.entries(RouteKeyMap).find(([_key, obj]) => {
     return obj.key === routeKey;
   });

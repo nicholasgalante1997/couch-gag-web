@@ -8,7 +8,6 @@ import { type ContentWidgetComponentProps } from './types';
 import classNames from 'classnames';
 import { useTranslation } from '@/contexts';
 
-
 /** @deprecated 10/08/23 */
 function ContentWidgetComponent({
   backgroundColor,

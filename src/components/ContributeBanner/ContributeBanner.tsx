@@ -27,9 +27,5 @@ function ContributeBannerComponent(): JSX.Element {
   );
 }
 
-export const ContributeBanner = combine<{}>(
-  [],
-  memo(ContributeBannerComponent),
-  'lp-contribute-banner'
-);
+export const ContributeBanner = combine<{}>([], memo(ContributeBannerComponent), 'lp-contribute-banner');
 ContributeBanner.displayName = 'Couch__ContributeBannerComponent';

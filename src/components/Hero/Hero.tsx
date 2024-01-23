@@ -56,7 +56,9 @@ function HeroImageComponent(): JSX.Element {
         <h6 className={titleClassname}>
           {t('lp_title_shard_1')} {t('lp_title_shard_2')} {t('lp_title_shard_3')}
         </h6>
-        <Body as="p" className={textClassname}>{t('lp_subtext_block')}</Body>
+        <Body as="p" className={textClassname}>
+          {t('lp_subtext_block')}
+        </Body>
         <div className={HeroImageClassnames.Row}>
           <button
             data-prefetch={`/${slug}.html`}

@@ -106,7 +106,7 @@ self.onmessage = function (e) {
                 if (
                   response.status === 200 &&
                   response.headers.has('content-type') &&
-                  response.headers.get('content-type').match(/text\/html/i)
+                  response.headers.get('content-type')?.match(/text\/html/i)
                 ) {
                   // This avoids caching responses that we know are errors
                   // (i.e. HTTP status code of 4xx or 5xx).
