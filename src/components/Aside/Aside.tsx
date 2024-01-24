@@ -1,8 +1,6 @@
 import React, { memo } from 'react';
 
-import BloggerAltIcon from '@iconscout/react-unicons/icons/uil-blogger-alt';
-import AppsIcon from '@iconscout/react-unicons/icons/uil-apps';
-import InfoCircleIcon from '@iconscout/react-unicons/icons/uil-info-circle';
+import { UilKeySkeleton, UilBooks, UilInfoCircle } from '@iconscout/react-unicons';
 
 import { combine } from '@/hocs';
 import { to } from '@/utils';
@@ -21,7 +19,7 @@ function AsideComponent(): React.JSX.Element {
           role="button"
           tabIndex={1}
         >
-          <BloggerAltIcon fill="#fff" size="24" />
+          <UilKeySkeleton fill="#fff" size="24" />
         </span>
         <span
           className={AsideClassnames.Badge}
@@ -30,7 +28,7 @@ function AsideComponent(): React.JSX.Element {
             to('/browse.html');
           }}
         >
-          <AppsIcon fill="#fff" size="24" />
+          <UilBooks fill="#fff" size="24" />
         </span>
         <span
           className={AsideClassnames.Badge}
@@ -39,7 +37,7 @@ function AsideComponent(): React.JSX.Element {
             to('/about.html');
           }}
         >
-          <InfoCircleIcon fill="#fff" size="24" />
+          <UilInfoCircle fill="#fff" size="24" />
         </span>
       </div>
     </div>

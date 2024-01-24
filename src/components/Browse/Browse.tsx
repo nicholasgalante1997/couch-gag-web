@@ -1,8 +1,11 @@
 import React, { memo, useCallback, useState } from 'react';
-import { combine } from '@/hocs';
+import { Body, Heading } from 'heller-2-react';
+import { colorBaseGrayEta } from 'heller-2-lite';
 import { useTranslation, useWritContext } from '@/contexts';
-import { BrowseComponentClassNames } from './classnames';
+import { combine } from '@/hocs';
 import { Card } from '../Card';
+import { BrowseComponentClassNames } from './classnames';
+import classNames from 'classnames';
 
 function BrowseComponent(): React.JSX.Element {
   const [search, setSearchValue] = useState<string>();
@@ -36,8 +39,8 @@ function BrowseComponent(): React.JSX.Element {
         title.toLowerCase().includes(search.toLowerCase()) ||
         slug.toLowerCase().includes(search.toLowerCase()) ||
         subtitle.toLowerCase().includes(search.toLowerCase()) ||
-        genres
-          .map((g) => g.toLowerCase())
+        (genres || [])
+          .map((g) => (g ? g.toLowerCase() : ''))
           .join(' ')
           .includes(search.toLowerCase())
       );
@@ -52,6 +55,20 @@ function BrowseComponent(): React.JSX.Element {
   return (
     <div className={BrowseComponentClassNames.Wrapper}>
       <div className={BrowseComponentClassNames.Column}>
+        <div className={BrowseComponentClassNames.HeadingContainer}>
+          <span role="heading" style={{ width: 'fit-content' }}>
+            <Heading as="h1" className={BrowseComponentClassNames.Heading}>
+              {t('browse_heading_season_one')}&nbsp;
+            </Heading>
+          </span>
+          <Body
+            as="p"
+            bold
+            className={classNames('mt-4', BrowseComponentClassNames.Subheading)}
+          >
+            {t('browse_heading_season_one_synopsis')}
+          </Body>
+        </div>
         <div className={BrowseComponentClassNames.CardGrid}>
           {writ.filter(filterOnSearch).map(writToContentJsx)}
         </div>

@@ -3,7 +3,7 @@
       "target": "es2016",
       "lib": ["es6", "dom", "dom.iterable"],
       "jsx": "react-jsx",
-      "module": "es6",
+      "module": "esnext",
       "rootDir": ".",
       "moduleResolution": "bundler",
       "baseUrl": ".",
@@ -18,7 +18,8 @@
       "strict": true,
       "skipLibCheck": true,
       "allowJs": true,
-      "checkJs": true
+      "checkJs": true,
+      "types": ["./src/types/icons/index.d.ts",]
     },
     "include": ["src", "src/workers/prefetch.js"],
     "exclude": ["node_modules"]
