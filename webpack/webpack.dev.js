@@ -9,28 +9,26 @@ dotenv.config();
 
 /** @type {import('webpack').Configuration} */
 const devWebpackConfig = {
-    cache: {
-        type: 'memory'
-    },
-    mode: 'development',
-    entry: path.resolve(process.cwd(), 'src', 'dev-server', 'index.tsx'),
-    devServer: {
-        hot: true,
-        port: 3000,
-        https: false,
-        open: true,
-        static: [
-            {
-                directory: path.resolve(process.cwd(), 'src', 'styles')
-            },
-            {
-                directory: path.resolve(process.cwd(), 'assets')
-            }
-        ]
-    },
-    plugins: [
-      new HtmlWebpackPlugin({ template: 'html/dev.html' })
-    ],
+  cache: {
+    type: 'memory'
+  },
+  mode: 'development',
+  entry: path.resolve(process.cwd(), 'src', 'dev-server', 'index.tsx'),
+  devServer: {
+    hot: true,
+    port: 3000,
+    https: false,
+    open: true,
+    static: [
+      {
+        directory: path.resolve(process.cwd(), 'src', 'styles')
+      },
+      {
+        directory: path.resolve(process.cwd(), 'assets')
+      }
+    ]
+  },
+  plugins: [new HtmlWebpackPlugin({ template: 'html/dev.html' })]
 };
 
-module.exports = merge(sharedWebpackConfig, devWebpackConfig)
+module.exports = merge(sharedWebpackConfig, devWebpackConfig);

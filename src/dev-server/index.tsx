@@ -34,24 +34,21 @@ Auctor elit sed vulputate mi sit amet mauris commodo. In ornare quam viverra orc
 const indexingKey = process.env.DEVELOPMENT_PAGE_INDEXING_KEY;
 let Component = PageRegistry.get(indexingKey as any);
 if (Component == null) {
-    Component = PageRegistry.get('error')!;
+  Component = PageRegistry.get('error')!;
 }
 
 const props = {};
 
 if (indexingKey === 'story') {
-    Object.assign(
-        props,
-        {
-            genres: mockStory.genres,
-            content: mockContent,
-            imgSrc: mockStory.img,
-            imgAlt: mockStory.longKey,
-            author: mockStory.author,
-            description: mockStory.subtitle,
-            title: mockStory.title
-        }
-    )
+  Object.assign(props, {
+    genres: mockStory.genres,
+    content: mockContent,
+    imgSrc: mockStory.img,
+    imgAlt: mockStory.longKey,
+    author: mockStory.author,
+    description: mockStory.subtitle,
+    title: mockStory.title
+  });
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

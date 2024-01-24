@@ -48,35 +48,31 @@ function pushStories(configs: Array<PageConfig<StoryProps>>, stories: string[], 
 }
 
 function buildStoryProps(attributes: any, body: any): StoryProps {
-  return (
-    {
-      author: attributes?.author,
-      content: body,
-      description: attributes?.subtitle,
-      genres: attributes?.genres,
-      imgAlt: attributes?.subtitle,
-      imgSrc: attributes?.img,
-      title: attributes?.title
-    }
-  );
+  return {
+    author: attributes?.author,
+    content: body,
+    description: attributes?.subtitle,
+    genres: attributes?.genres,
+    imgAlt: attributes?.subtitle,
+    imgSrc: attributes?.img,
+    title: attributes?.title
+  };
 }
 
 function buildConfig(props: StoryProps, attributes: any) {
-  return ({
-      bundle: attributes?.slug,
-      component: StoryPage,
-      description: buildDescription(attributes?.subtitle),
-      htmlFileName: attributes?.slug,
-      styles: ['story'],
-      title: attributes?.title,
-      props: props
-  });
+  return {
+    bundle: 'story',
+    component: StoryPage,
+    description: buildDescription(attributes?.subtitle),
+    htmlFileName: attributes?.slug,
+    styles: ['story'],
+    title: attributes?.title,
+    props
+  };
 }
 
 function buildStories(): Array<PageConfig<StoryProps>> {
-  const { data, ok, error } = attempt(
-    () => iterateThroughWritStories()
-  );
+  const { data, ok, error } = attempt(() => iterateThroughWritStories());
   if (data && ok) return data;
   else {
     logger.fatal(error || new Error('buildStories():::UnknownException'));

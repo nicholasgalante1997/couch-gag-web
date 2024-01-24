@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { UilKeySkeleton, UilBooks, UilInfoCircle } from '@iconscout/react-unicons';
+import { UilBooks, UilInfoCircle, UilKeySkeleton } from '@iconscout/react-unicons';
 
 import { combine } from '@/hocs';
 import { to } from '@/utils';

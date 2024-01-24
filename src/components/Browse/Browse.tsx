@@ -1,15 +1,13 @@
-import React, { memo, useCallback, useState } from 'react';
+import React, { memo, useCallback } from 'react';
 import { Body, Heading } from 'heller-2-react';
-import { colorBaseGrayEta } from 'heller-2-lite';
 import { useTranslation, useWritContext } from '@/contexts';
 import { combine } from '@/hocs';
 import { Card } from '../Card';
 import { BrowseComponentClassNames } from './classnames';
 import classNames from 'classnames';
+import { UilArrowDown } from '@iconscout/react-unicons';
 
 function BrowseComponent(): React.JSX.Element {
-  const [search, setSearchValue] = useState<string>();
-
   const { t } = useTranslation();
   const { getAll } = useWritContext();
 
@@ -24,32 +22,13 @@ function BrowseComponent(): React.JSX.Element {
         description={writObject.subtitle}
         key={writObject.slug}
         image={'/doodles2.webp'}
-        cta={{ href: `/${writObject.slug}.html`, text: 'Read More' }}
+        cta={{ href: `/${writObject.slug}.html`, text: 'Read' }}
       />
     );
   }, []);
 
-  const filterOnSearch = (writObject: (typeof writ)[number]): boolean => {
-    if (!search) {
-      return true;
-    } else {
-      const { author, title, slug, subtitle, genres = [] } = writObject;
-      return (
-        author.toLowerCase().includes(search.toLowerCase()) ||
-        title.toLowerCase().includes(search.toLowerCase()) ||
-        slug.toLowerCase().includes(search.toLowerCase()) ||
-        subtitle.toLowerCase().includes(search.toLowerCase()) ||
-        (genres || [])
-          .map((g) => (g ? g.toLowerCase() : ''))
-          .join(' ')
-          .includes(search.toLowerCase())
-      );
-    }
-  };
-
-  const updateSearch: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    const { value } = event.target;
-    setSearchValue(value);
+  const filterForSeasonOneStoriesOnly = (writObject: (typeof writ)[number]): boolean => {
+    return writObject.seasonKey === '01';
   };
 
   return (
@@ -61,16 +40,15 @@ function BrowseComponent(): React.JSX.Element {
               {t('browse_heading_season_one')}&nbsp;
             </Heading>
           </span>
-          <Body
-            as="p"
-            bold
-            className={classNames('mt-4', BrowseComponentClassNames.Subheading)}
-          >
+          <Body as="p" bold className={classNames('mt-4', BrowseComponentClassNames.Subheading)}>
             {t('browse_heading_season_one_synopsis')}
           </Body>
+          <span className="browse-component__arrow-down-pos-absolute">
+            <UilArrowDown size="60" fill="#fff" />
+          </span>
         </div>
         <div className={BrowseComponentClassNames.CardGrid}>
-          {writ.filter(filterOnSearch).map(writToContentJsx)}
+          {writ.filter(filterForSeasonOneStoriesOnly).map(writToContentJsx)}
         </div>
       </div>
     </div>

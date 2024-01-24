@@ -2,7 +2,7 @@
   "name": "couch-gag-web",
   "version": "1.0.0",
   "scripts": {
-    "build": "run-s clean:build pkg:ts-script pkg:entry pkg:js pkg:html clean:tmp cp:assets cp:workers",
+    "build": "run-s clean:build pkg:ts-script pkg:js pkg:html clean:tmp cp:assets cp:workers",
     "build-storybook": "storybook build",
     "clean:build": "rm -rf build",
     "clean:tmp": "rm -rf .build-process",
@@ -11,8 +11,9 @@
     "dev:browse": "DEVELOPMENT_PAGE_INDEXING_KEY=browse webpack serve --config webpack/webpack.dev.js",
     "dev:lp": "DEVELOPMENT_PAGE_INDEXING_KEY=home webpack serve --config webpack/webpack.dev.js",
     "dev:story": "DEVELOPMENT_PAGE_INDEXING_KEY=story webpack serve --config webpack/webpack.dev.js",
-    "format": "prettier --write src webpack workers",
+    "format": "prettier --write src webpack",
     "lint": "eslint --fix \"{src,webpack,workers}/**/*.{ts,tsx,js}\" ",
+    "jsfmt": "run-s -c lint format",
     "pkg:entry": "node .build-process/build-entry-points.js",
     "pkg:html": "node .build-process/build-app.js",
     "pkg:js": "webpack --config webpack/webpack.prod.js",
@@ -38,13 +39,15 @@
     "heller-2-lite": "^0.0.18",
     "heller-2-react": "^0.0.4",
     "lodash.isequal": "^4.5.0",
+    "moment": "^2.30.1",
     "npm-run-all": "^4.1.5",
     "pino": "^8.14.1",
     "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.7",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "web-vitals": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",

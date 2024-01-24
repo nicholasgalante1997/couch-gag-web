@@ -26,6 +26,9 @@ dependencies:
   lodash.isequal:
     specifier: ^4.5.0
     version: 4.5.0
+  moment:
+    specifier: ^2.30.1
+    version: 2.30.1
   npm-run-all:
     specifier: ^4.1.5
     version: 4.1.5
@@ -47,6 +50,9 @@ dependencies:
   uuid:
     specifier: ^9.0.0
     version: 9.0.0
+  web-vitals:
+    specifier: ^3.5.1
+    version: 3.5.1
 
 devDependencies:
   '@babel/core':
@@ -9755,6 +9761,10 @@ packages:
     hasBin: true
     dev: true
 
+  /moment@2.30.1:
+    resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
+    dev: false
+
   /mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
@@ -12295,6 +12305,10 @@ packages:
     dependencies:
       defaults: 1.0.4
     dev: true
+
+  /web-vitals@3.5.1:
+    resolution: {integrity: sha512-xQ9lvIpfLxUj0eSmT79ZjRoU5wIRfIr7pNukL7ZE4EcWZSmfZQqOlhuAGfkVa3EFmzPHZhWhXfm2i5ys+THVPg==}
+    dev: false
 
   /webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}

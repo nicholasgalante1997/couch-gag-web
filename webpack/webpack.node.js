@@ -7,12 +7,19 @@ dotenv.config();
 
 /** @type {webpack.Configuration} */
 module.exports = {
+  mode: 'production',
   cache: false,
   entry: {
-    'build-app': path.resolve(process.cwd(), 'src', 'static-site-gen', 'build-app.tsx'),
-    'build-entry-points': path.resolve(process.cwd(), 'src', 'static-site-gen', 'build-dynamic-entrypoints.ts')
+    'build-app': path.resolve(process.cwd(), 'src', 'static-site-gen', 'build-app.tsx')
   },
-  mode: 'production',
+  output: {
+    path: path.resolve(process.cwd(), '.build-process'),
+    filename: '[name].js'
+  },
+  target: 'node',
+  node: {
+    global: false
+  },
   module: {
     rules: [
       {
@@ -28,14 +35,6 @@ module.exports = {
       '@': path.resolve(process.cwd(), 'src'),
       handlebars: path.resolve(process.cwd(), 'node_modules', 'handlebars/dist/handlebars.min.js')
     }
-  },
-  output: {
-    path: path.resolve(process.cwd(), '.build-process'),
-    filename: '[name].js'
-  },
-  target: 'node',
-  node: {
-    global: false
   },
   plugins: [new EnvironmentPlugin({ ...process.env })]
 };

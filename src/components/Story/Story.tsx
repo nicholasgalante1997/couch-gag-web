@@ -1,73 +1,96 @@
-import React, { memo, useMemo, useState } from 'react';
+import { Body, Heading } from 'heller-2-react';
+import React, { memo } from 'react';
+import { colorBaseBluePrimary, colorBaseGrayEpsilon } from 'heller-2-lite';
+import { UilFileDownloadAlt, UilFileShareAlt } from '@iconscout/react-unicons';
 import { combine } from '@/hocs';
 import ReactMarkdown from 'react-markdown';
 import { StoryClassNames } from './classnames';
 import { type StoryProps } from './types';
-import { isServer } from '@/utils';
 import { useTranslation } from '@/contexts';
+import { type NormalComponents } from 'react-markdown/lib/complex-types';
+import { type SpecialComponents } from 'react-markdown/lib/ast-to-react';
 
-function StoryComponent({
-  title,
-  description,
-  author,
-  imgAlt,
-  imgSrc,
-  content,
-  genres
-}: StoryProps): React.JSX.Element {
-  const likes = 1521; /** Fetch this dynamically */
-  const { t } = useTranslation();
-  const isBrowser = !isServer();
-  const hasAlreadyDismissed: boolean = useMemo(() => {
-    if (!isBrowser) return false;
-    const lsDismissedString = window.localStorage.getItem('has-dismissed-subscribe-banner');
-    if (!lsDismissedString) return false;
-    const lsDismissed = JSON.parse(lsDismissedString);
-    return lsDismissed.hasDismissed;
-  }, [isBrowser]);
-  const [isDismissed, setIsDismissed] = useState(hasAlreadyDismissed);
-  const onDismiss: () => void = () => {
-    if (isBrowser) {
-      setIsDismissed(true);
-      window.localStorage.setItem('has-dismissed-subscribe-banner', JSON.stringify({ hasDismissed: true }));
-    }
+function getMarkdownComponents(): Partial<
+  Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents
+> {
+  return {
+    p: ({ node, children, ...rest }) => (
+      <Body {...rest} style={{ marginBlock: '8px' }} as="p">
+        {children}
+      </Body>
+    ),
+    b: ({ node, children, ...rest }) => (
+      <Body {...rest} bold as="p">
+        {children}
+      </Body>
+    ),
+    i: ({ node, children, ...rest }) => (
+      <Body {...rest} italic as="p">
+        {children}
+      </Body>
+    ),
+    h1: ({ node, children, ...rest }) => (
+      <Heading {...rest} as="h1">
+        {children}
+      </Heading>
+    ),
+    h2: ({ node, children, ...rest }) => (
+      <Heading {...rest} as="h2">
+        {children}
+      </Heading>
+    ),
+    h3: ({ node, children, ...rest }) => (
+      <Heading {...rest} as="h3">
+        {children}
+      </Heading>
+    ),
+    h4: ({ node, children, ...rest }) => (
+      <Heading {...rest} as="h4">
+        {children}
+      </Heading>
+    ),
+    h5: ({ node, children, ...rest }) => (
+      <Heading {...rest} as="h5">
+        {children}
+      </Heading>
+    ),
+    h6: ({ node, children, ...rest }) => (
+      <Heading {...rest} as="h6">
+        {children}
+      </Heading>
+    )
   };
+}
+
+function StoryComponent({ title, description, author, content }: StoryProps): React.JSX.Element {
+  const { t } = useTranslation();
   return (
     <div className={StoryClassNames.Wrapper}>
-      {!isDismissed && (
-        <div className={StoryClassNames.MicroBanner}>
-          <p>{t('story_micro_banner_text')}</p>
-          <button className={StoryClassNames.Button}>{t('story_micro_banner_subscribe_now')}</button>
-          <button onClick={onDismiss} className={StoryClassNames.Button}>
-            {t('story_micro_banner_dismiss')}
-          </button>
-        </div>
-      )}
       <div className={StoryClassNames.TitleContainer}>
-        <h1>{title}</h1>
+        <Heading as="h1" style={{ color: colorBaseBluePrimary }}>
+          {title}
+        </Heading>
       </div>
       <div className={StoryClassNames.SubContainer}>
-        <p className={StoryClassNames.Description}>{description}</p>
-        <p className={StoryClassNames.Author}>{[t('story_author_by'), author].join(' ')}</p>
+        <Body as="p" style={{ color: colorBaseGrayEpsilon }} bold className={StoryClassNames.Description}>
+          {description}
+        </Body>
+        <Body as="p" className={StoryClassNames.Author}>
+          {[t('story_author_by'), author].join(' ')}
+        </Body>
       </div>
       <div className={StoryClassNames.ActionContainer}>
-        <button className="button-small">Add To Shelf</button>
-        <button className="button-small">Share</button>
-        <button className="button-small">Like</button>
-        <button className="button-small">Tip</button>
-      </div>
-      <div className={StoryClassNames.SocialBar}>
-        <div className={StoryClassNames.Likes}>
-          <span>
-            {likes} {t('story_social_likes')}
-          </span>
-        </div>
-      </div>
-      <div className={StoryClassNames.ImageContainer}>
-        <img src={imgSrc} alt={imgAlt} className={StoryClassNames.Image} />
+        <span role="button" className="story__icon-btn">
+          <UilFileShareAlt fill="#FFF" size="24" />
+        </span>
+        <span role="button" className="story__icon-btn" data-color="green">
+          <UilFileDownloadAlt fill="#FFF" size="24" />
+        </span>
       </div>
       <article className={StoryClassNames.ArticleContent}>
-        <ReactMarkdown className={StoryClassNames.Markdown}>{content}</ReactMarkdown>
+        <ReactMarkdown components={getMarkdownComponents()} className={StoryClassNames.Markdown}>
+          {content}
+        </ReactMarkdown>
       </article>
     </div>
   );

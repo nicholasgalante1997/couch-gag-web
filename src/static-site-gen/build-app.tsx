@@ -6,11 +6,12 @@ import path from 'path';
 
 import {
   APP_MARKER,
+  getPages,
   JS_BUNDLE_MARKER,
   PAGE_DESCRIPTION,
   STYLE_MARKER,
   TITLE_MARKER,
-  getPages
+  DYNAMIC_PROP_MARKER
 } from '@/config/server';
 
 import { attempt, logger } from '@/utils';
@@ -20,29 +21,57 @@ void (function () {
   for (const page of getPages()) {
     const { component: Component, props, htmlFileName, bundle, title, styles, description } = page;
     const pageAsReactString = renderToString(<Component {...(props ?? {})} />);
-    const fileContents = replaceAll(
-      htmlFile.slice(), {
+    const fileContents = replaceAll(htmlFile.slice(), {
       app: pageAsReactString,
       jsBundle: bundle,
       title,
       cssSheets: styles,
-      description
+      description,
+      props
     });
     attemptWriteFile(htmlFileName, fileContents);
   }
 })();
 
+type PageMetadata = { 
+  app: string; 
+  jsBundle: string; 
+  title: string; 
+  cssSheets: 
+  string[]; 
+  description: string;
+  props?: any;
+}
+
 function replaceAll(
   file: string,
-  metadata: { app: string; jsBundle: string; title: string; cssSheets: string[]; description: string }
+  metadata: PageMetadata
 ): string {
+  /**
+   * It is possible for a gieven file to require numerous css files
+   */
   let rels = '';
   for (const sheet of metadata.cssSheets) {
     rels = rels + `<link rel="stylesheet" href="${sheet}.css">\n`;
   }
+
+  /**
+   * If a page requires props, 
+   * convert pre-existing props to a JSON script tag
+   * Otherwise we can sanitize our injection tag by replacing
+   * it with an empty string;
+   */
+  let propsTag = '';
+  if (metadata.props) {
+    propsTag = `<script id="couch-gag-dy-props" type="application/json">${JSON.stringify(
+      metadata.props
+    )}</script>`
+  }
+
   return file
     .replace(APP_MARKER, metadata.app)
     .replace(JS_BUNDLE_MARKER, metadata.jsBundle)
+    .replace(DYNAMIC_PROP_MARKER, propsTag)
     .replace(TITLE_MARKER, metadata.title)
     .replace(STYLE_MARKER, rels)
     .replace(PAGE_DESCRIPTION, metadata.description);
@@ -66,9 +95,7 @@ function attemptLoadTemplateHtmlIndexFile() {
 function attemptWriteFile(htmlFileName: string, fileContents: string) {
   const outDirPath = path.resolve(process.cwd(), 'build');
   const outFilePath = path.resolve(outDirPath, `${htmlFileName}.html`);
-  const { ok, error } = attempt(
-    () => fs.writeFileSync(outFilePath, fileContents)
-  );
+  const { ok, error } = attempt(() => fs.writeFileSync(outFilePath, fileContents));
   if (!ok || error) {
     logger.error(error || new Error('UnknownWriteFileError'));
     process.exit(2);

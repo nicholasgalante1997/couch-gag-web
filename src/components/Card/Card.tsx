@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react';
+import { Button } from 'heller-2-react';
+import { to } from '@/utils';
 import { CardClassNames } from './classnames';
 import { type CardProps } from './types';
-import { to } from '@/utils';
 
 function hasInsufficientProps(props: CardProps): boolean {
   const { image, type } = props;
@@ -11,6 +12,11 @@ function hasInsufficientProps(props: CardProps): boolean {
 
 export function CardComponent(props: CardProps): React.JSX.Element | React.ReactNode {
   const hide = hasInsufficientProps(props);
+
+  if (hide) {
+    return false;
+  }
+
   const { type, title, image, alt, description, cta, size = 'lg' } = props;
 
   const renderImage = useCallback<() => React.ReactNode>(() => {
@@ -37,32 +43,38 @@ export function CardComponent(props: CardProps): React.JSX.Element | React.React
         <p className={CardClassNames.CardText} data-couchcardtype={type} data-couchcardsize={size}>
           {description}
         </p>
+      </div>
+    );
+  }, [size, type]);
+
+  const renderAction = useCallback<() => React.ReactNode>(() => {
+    return (
+      <React.Fragment>
         {type === 'full' && size === 'lg' ? (
-          <button
+          <Button
             onClick={() => to(cta.href)}
-            className="button-small"
-            data-couchcardtype={type}
-            data-couchcardsize={size}
+            v="primary"
+            hover={{ animationType: 'scale-content' }}
+            className="ls"
+            size="small"
+            style={{ marginTop: 'auto' }}
           >
             {cta.text}
-          </button>
+          </Button>
         ) : (
           <a href={cta.href} target="_self" data-couchcardtype={type} data-couchcardsize={size}>
             {cta.text}
           </a>
         )}
-      </div>
+      </React.Fragment>
     );
-  }, [size, type]);
-
-  if (hide) {
-    return false;
-  }
+  }, [type, size]);
 
   return (
     <div className={CardClassNames.CardWrapper} data-couchcardtype={type} data-couchcardsize={size}>
       {renderImage()}
       {renderBody()}
+      {renderAction()}
     </div>
   );
 }

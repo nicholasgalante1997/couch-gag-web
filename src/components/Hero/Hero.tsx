@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useMemo } from 'react';
 
-import { Body, Heading, Button } from 'heller-2-react';
+import { Body, Button, Heading } from 'heller-2-react';
 import classnames from 'classnames';
 
 import { useTranslation, useWorkerContext, useWritContext } from '@/contexts';
@@ -84,7 +84,6 @@ function HeroImageComponent(): JSX.Element {
           </Button>
         </div>
       </div>
-      {/* <img src="/woods.webp" alt="A skyview shot of a woodland area" className={HeroImageClassnames.Image} /> */}
     </div>
   );
 }

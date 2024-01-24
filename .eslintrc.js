@@ -19,13 +19,6 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "sort-imports": ["warn", {
-            "ignoreCase": false,
-            "ignoreDeclarationSort": false,
-            "ignoreMemberSort": false,
-            "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
-            "allowSeparatedGroups": false
-        }],
         "semi": ["error", "always"],
         "@typescript-eslint/semi": ["error", "always"],
         "@typescript-eslint/explicit-function-return-type": 1,
