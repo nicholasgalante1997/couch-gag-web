@@ -19,7 +19,7 @@
       "skipLibCheck": true,
       "allowJs": true,
       "checkJs": true,
-      "types": ["./src/types/icons/index.d.ts",]
+      "types": ["./src/types/icons/index.d.ts"]
     },
     "include": ["src", "src/workers/prefetch.js"],
     "exclude": ["node_modules"]

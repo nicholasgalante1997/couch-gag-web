@@ -1,6 +1,5 @@
 function getProps<T = any>() {
-  const propsElement =
-    typeof window !== 'undefined' ? document.getElementById('couch-gag-dy-props') : null;
+  const propsElement = typeof window !== 'undefined' ? document.getElementById('couch-gag-dy-props') : null;
   if (propsElement) {
     const dataAsString = propsElement.textContent;
     if (!dataAsString) {

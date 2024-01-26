@@ -33,30 +33,26 @@ void (function () {
   }
 })();
 
-type PageMetadata = { 
-  app: string; 
-  jsBundle: string; 
-  title: string; 
-  cssSheets: 
-  string[]; 
+interface PageMetadata {
+  app: string;
+  jsBundle: string;
+  title: string;
+  cssSheets: string[];
   description: string;
   props?: any;
 }
 
-function replaceAll(
-  file: string,
-  metadata: PageMetadata
-): string {
+function replaceAll(file: string, metadata: PageMetadata): string {
   /**
    * It is possible for a gieven file to require numerous css files
    */
-  let rels = '';
+  let css = '';
   for (const sheet of metadata.cssSheets) {
-    rels = rels + `<link rel="stylesheet" href="${sheet}.css">\n`;
+    css = css + `<link rel="stylesheet" href="${sheet}.css">\n`;
   }
 
   /**
-   * If a page requires props, 
+   * If a page requires props,
    * convert pre-existing props to a JSON script tag
    * Otherwise we can sanitize our injection tag by replacing
    * it with an empty string;
@@ -65,7 +61,7 @@ function replaceAll(
   if (metadata.props) {
     propsTag = `<script id="couch-gag-dy-props" type="application/json">${JSON.stringify(
       metadata.props
-    )}</script>`
+    )}</script>`;
   }
 
   return file
@@ -73,7 +69,7 @@ function replaceAll(
     .replace(JS_BUNDLE_MARKER, metadata.jsBundle)
     .replace(DYNAMIC_PROP_MARKER, propsTag)
     .replace(TITLE_MARKER, metadata.title)
-    .replace(STYLE_MARKER, rels)
+    .replace(STYLE_MARKER, css)
     .replace(PAGE_DESCRIPTION, metadata.description);
 }
 

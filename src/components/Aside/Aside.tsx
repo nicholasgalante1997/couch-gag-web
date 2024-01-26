@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { UilBooks, UilInfoCircle, UilKeySkeleton } from '@iconscout/react-unicons';
+import { UilBooks, UilInfoCircle, UilEstate } from '@iconscout/react-unicons';
 
 import { combine } from '@/hocs';
 import { to } from '@/utils';
@@ -19,7 +19,7 @@ function AsideComponent(): React.JSX.Element {
           role="button"
           tabIndex={1}
         >
-          <UilKeySkeleton fill="#fff" size="24" />
+          <UilEstate fill="#fff" size="24" />
         </span>
         <span
           className={AsideClassnames.Badge}

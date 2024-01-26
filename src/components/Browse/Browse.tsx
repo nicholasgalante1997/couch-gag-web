@@ -1,11 +1,14 @@
 import React, { memo, useCallback } from 'react';
+import classNames from 'classnames';
+
 import { Body, Heading } from 'heller-2-react';
+import { UilArrowDown } from '@iconscout/react-unicons';
+import { Card } from '@/components/Card';
+
 import { useTranslation, useWritContext } from '@/contexts';
 import { combine } from '@/hocs';
-import { Card } from '../Card';
+
 import { BrowseComponentClassNames } from './classnames';
-import classNames from 'classnames';
-import { UilArrowDown } from '@iconscout/react-unicons';
 
 function BrowseComponent(): React.JSX.Element {
   const { t } = useTranslation();
@@ -43,11 +46,11 @@ function BrowseComponent(): React.JSX.Element {
           <Body as="p" bold className={classNames('mt-4', BrowseComponentClassNames.Subheading)}>
             {t('browse_heading_season_one_synopsis')}
           </Body>
-          <span className="browse-component__arrow-down-pos-absolute">
+          <a href="#couch__browse-cards" className="browse-component__arrow-down-pos-absolute">
             <UilArrowDown size="60" fill="#fff" />
-          </span>
+          </a>
         </div>
-        <div className={BrowseComponentClassNames.CardGrid}>
+        <div id="couch__browse-cards" className={BrowseComponentClassNames.CardGrid}>
           {writ.filter(filterForSeasonOneStoriesOnly).map(writToContentJsx)}
         </div>
       </div>

@@ -1,4 +1,5 @@
 export * from './api';
+export * from './download';
 export * from './general';
 export * from './logger';
 export * from './iso';
