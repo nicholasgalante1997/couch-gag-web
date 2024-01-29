@@ -17,7 +17,7 @@ function SubscribeBannerComponent(): React.JSX.Element {
         {t('lp_sub_banner_text_shard_2')}
       </Heading>
       &nbsp;
-      <Button hover={{ animationType: 'scale-content' }} v="tertiary" className="ls">
+      <Button hover={{ animationType: 'scale-content' }} v="tertiary" className="ls" size="small">
         {t('lp_sub_banner_cta')}
       </Button>
     </div>
