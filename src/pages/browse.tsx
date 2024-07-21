@@ -1,18 +1,27 @@
-import React, { memo } from 'react';
-import { combine, withRootProviders, withRouteGuard } from '@/hocs';
+import React from 'react';
 import { Browse } from '@/components/Browse';
+import { Document } from '@/components/Document';
 
-function BrowsePageComponent(): React.JSX.Element {
+function BrowsePage(): React.JSX.Element {
   return (
-    <div className="browse__frame">
-      <Browse />
-    </div>
+    <Document
+      styles={[<link rel="stylesheet" href="/browse.css" />]}
+      pageCtx={{
+        id: 'browse-page',
+        document: {
+          title: 'The Couch Gag, Browse Stories',
+          description: 'Search for stories contained within "The Couch Gag" seasons\'s 1 and 2.'
+        }
+      }}
+      routeKey="couch-gag-browse-page-route-v0.1"
+    >
+      <div className="browse__frame">
+        <Browse />
+      </div>
+    </Document>
   );
 }
 
-export const BrowsePage = combine(
-  [withRouteGuard('couch-gag-browse-page-route-v0.1'), withRootProviders],
-  memo(BrowsePageComponent),
-  'browse-page'
-);
 BrowsePage.displayName = 'CouchPage__Browse';
+
+export default React.memo(BrowsePage);

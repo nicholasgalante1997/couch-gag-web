@@ -36,7 +36,7 @@ function HeroImageComponent(): JSX.Element {
   const textClassname = useMemo(() => classnames(HeroImageClassnames.Text, 'ls'), []);
 
   const readOnClick = useCallback(() => {
-    to(`/browse.html`);
+    to('/browse.html');
   }, []);
 
   return (
@@ -50,7 +50,7 @@ function HeroImageComponent(): JSX.Element {
         </Body>
         <div className={HeroImageClassnames.Row}>
           <Button
-            data-prefetch={`/browse.html`}
+            data-prefetch={'/browse.html'}
             id={originStoryPrefetchId}
             onClick={readOnClick}
             className={HeroImageClassnames.Button}

@@ -145,7 +145,7 @@ This project is hosted on Vercel. When we push to a remote branch, Vercel create
 New work gets its own branch following the pattern `workstreams/{{ name of your workstream }}`  
 When work is ready for a PR, it is raised to be merged into the branch `dev`  
 If bake time goes great on dev, we raise a PR from `dev` to `gamma`  
-Finally, after extensive testing in gamma we, we can merge `gamm a` to `main`
+Finally, after extensive testing in gamma we, we can merge `gamma` to `main`
 
 ## Using Corepack For Package Management
 

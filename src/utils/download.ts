@@ -1,5 +1,5 @@
 function download(src: string, filename: string) {
-  /** 
+  /**
    * This won't work because of "Same-Origin" policy on downloads in modern browsers,
    * so we can port pdfs from cloudfront to our local build directory (meh)
    * or we can drive traffic off-site where we can't track any of their interactions (MEH)
