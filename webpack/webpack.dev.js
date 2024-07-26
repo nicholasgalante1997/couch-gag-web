@@ -1,11 +1,11 @@
-const dotenv = require('dotenv');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { merge } = require('webpack-merge');
+import { config } from 'dotenv';
+import { resolve } from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { merge } from 'webpack-merge';
 
-const sharedWebpackConfig = require('./webpack.common');
+import sharedWebpackConfig from './webpack.common';
 
-dotenv.config();
+config();
 
 /** @type {import('webpack').Configuration} */
 const devWebpackConfig = {
@@ -13,7 +13,7 @@ const devWebpackConfig = {
     type: 'memory'
   },
   mode: 'development',
-  entry: path.resolve(process.cwd(), 'src', 'dev-server', 'index.tsx'),
+  entry: resolve(process.cwd(), 'src', 'dev-server', 'index.tsx'),
   devServer: {
     hot: true,
     port: 3000,
@@ -21,14 +21,14 @@ const devWebpackConfig = {
     open: true,
     static: [
       {
-        directory: path.resolve(process.cwd(), 'src', 'styles')
+        directory: resolve(process.cwd(), 'src', 'styles')
       },
       {
-        directory: path.resolve(process.cwd(), 'assets')
+        directory: resolve(process.cwd(), 'assets')
       }
     ]
   },
   plugins: [new HtmlWebpackPlugin({ template: 'html/dev.html' })]
 };
 
-module.exports = merge(sharedWebpackConfig, devWebpackConfig);
+export default merge(sharedWebpackConfig, devWebpackConfig);

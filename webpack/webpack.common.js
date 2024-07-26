@@ -1,13 +1,13 @@
-const dotenv = require('dotenv');
-const path = require('path');
-const webpack = require('webpack');
+import { config } from 'dotenv';
+import path from 'path';
+import webpack from 'webpack';
 
 const { ProvidePlugin, EnvironmentPlugin } = webpack;
 
-dotenv.config();
+config();
 
 /** @type {webpack.Configuration} */
-module.exports = {
+export default {
   target: ['web', 'es6'],
   module: {
     rules: [
