@@ -43,7 +43,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^6.0.3",
-    "react-sleepy": "^0.0.6",
+    "react-sleepy": "^0.0.9",
     "sleepydogs": "^1.0.7",
     "uuid": "^9.0.0",
     "web-vitals": "^3.5.1"

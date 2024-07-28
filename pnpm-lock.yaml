@@ -51,8 +51,8 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3(@types/react@18.2.14)(react@18.3.1)
       react-sleepy:
-        specifier: ^0.0.6
-        version: 0.0.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^0.0.9
+        version: 0.0.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sleepydogs:
         specifier: ^1.0.7
         version: 1.0.7
@@ -5155,8 +5155,8 @@ packages:
     resolution: {integrity: sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==}
     engines: {node: '>=0.10.0'}
 
-  react-sleepy@0.0.6:
-    resolution: {integrity: sha512-PzEr5vWkDmJkhqMbgIffwdhasoO83d0bUqYVwsSvLpcFPjhARoAjgKOwrR/QXc384B4YRMLZKeyxBPzvlwaTRw==}
+  react-sleepy@0.0.9:
+    resolution: {integrity: sha512-dndfn2U7xfeg6EzJrNlGNnet22lZla2w95e7PJ3FyZdQvDO2hua3ZhRlO4/wAgcRM23FIpWUHKPTkxd7sIfh+A==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -12978,8 +12978,9 @@ snapshots:
 
   react-refresh@0.11.0: {}
 
-  react-sleepy@0.0.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-sleepy@0.0.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
+      lodash.merge: 4.6.2
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       sleepydogs: 1.0.7
