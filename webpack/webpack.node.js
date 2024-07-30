@@ -13,7 +13,6 @@ export default {
   mode: 'production',
   cache: false,
   entry: {
-    'build-app': path.resolve(process.cwd(), 'src', 'static-site-gen', 'build-app.tsx'),
     'sleepy': path.resolve(process.cwd(), 'src', 'sleepy.tsx')
   },
   output: {

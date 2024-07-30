@@ -1,6 +1,10 @@
 import React, { memo, useCallback, useMemo } from 'react';
 
-import { Body, Button, Heading } from 'heller-2-react';
+import {
+  Body,
+  Button,
+  Heading
+} from 'heller-2-react';
 import classnames from 'classnames';
 
 import { useTranslation, useWorkerContext } from '@/contexts';

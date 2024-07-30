@@ -1,5 +1,9 @@
 import React, { memo } from 'react';
-import { Body, Button, Heading } from 'heller-2-react';
+import {
+  Body,
+  Button,
+  Heading
+} from 'heller-2-react';
 import { useTranslation } from '@/contexts';
 import { combine } from '@/hocs';
 

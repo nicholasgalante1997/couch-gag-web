@@ -50,6 +50,8 @@ export function CardComponent(props: CardProps): React.JSX.Element | React.React
     );
   }, [size, type]);
 
+  console.log(cta.href);
+
   const renderAction = useCallback<() => React.ReactNode>(() => {
     return (
       <React.Fragment>

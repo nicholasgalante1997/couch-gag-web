@@ -1,10 +1,10 @@
-import { config } from 'dotenv';
+import dotenv from 'dotenv';
 import path from 'path';
 import webpack from 'webpack';
 
 const { ProvidePlugin, EnvironmentPlugin } = webpack;
 
-config();
+dotenv.config();
 
 /** @type {webpack.Configuration} */
 export default {

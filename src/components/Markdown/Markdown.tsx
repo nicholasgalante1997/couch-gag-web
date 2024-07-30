@@ -1,6 +1,9 @@
 import React, { memo } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Body, Heading } from 'heller-2-react';
+import {
+  Body,
+  Heading
+} from 'heller-2-react';
 import { MarkdownClassNames } from './classnames';
 
 import { type SpecialComponents } from 'react-markdown/lib/ast-to-react';

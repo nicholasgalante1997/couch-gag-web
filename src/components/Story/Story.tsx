@@ -1,7 +1,10 @@
 import React, { memo } from 'react';
 
 import { colorBaseBluePrimary, colorBaseGrayEpsilon } from 'heller-2-lite';
-import { Body, Heading } from 'heller-2-react';
+import {
+  Body,
+  Heading
+} from 'heller-2-react';
 import { UilFileDownloadAlt, UilFileShareAlt } from '@iconscout/react-unicons';
 import { Markdown } from '@/components/Markdown';
 
