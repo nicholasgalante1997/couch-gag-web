@@ -18,7 +18,7 @@ function loadWritDirStories() {
   return fs.readdirSync(storiesDir, { encoding: 'utf-8' });
 }
 
-function attemotLoadWritDirStories() {
+function attemptLoadWritDirStories() {
   const { data, ok, error } = attempt(loadWritDirStories);
   if (data && ok) return data;
   else {
@@ -29,7 +29,7 @@ function attemotLoadWritDirStories() {
 
 function iterateThroughWritStories() {
   let configs: Array<PageConfig<StoryProps>> = [];
-  for (const dir of attemotLoadWritDirStories()) {
+  for (const dir of attemptLoadWritDirStories()) {
     const newDirPath = path.resolve(process.cwd(), 'writ', dir);
     const stories = fs.readdirSync(newDirPath, { encoding: 'utf-8' });
     configs = Array.from(new Set(pushStories(configs, stories, newDirPath)));

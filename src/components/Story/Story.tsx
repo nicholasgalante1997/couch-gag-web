@@ -1,7 +1,10 @@
 import React, { memo } from 'react';
 
 import { colorBaseBluePrimary, colorBaseGrayEpsilon } from 'heller-2-lite';
-import { Body, Heading } from 'heller-2-react';
+import {
+  Body,
+  Heading
+} from 'heller-2-react';
 import { UilFileDownloadAlt, UilFileShareAlt } from '@iconscout/react-unicons';
 import { Markdown } from '@/components/Markdown';
 
@@ -12,8 +15,8 @@ import { download } from '@/utils';
 import { StoryClassNames } from './classnames';
 import { type StoryProps } from './types';
 
-
-const staticDownloadHref = 'https://d1lrpeoasv2hi6.cloudfront.net/fe3a2415-3cf4-43db-9c96-7d09c0fbd4d7_CouchGag_Test.pdf';
+const staticDownloadHref =
+  'https://d1lrpeoasv2hi6.cloudfront.net/fe3a2415-3cf4-43db-9c96-7d09c0fbd4d7_CouchGag_Test.pdf';
 
 function StoryComponent({ title, description, author, content }: StoryProps): React.JSX.Element {
   const { t } = useTranslation();

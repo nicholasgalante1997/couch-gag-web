@@ -1,7 +1,10 @@
 import React, { memo, useCallback } from 'react';
 import classNames from 'classnames';
 
-import { Body, Heading } from 'heller-2-react';
+import {
+  Body,
+  Heading
+} from 'heller-2-react';
 import { UilArrowDown } from '@iconscout/react-unicons';
 import { Card } from '@/components/Card';
 

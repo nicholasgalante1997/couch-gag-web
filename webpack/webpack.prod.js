@@ -1,10 +1,10 @@
-const path = require('path');
-const dotenv = require('dotenv');
-const webpack = require('webpack');
-const { merge } = require('webpack-merge');
+import { resolve } from 'path';
+import dotenv from 'dotenv';
+import webpack from 'webpack';
+import { merge } from 'webpack-merge';
 
-const sharedWebpackConfig = require('./webpack.common');
-const { getEntryObject } = require('./utils');
+import sharedWebpackConfig from './webpack.common.js';
+import { getEntryObject } from './utils.js';
 
 dotenv.config();
 
@@ -15,9 +15,9 @@ const prodWebpackConfig = {
   entry: getEntryObject(),
   output: {
     clean: false,
-    path: path.resolve(process.cwd(), 'build'),
-    filename: '[name].bundle.js'
+    path: resolve(process.cwd(), 'build'),
+    filename: '[name].[contenthash].js'
   }
 };
 
-module.exports = merge(sharedWebpackConfig, prodWebpackConfig);
+export default merge(sharedWebpackConfig, prodWebpackConfig);

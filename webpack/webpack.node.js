@@ -1,22 +1,28 @@
-const path = require('path');
-const webpack = require('webpack');
-const dotenv = require('dotenv');
+import path from 'path'
+
+import nodeExternals from 'webpack-node-externals';
+import webpack from 'webpack';
+import dotenv from 'dotenv';
+
 const { EnvironmentPlugin } = webpack;
 
 dotenv.config();
 
 /** @type {webpack.Configuration} */
-module.exports = {
+export default {
   mode: 'production',
   cache: false,
   entry: {
-    'build-app': path.resolve(process.cwd(), 'src', 'static-site-gen', 'build-app.tsx')
+    'sleepy': path.resolve(process.cwd(), 'src', 'sleepy.tsx')
   },
   output: {
-    path: path.resolve(process.cwd(), '.build-process'),
-    filename: '[name].js'
+    clean: true,
+    path: path.resolve(process.cwd(), '.sleepy'),
+    filename: '[name].cjs'
   },
   target: 'node',
+  externalsPresets: { node: true }, // in order to ignore built-in modules like path, fs, etc.
+  externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
   node: {
     global: false
   },
@@ -33,7 +39,6 @@ module.exports = {
     extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
     alias: {
       '@': path.resolve(process.cwd(), 'src'),
-      handlebars: path.resolve(process.cwd(), 'node_modules', 'handlebars/dist/handlebars.min.js')
     }
   },
   plugins: [new EnvironmentPlugin({ ...process.env })]
