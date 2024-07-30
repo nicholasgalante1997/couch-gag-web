@@ -18,6 +18,7 @@
     "exports": "node esbuild.config.js",
     "start": "npx serve build",
     "storybook": "storybook dev -p 6006",
+    "build:md": "node scripts/build-md.mjs",
     "build-storybook": "storybook build",
     "test": "jest --passWithNoTests"
   },

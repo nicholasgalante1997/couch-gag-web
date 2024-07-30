@@ -5,18 +5,18 @@ export const RouteKeyMap = {
     key: `couch-gag-about-anchor-page-route-v${RouteKeyMapVersion}`,
     environments: {
       development: 'public',
-      beta: 'private',
-      gamma: 'private',
-      production: 'private'
+      beta: 'public',
+      gamma: 'public',
+      production: 'public'
     }
   },
   BrowsePage: {
     key: `couch-gag-browse-page-route-v${RouteKeyMapVersion}`,
     environments: {
       development: 'public',
-      beta: 'private',
-      gamma: 'private',
-      production: 'private'
+      beta: 'public',
+      gamma: 'public',
+      production: 'public'
     }
   },
   ErrorPage: {
@@ -41,9 +41,9 @@ export const RouteKeyMap = {
     key: `couch-gag-story-page-route-v${RouteKeyMapVersion}`,
     environments: {
       development: 'public',
-      beta: 'private',
-      gamma: 'private',
-      production: 'private'
+      beta: 'public',
+      gamma: 'public',
+      production: 'public'
     }
   }
 } as const;

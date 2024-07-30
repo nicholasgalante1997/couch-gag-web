@@ -1,5 +1,5 @@
 # https://pnpm.io/docker
-FROM node:18-slim as node
+FROM node:22-slim as node
 
 # Set PNPM Env Variables
 ENV PNPM_HOME="/pnpm"
@@ -19,6 +19,7 @@ COPY ./package.json ./
 COPY ./pnpm-lock.yaml ./
 
 # Copy over app
+COPY ./sleepy.json ./
 COPY ./tsconfig.json ./
 COPY ./.babelrc ./
 COPY ./scripts/ ./scripts/
@@ -35,7 +36,7 @@ RUN pnpm install
 # Build a static dist of the website
 # Clean development source code and deps
 
-RUN pnpm pkg:metadata docker.0.0 \
+RUN pnpm build:md docker.0.0 \
     && pnpm build \
     && rm -rf node_modules \ 
     src \
