@@ -1,23 +1,19 @@
-import { ContributeBanner, Hero, ShelfWidget, SubscribeBanner } from '@/components';
 import React, { memo } from 'react';
-import { combine, withRootProviders, withRouteGuard } from '@/hocs';
-import { CardGrid } from '@/components/CardGrid';
+import { Hero, SubscribeBanner } from '@/components';
+import { Document } from '@/components/Document'
 
-function LandingPageComponent(): React.JSX.Element {
+function LandingPage(): React.JSX.Element {
   return (
-    <React.Fragment>
+    <Document
+    styles={[<link rel="stylesheet" href="landing-page.css" />]}
+    routeKey='couch-gag-landing-page-route-v0.1'
+    pageCtx={{ document: { description: "", title: "Couch Gag" }, id: 'landing-page' }}>
       <Hero />
       <SubscribeBanner />
-      <CardGrid />
-      <ContributeBanner />
-      <ShelfWidget />
-    </React.Fragment>
+    </Document>
   );
 }
 
-export const LandingPage = combine(
-  [withRouteGuard('couch-gag-landing-page-route-v0.1'), withRootProviders],
-  memo(LandingPageComponent),
-  'landing-page'
-);
 LandingPage.displayName = 'CouchPage__Landing';
+
+export default memo(LandingPage);

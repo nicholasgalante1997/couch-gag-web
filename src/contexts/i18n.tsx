@@ -1,4 +1,4 @@
-import React, { type ReactNode, createContext, memo, useContext, useEffect, useState } from 'react';
+import React, { createContext, memo, type ReactNode, useContext, useEffect, useState } from 'react';
 import { AppStrings } from '@/locales';
 import { type Locale } from '@/types';
 import { logger } from '@/utils';

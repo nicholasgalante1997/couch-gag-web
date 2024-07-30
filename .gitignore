@@ -4,3 +4,6 @@ lib
 .build-process
 *-error.log
 .env
+sleepylogs
+dist
+*.log

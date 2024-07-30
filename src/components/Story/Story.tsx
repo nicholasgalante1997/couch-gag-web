@@ -1,73 +1,53 @@
-import React, { memo, useMemo, useState } from 'react';
+import React, { memo } from 'react';
+
+import { colorBaseBluePrimary, colorBaseGrayEpsilon } from 'heller-2-lite';
+import {
+  Body,
+  Heading
+} from 'heller-2-react';
+import { UilFileDownloadAlt, UilFileShareAlt } from '@iconscout/react-unicons';
+import { Markdown } from '@/components/Markdown';
+
+import { useTranslation } from '@/contexts';
 import { combine } from '@/hocs';
-import ReactMarkdown from 'react-markdown';
+import { download } from '@/utils';
+
 import { StoryClassNames } from './classnames';
 import { type StoryProps } from './types';
-import { isServer } from '@/utils';
-import { useTranslation } from '@/contexts';
 
-function StoryComponent({
-  title,
-  description,
-  author,
-  imgAlt,
-  imgSrc,
-  content,
-  genres
-}: StoryProps): React.JSX.Element {
-  const likes = 1521; /** Fetch this dynamically */
+const staticDownloadHref =
+  'https://d1lrpeoasv2hi6.cloudfront.net/fe3a2415-3cf4-43db-9c96-7d09c0fbd4d7_CouchGag_Test.pdf';
+
+function StoryComponent({ title, description, author, content }: StoryProps): React.JSX.Element {
   const { t } = useTranslation();
-  const isBrowser = !isServer();
-  const hasAlreadyDismissed: boolean = useMemo(() => {
-    if (!isBrowser) return false;
-    const lsDismissedString = window.localStorage.getItem('has-dismissed-subscribe-banner');
-    if (!lsDismissedString) return false;
-    const lsDismissed = JSON.parse(lsDismissedString);
-    return lsDismissed.hasDismissed;
-  }, [isBrowser]);
-  const [isDismissed, setIsDismissed] = useState(hasAlreadyDismissed);
-  const onDismiss: () => void = () => {
-    if (isBrowser) {
-      setIsDismissed(true);
-      window.localStorage.setItem('has-dismissed-subscribe-banner', JSON.stringify({ hasDismissed: true }));
-    }
-  };
+  function handleDownload() {
+    download(staticDownloadHref, 'CouchGag-Test.pdf');
+  }
   return (
     <div className={StoryClassNames.Wrapper}>
-      {!isDismissed && (
-        <div className={StoryClassNames.MicroBanner}>
-          <p>{t('story_micro_banner_text')}</p>
-          <button className={StoryClassNames.Button}>{t('story_micro_banner_subscribe_now')}</button>
-          <button onClick={onDismiss} className={StoryClassNames.Button}>
-            {t('story_micro_banner_dismiss')}
-          </button>
-        </div>
-      )}
       <div className={StoryClassNames.TitleContainer}>
-        <h1>{title}</h1>
+        <Heading as="h1" style={{ color: colorBaseBluePrimary }}>
+          {title}
+        </Heading>
       </div>
       <div className={StoryClassNames.SubContainer}>
-        <p className={StoryClassNames.Description}>{description}</p>
-        <p className={StoryClassNames.Author}>{[t('story_author_by'), author].join(' ')}</p>
+        <Body as="p" style={{ color: colorBaseGrayEpsilon }} bold className={StoryClassNames.Description}>
+          {description}
+        </Body>
+        <Body as="p" className={StoryClassNames.Author}>
+          {[t('story_author_by'), author].join(' ')}
+        </Body>
       </div>
       <div className={StoryClassNames.ActionContainer}>
-        <button className="button-small">Add To Shelf</button>
-        <button className="button-small">Share</button>
-        <button className="button-small">Like</button>
-        <button className="button-small">Tip</button>
-      </div>
-      <div className={StoryClassNames.SocialBar}>
-        <div className={StoryClassNames.Likes}>
-          <span>
-            {likes} {t('story_social_likes')}
-          </span>
-        </div>
-      </div>
-      <div className={StoryClassNames.ImageContainer}>
-        <img src={imgSrc} alt={imgAlt} className={StoryClassNames.Image} />
+        <span role="button" className="story__icon-btn">
+          <UilFileShareAlt fill="#FFF" size="24" />
+        </span>
+        <span role="button" className="story__icon-btn" data-color="green" onClick={handleDownload}>
+          <UilFileDownloadAlt fill="#FFF" size="24" />
+        </span>
       </div>
       <article className={StoryClassNames.ArticleContent}>
-        <ReactMarkdown className={StoryClassNames.Markdown}>{content}</ReactMarkdown>
+        <Markdown content={content} />
       </article>
     </div>
   );

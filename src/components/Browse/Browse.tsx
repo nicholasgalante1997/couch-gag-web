@@ -1,12 +1,19 @@
-import React, { memo, useCallback, useState } from 'react';
-import { combine } from '@/hocs';
+import React, { memo, useCallback } from 'react';
+import classNames from 'classnames';
+
+import {
+  Body,
+  Heading
+} from 'heller-2-react';
+import { UilArrowDown } from '@iconscout/react-unicons';
+import { Card } from '@/components/Card';
+
 import { useTranslation, useWritContext } from '@/contexts';
+import { combine } from '@/hocs';
+
 import { BrowseComponentClassNames } from './classnames';
-import { Card } from '../Card';
 
 function BrowseComponent(): React.JSX.Element {
-  const [search, setSearchValue] = useState<string>();
-
   const { t } = useTranslation();
   const { getAll } = useWritContext();
 
@@ -21,49 +28,33 @@ function BrowseComponent(): React.JSX.Element {
         description={writObject.subtitle}
         key={writObject.slug}
         image={'/doodles2.webp'}
-        cta={{ href: `/${writObject.slug}.html`, text: 'Read More' }}
+        cta={{ href: `/${writObject.slug}.html`, text: 'Read' }}
       />
     );
   }, []);
 
-  const filterOnSearch = (writObject: (typeof writ)[number]): boolean => {
-    if (!search) {
-      return true;
-    } else {
-      const { author, title, slug, subtitle, genres = [] } = writObject;
-      return (
-        author.toLowerCase().includes(search.toLowerCase()) ||
-        title.toLowerCase().includes(search.toLowerCase()) ||
-        slug.toLowerCase().includes(search.toLowerCase()) ||
-        subtitle.toLowerCase().includes(search.toLowerCase()) ||
-        genres
-          .map((g) => g.toLowerCase())
-          .join(' ')
-          .includes(search.toLowerCase())
-      );
-    }
-  };
-
-  const updateSearch: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    const { value } = event.target;
-    setSearchValue(value);
+  const filterForSeasonOneStoriesOnly = (writObject: (typeof writ)[number]): boolean => {
+    return writObject.seasonKey === '01';
   };
 
   return (
     <div className={BrowseComponentClassNames.Wrapper}>
       <div className={BrowseComponentClassNames.Column}>
-        <div className={BrowseComponentClassNames.SearchRow}>
-          <span className={BrowseComponentClassNames.SearchSpan}>{t('browse_heading')}</span>
-          <input
-            type="text"
-            placeholder="Search Stories..."
-            value={search}
-            onChange={updateSearch}
-            className={BrowseComponentClassNames.SearchInput}
-          />
+        <div className={BrowseComponentClassNames.HeadingContainer}>
+          <span role="heading" style={{ width: 'fit-content' }}>
+            <Heading as="h1" className={BrowseComponentClassNames.Heading}>
+              {t('browse_heading_season_one')}&nbsp;
+            </Heading>
+          </span>
+          <Body as="p" bold className={classNames('mt-4', BrowseComponentClassNames.Subheading)}>
+            {t('browse_heading_season_one_synopsis')}
+          </Body>
+          <a href="#couch__browse-cards" className="browse-component__arrow-down-pos-absolute">
+            <UilArrowDown size="60" fill="#fff" />
+          </a>
         </div>
-        <div className={BrowseComponentClassNames.CardGrid}>
-          {writ.filter(filterOnSearch).map(writToContentJsx)}
+        <div id="couch__browse-cards" className={BrowseComponentClassNames.CardGrid}>
+          {writ.filter(filterForSeasonOneStoriesOnly).map(writToContentJsx)}
         </div>
       </div>
     </div>
@@ -71,4 +62,4 @@ function BrowseComponent(): React.JSX.Element {
 }
 
 export const Browse = combine<{}>([], memo(BrowseComponent), 'browse-component');
-Browse.displayName = 'Couch__BrowseComponent'
+Browse.displayName = 'Couch__BrowseComponent';

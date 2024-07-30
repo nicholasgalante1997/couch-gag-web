@@ -1,10 +1,18 @@
-import { PrefetchOnEntryFnFactory, to } from '@/utils';
 import React, { memo, useCallback, useMemo } from 'react';
-import { combine } from '@/hocs';
-import { useTranslation, useWorkerContext, useWritContext } from '@/contexts';
-import { HeroImageClassnames } from './classnames';
+
+import {
+  Body,
+  Button,
+  Heading
+} from 'heller-2-react';
 import classnames from 'classnames';
+
+import { useTranslation, useWorkerContext } from '@/contexts';
+import { combine } from '@/hocs';
 import { useOnElementEnter } from '@/hooks';
+import { PrefetchOnEntryFnFactory, to } from '@/utils';
+import { HeroImageClassnames } from './classnames';
+import { colorBaseGrayGamma } from 'heller-2-lite';
 
 const originStoryPrefetchId = 'lp_story_one_prefetch' as const;
 const anchorPrefetchId = 'lp_about_anchor_prefetch' as const;
@@ -27,55 +35,37 @@ function HeroImageComponent(): JSX.Element {
   useOnElementEnter(originStoryPrefetchId, memoPrefetchAssetFn, { disabled: !memoPrefetchAssetFn });
   useOnElementEnter(anchorPrefetchId, memoPrefetchAssetFn, { disabled: !memoPrefetchAssetFn });
 
-  /* Get access to the StoryMetadata context */
-  const { getOne } = useWritContext();
-  /* Query for the origin story */
-  const originStory = getOne('key', '0101');
-  /* assign slug to our origin story slug */
-  let slug = '/404';
-  if (originStory) {
-    slug = originStory.slug;
-  }
-
   /* Set up markup classnames */
   const titleClassname = useMemo(() => classnames(HeroImageClassnames.Title, 'pac'), []);
   const textClassname = useMemo(() => classnames(HeroImageClassnames.Text, 'ls'), []);
 
-  /* set up on click handlers */
-  const aboutOnClick = useCallback(() => {
-    to('/about.html');
-  }, [to]);
   const readOnClick = useCallback(() => {
-    to(`/${slug}.html`);
-  }, [to]);
+    to('/browse.html');
+  }, []);
 
   return (
     <div className={HeroImageClassnames.Container}>
       <div className={HeroImageClassnames.MiniCol}>
-        <h6 className={titleClassname}>
+        <Heading as="h1" className={titleClassname} style={{ lineHeight: 1.845 }}>
           {t('lp_title_shard_1')} {t('lp_title_shard_2')} {t('lp_title_shard_3')}
-        </h6>
-        <p className={textClassname}>{t('lp_subtext_block')}</p>
+        </Heading>
+        <Body as="p" className={textClassname} style={{ color: colorBaseGrayGamma }}>
+          {t('lp_subtext_block')}
+        </Body>
         <div className={HeroImageClassnames.Row}>
-          <button
-            data-prefetch={`/${slug}.html`}
+          <Button
+            data-prefetch={'/browse.html'}
             id={originStoryPrefetchId}
             onClick={readOnClick}
             className={HeroImageClassnames.Button}
+            size="small"
+            hover={{ animationType: 'background-transition' }}
+            rounded
           >
             {t('lp_action_cta')}
-          </button>
-          <button
-            data-prefetch="about.html"
-            id={anchorPrefetchId}
-            onClick={aboutOnClick}
-            className={HeroImageClassnames.Button}
-          >
-            {t('lp_action_about_cta')}
-          </button>
+          </Button>
         </div>
       </div>
-      <img src="/woods.webp" alt="A skyview shot of a woodland area" className={HeroImageClassnames.Image} />
     </div>
   );
 }

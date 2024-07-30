@@ -5,9 +5,5 @@ function SubscribePageComponent(): React.JSX.Element {
   return <React.Fragment></React.Fragment>;
 }
 
-export const SubscribePage = combine(
-  [withRootProviders],
-  memo(SubscribePageComponent),
-  'subscribe-page'
-);
+export const SubscribePage = combine([withRootProviders], memo(SubscribePageComponent), 'subscribe-page');
 SubscribePage.displayName = 'CouchPage__Subscribe';

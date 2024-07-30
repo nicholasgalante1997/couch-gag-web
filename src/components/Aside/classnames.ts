@@ -4,7 +4,7 @@ export const AsideClassnames = {
   LogoContainer: 'aside__logo-container',
   LogoExpandedText: 'aside__logo-expanded-text',
   ExpandButtonContainer: 'aside__expand-container',
-  Badge: 'aside__badge-normal',
+  Badge: 'aside__badge-normal scale-on-hover',
   BadgeExpanded: 'aside__badge-expanded',
   BadgeExpandedText: 'aside__badge-text',
   SeasonContainer: 'aside__season-container',

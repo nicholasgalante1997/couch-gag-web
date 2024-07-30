@@ -1,12 +1,14 @@
 .hero__container {
   min-height: 100vh;
+  width: 100%;
+  max-width: 1024px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   z-index: 1;
   isolation: isolate;
-  background-color: var(--rich-black);
+  background-color: var(--color-base-black-eta);
   overflow: hidden;
   flex-wrap: nowrap;
 }
@@ -20,12 +22,9 @@
 }
 
 .hero__title {
-  font-size: 6rem;
-  font-weight: 500;
-  z-index: 3;
   margin-block: 8px;
   width: 105%;
-  background: var(--cyber-punk-green);
+  background: var(--color-base-white-alpha);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -41,7 +40,7 @@
   align-items: flex-start;
   padding-left: 40px;
   flex-grow: 1;
-  min-width: 800px;
+  min-width: 1024px;
 }
 
 @keyframes grow {
@@ -69,6 +68,14 @@
   animation-iteration-count: 1;
   animation-delay: 100ms;
   animation-fill-mode: forwards;
+}
+
+@media screen and (max-width: 1024px) {
+  .hero__lp-image {
+    width: 0;
+    visibility: none;
+    display: none;
+  }
 }
 
 .hero__lp-row {
@@ -99,7 +106,4 @@
 
 .hero__text {
   max-width: 84%;
-  color: white;
-  font-size: 24px;
-  font-weight: 600;
 }
